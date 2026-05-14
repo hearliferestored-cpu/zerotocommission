@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your Bonuses — Zero to Commission</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,400;1,600&family=Outfit:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #C8A45A; --gold-light: #E2C47E; --gold-dim: rgba(200,164,90,0.12);
+  --gold-border: rgba(200,164,90,0.22); --ink: #080810; --ink-1: #0F0F1A;
+  --ink-2: #161622; --ink-3: #1E1E2E; --off-white: #F4F0E8; --white: #FDFCFA;
+  --muted: #7A7A90; --muted-light: #A8A8B8; --green: #3DB87A;
+  --font-serif: 'Cormorant Garamond', serif;
+  --font-sans: 'Outfit', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--ink); color: var(--off-white); font-family: var(--font-sans); font-size: 16px; line-height: 1.7; min-height: 100vh; }
+
+.topbar {
+  background: var(--ink-1); border-bottom: 1px solid var(--gold-border);
+  padding: 14px 32px; display: flex; align-items: center; justify-content: space-between;
+  position: sticky; top: 0; z-index: 100;
+}
+.topbar-logo { font-family: var(--font-serif); font-size: 20px; font-style: italic; color: var(--gold); text-decoration: none; }
+.topbar-back { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; color: var(--gold); text-decoration: none; text-transform: uppercase; border: 1px solid var(--gold-border); padding: 8px 16px; transition: all 0.2s; }
+.topbar-back:hover { background: var(--gold-dim); }
+
+.page { max-width: 760px; margin: 0 auto; padding: 64px 24px 100px; }
+
+.bonus-tabs { display: flex; gap: 0; margin-bottom: 48px; border: 1px solid var(--gold-border); }
+.bonus-tab {
+  flex: 1; padding: 16px 20px; text-align: center; cursor: pointer;
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--muted);
+  border-right: 1px solid var(--gold-border); transition: all 0.2s;
+  background: var(--ink-1);
+}
+.bonus-tab:last-child { border-right: none; }
+.bonus-tab:hover { color: var(--gold); background: var(--gold-dim); }
+.bonus-tab.active { background: var(--ink-2); color: var(--gold); border-bottom: 2px solid var(--gold); }
+
+.bonus-panel { display: none; animation: fadeUp 0.4s ease both; }
+.bonus-panel.active { display: block; }
+
+@keyframes fadeUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:none; } }
+
+.bonus-header { margin-bottom: 40px; }
+.bonus-eyebrow { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; display: flex; align-items: center; gap: 10px; }
+.bonus-eyebrow::before { content:''; width:20px; height:1px; background:var(--gold); }
+.bonus-header h1 { font-family: var(--font-serif); font-size: clamp(32px,5vw,52px); font-weight:600; color:var(--white); line-height:1.05; margin-bottom:12px; }
+.bonus-header h1 em { font-style:italic; color:var(--gold); }
+.bonus-header p { font-size:15px; color:var(--muted-light); max-width:560px; line-height:1.75; }
+
+.download-card {
+  background: var(--ink-1); border: 1px solid var(--gold-border);
+  padding: 0; margin-bottom: 32px; position:relative; overflow:hidden;
+}
+.download-card::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg,transparent,var(--gold),transparent); }
+.download-card-inner { padding: 36px 40px; }
+.download-card h2 { font-family:var(--font-serif); font-size:26px; font-weight:600; color:var(--white); margin-bottom:8px; }
+.download-card .dl-meta { font-family:var(--font-mono); font-size:10px; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted); margin-bottom:20px; }
+.download-card p { font-size:14px; color:var(--muted-light); line-height:1.75; margin-bottom:28px; }
+
+.dl-btn {
+  display:inline-flex; align-items:center; gap:12px;
+  background:var(--gold); color:var(--ink); font-family:var(--font-sans);
+  font-weight:700; font-size:14px; letter-spacing:0.04em; text-transform:uppercase;
+  padding:16px 36px; text-decoration:none; transition:all 0.2s; border:none; cursor:pointer;
+}
+.dl-btn:hover { background:var(--gold-light); transform:translateY(-2px); box-shadow:0 8px 28px rgba(200,164,90,0.25); }
+.dl-btn .arrow { font-size:16px; transition:transform 0.2s; }
+.dl-btn:hover .arrow { transform:translateX(4px); }
+
+.preview-section { margin-top:36px; }
+.preview-label { font-family:var(--font-mono); font-size:10px; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold); margin-bottom:16px; display:flex; align-items:center; gap:10px; }
+.preview-label::before { content:''; width:16px; height:1px; background:var(--gold); }
+.preview-items { display:flex; flex-direction:column; gap:10px; }
+.preview-item {
+  display:flex; align-items:flex-start; gap:14px; padding:16px 18px;
+  background:var(--ink-2); border:1px solid rgba(200,164,90,0.08);
+}
+.pi-num { font-family:var(--font-serif); font-size:22px; font-weight:700; color:var(--gold); opacity:0.4; flex-shrink:0; width:28px; }
+.pi-text { font-size:14px; color:var(--muted-light); line-height:1.55; }
+.pi-text strong { color:var(--white); display:block; margin-bottom:2px; }
+
+.how-to-use {
+  background:var(--ink-2); border:1px solid rgba(200,164,90,0.1);
+  padding:28px 32px; margin-top:28px;
+}
+.how-to-use h3 { font-family:var(--font-serif); font-size:22px; font-weight:600; color:var(--white); margin-bottom:16px; }
+.how-list { list-style:none; display:flex; flex-direction:column; gap:10px; }
+.how-list li { display:flex; align-items:flex-start; gap:12px; font-size:14px; color:var(--muted-light); }
+.how-list li .ck { color:var(--green); flex-shrink:0; }
+
+.all-bonuses-nav {
+  display:flex; gap:16px; margin-top:52px; padding-top:40px;
+  border-top:1px solid rgba(200,164,90,0.1); flex-wrap:wrap;
+}
+.other-bonus {
+  flex:1; min-width:200px; display:flex; align-items:center; gap:14px;
+  padding:18px 20px; background:var(--ink-1); border:1px solid rgba(200,164,90,0.1);
+  text-decoration:none; cursor:pointer; transition:all 0.2s;
+}
+.other-bonus:hover { border-color:rgba(200,164,90,0.35); transform:translateY(-2px); }
+.ob-icon { font-size:24px; flex-shrink:0; }
+.ob-name { font-size:13px; font-weight:500; color:var(--muted-light); }
+.ob-label { font-family:var(--font-mono); font-size:9px; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted); margin-bottom:3px; }
+
+footer { text-align:center; padding:32px 24px; border-top:1px solid rgba(200,164,90,0.08); }
+footer p { font-size:12px; color:var(--muted); }
+footer a { color:var(--gold); text-decoration:none; }
+</style>
+</head>
+<body>
+
+<nav class="topbar">
+  <a href="thankyou.html" class="topbar-logo">Zero to Commission</a>
+  <a href="thankyou.html" class="topbar-back">← Dashboard</a>
+</nav>
+
+<div class="page">
+
+  <!-- TABS -->
+  <div class="bonus-tabs">
+    <div class="bonus-tab active" onclick="showBonus(1)">📝 Bonus 1</div>
+    <div class="bonus-tab" onclick="showBonus(2)">🪝 Bonus 2</div>
+    <div class="bonus-tab" onclick="showBonus(3)">📊 Bonus 3</div>
+  </div>
+
+  <!-- BONUS 1 -->
+  <div class="bonus-panel active" id="panel-1">
+    <div class="bonus-header">
+      <div class="bonus-eyebrow">Bonus 01 — Included Free</div>
+      <h1>Done-For-You <em>Video Scripts</em></h1>
+      <p>Ten ready-to-record short-form video scripts built for faceless delivery. Copy, paste into your teleprompter or notes app, record with AI voiceover, and post. No writing required.</p>
+    </div>
+
+    <div class="download-card">
+      <div class="download-card-inner">
+        <h2>Download Your Scripts</h2>
+        <div class="dl-meta">PDF · 10 Scripts · Instant Download</div>
+        <p>All 10 scripts are formatted for TikTok and Instagram Reels — hook, value, and soft CTA built into every one. Each is under 60 seconds when read at a natural pace.</p>
+        <a href="YOUR_BONUS_1_DOWNLOAD_URL" class="dl-btn">Download Now <span class="arrow">↓</span></a>
+      </div>
+    </div>
+
+    <div class="preview-section">
+      <div class="preview-label">What's Inside — Script Titles</div>
+      <div class="preview-items">
+        <div class="preview-item"><span class="pi-num">01</span><div class="pi-text"><strong>The Honest Beginner</strong>How I made my first affiliate commission with zero experience and no audience.</div></div>
+        <div class="preview-item"><span class="pi-num">02</span><div class="pi-text"><strong>The Myth Buster</strong>3 things everyone says you need for affiliate marketing — that you actually don't.</div></div>
+        <div class="preview-item"><span class="pi-num">03</span><div class="pi-text"><strong>The Day 1 Walkthrough</strong>Exactly what I did on my first day — step by step, no fluff.</div></div>
+        <div class="preview-item"><span class="pi-num">04</span><div class="pi-text"><strong>The Free Traffic Play</strong>How to get affiliate link clicks without spending anything on ads.</div></div>
+        <div class="preview-item"><span class="pi-num">05</span><div class="pi-text"><strong>The Commission Screenshot</strong>Showing my first $35 commission and exactly how it happened.</div></div>
+        <div class="preview-item"><span class="pi-num">06</span><div class="pi-text"><strong>The Biggest Mistake</strong>The #1 reason beginners never make their first commission — and the fix.</div></div>
+        <div class="preview-item"><span class="pi-num">07</span><div class="pi-text"><strong>The Simple System</strong>The 3-step process I use every week to generate affiliate commissions.</div></div>
+        <div class="preview-item"><span class="pi-num">08</span><div class="pi-text"><strong>The Platform Pick</strong>TikTok vs. Instagram for affiliate marketing — which one to start with and why.</div></div>
+        <div class="preview-item"><span class="pi-num">09</span><div class="pi-text"><strong>The No-Face Content</strong>How to build a profitable affiliate account without ever showing your face.</div></div>
+        <div class="preview-item"><span class="pi-num">10</span><div class="pi-text"><strong>The 30-Day Challenge</strong>What happens when you post one piece of affiliate content every day for 30 days.</div></div>
+      </div>
+    </div>
+
+    <div class="how-to-use">
+      <h3>How to Use These Scripts</h3>
+      <ul class="how-list">
+        <li><span class="ck">✓</span>Open any script and read it aloud — record with CapCut or your phone</li>
+        <li><span class="ck">✓</span>Use ElevenLabs or CapCut's AI voice feature if you prefer voiceover</li>
+        <li><span class="ck">✓</span>Add B-roll footage from Pexels.com or record your screen for visuals</li>
+        <li><span class="ck">✓</span>Replace the bracket placeholders [LINK] and [OFFER NAME] with your own</li>
+        <li><span class="ck">✓</span>Post to TikTok and/or Instagram Reels — same content works on both</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- BONUS 2 -->
+  <div class="bonus-panel" id="panel-2">
+    <div class="bonus-header">
+      <div class="bonus-eyebrow">Bonus 02 — Included Free</div>
+      <h1>30 Scroll-Stopping <em>Hook Swipe File</em></h1>
+      <p>Thirty proven video openers — the first 3–5 seconds that determine whether someone watches or scrolls. Built for the make-money-online niche, tested on TikTok and Instagram Reels.</p>
+    </div>
+
+    <div class="download-card">
+      <div class="download-card-inner">
+        <h2>Download the Swipe File</h2>
+        <div class="dl-meta">PDF · 30 Hooks · Instant Download</div>
+        <p>Each hook is categorised by type — curiosity, controversy, results, relatability, and pattern interrupt — so you can pick the right style for each piece of content you create.</p>
+        <a href="YOUR_BONUS_2_DOWNLOAD_URL" class="dl-btn">Download Now <span class="arrow">↓</span></a>
+      </div>
+    </div>
+
+    <div class="preview-section">
+      <div class="preview-label">Sample Hooks — Preview</div>
+      <div class="preview-items">
+        <div class="preview-item"><span class="pi-num">01</span><div class="pi-text"><strong>Curiosity</strong>"I made $35 online last Tuesday doing something that took me 20 minutes to set up. Here's what it was."</div></div>
+        <div class="preview-item"><span class="pi-num">02</span><div class="pi-text"><strong>Controversy</strong>"Everyone's telling you to build an email list before you make your first commission. That's backwards."</div></div>
+        <div class="preview-item"><span class="pi-num">03</span><div class="pi-text"><strong>Results</strong>"This is what $47 in affiliate commissions looks like when you've never made a dollar online before."</div></div>
+        <div class="preview-item"><span class="pi-num">04</span><div class="pi-text"><strong>Relatability</strong>"I spent 3 months watching YouTube videos about affiliate marketing and made exactly zero dollars. Then I did this."</div></div>
+        <div class="preview-item"><span class="pi-num">05</span><div class="pi-text"><strong>Pattern Interrupt</strong>"Stop. If you're trying to make money online and haven't done this one thing yet, nothing else will work."</div></div>
+      </div>
+    </div>
+
+    <div class="how-to-use">
+      <h3>How to Use These Hooks</h3>
+      <ul class="how-list">
+        <li><span class="ck">✓</span>Use them as the first line of your video script — spoken or as on-screen text</li>
+        <li><span class="ck">✓</span>Pair with the Done-For-You Scripts from Bonus 1 for complete videos</li>
+        <li><span class="ck">✓</span>Test multiple hooks on the same topic to see which performs best</li>
+        <li><span class="ck">✓</span>Customize the [TIMEFRAME] and [AMOUNT] placeholders to your own results</li>
+        <li><span class="ck">✓</span>When a hook performs well, create 3–5 variations of it immediately</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- BONUS 3 -->
+  <div class="bonus-panel" id="panel-3">
+    <div class="bonus-header">
+      <div class="bonus-eyebrow">Bonus 03 — Included Free</div>
+      <h1>Offer Research <em>Cheat Sheet</em></h1>
+      <p>A one-page reference that lets you evaluate any affiliate offer in under five minutes. Use it before you commit to promoting anything — ever.</p>
+    </div>
+
+    <div class="download-card">
+      <div class="download-card-inner">
+        <h2>Download the Cheat Sheet</h2>
+        <div class="dl-meta">PDF · 1 Page · Instant Download</div>
+        <p>Designed to be printed and kept at your desk or saved to your phone. Run any Digistore24 product through the 5-point checklist before you decide whether it's worth your time.</p>
+        <a href="YOUR_BONUS_3_DOWNLOAD_URL" class="dl-btn">Download Now <span class="arrow">↓</span></a>
+      </div>
+    </div>
+
+    <div class="preview-section">
+      <div class="preview-label">The 5-Point Checklist — Preview</div>
+      <div class="preview-items">
+        <div class="preview-item"><span class="pi-num">01</span><div class="pi-text"><strong>Conversion Rate Check</strong>Is the sales page conversion rate above 1%? Below that and you'll need a lot of traffic to see any results.</div></div>
+        <div class="preview-item"><span class="pi-num">02</span><div class="pi-text"><strong>Earnings Per Sale</strong>Does this offer pay at least $20 per sale? Lower than that and the economics rarely make sense for organic traffic.</div></div>
+        <div class="preview-item"><span class="pi-num">03</span><div class="pi-text"><strong>Cancellation Rate</strong>Is the cancellation/refund rate under 10%? High refund rates eat your commissions and signal a poor product.</div></div>
+        <div class="preview-item"><span class="pi-num">04</span><div class="pi-text"><strong>Sales Page Quality Test</strong>Would you buy this yourself? Does the page look professional and trustworthy? A bad sales page kills your conversions.</div></div>
+        <div class="preview-item"><span class="pi-num">05</span><div class="pi-text"><strong>Buyer Intent Match</strong>Does this offer match what your audience is actively searching for right now — not just interested in passively?</div></div>
+      </div>
+    </div>
+
+    <div class="how-to-use">
+      <h3>How to Use This Cheat Sheet</h3>
+      <ul class="how-list">
+        <li><span class="ck">✓</span>Print it or save it to your phone — use it every time you consider a new offer</li>
+        <li><span class="ck">✓</span>An offer needs to pass at least 4 of 5 points before you commit to promoting it</li>
+        <li><span class="ck">✓</span>Re-evaluate your current offer after 30 days using the same checklist</li>
+        <li><span class="ck">✓</span>Use it alongside Module 02 for a complete offer research process</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- NAV TO OTHER BONUSES -->
+  <div class="all-bonuses-nav">
+    <div class="other-bonus" onclick="showBonus(1)">
+      <span class="ob-icon">📝</span>
+      <div><div class="ob-label">Bonus 01</div><div class="ob-name">Done-For-You Video Scripts</div></div>
+    </div>
+    <div class="other-bonus" onclick="showBonus(2)">
+      <span class="ob-icon">🪝</span>
+      <div><div class="ob-label">Bonus 02</div><div class="ob-name">30 Hook Swipe File</div></div>
+    </div>
+    <div class="other-bonus" onclick="showBonus(3)">
+      <span class="ob-icon">📊</span>
+      <div><div class="ob-label">Bonus 03</div><div class="ob-name">Offer Research Cheat Sheet</div></div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <p>© 2025 Zero to Commission · <a href="mailto:support@zerotocommission.com">support@zerotocommission.com</a> · <a href="thankyou.html">Back to Dashboard</a></p>
+</footer>
+
+<script>
+function showBonus(n) {
+  document.querySelectorAll('.bonus-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.bonus-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('panel-' + n).classList.add('active');
+  document.querySelectorAll('.bonus-tab')[n - 1].classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// Auto-open based on URL hash: bonuses.html#2
+const hash = window.location.hash.replace('#','');
+if (hash === '2') showBonus(2);
+if (hash === '3') showBonus(3);
+</script>
+</body>
+</html>

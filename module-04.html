@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 04 | Zero to Commission</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,400;1,600&family=Outfit:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #C8A45A;
+  --gold-light: #E2C47E;
+  --gold-dim: rgba(200,164,90,0.12);
+  --gold-border: rgba(200,164,90,0.22);
+  --ink: #080810;
+  --ink-1: #0F0F1A;
+  --ink-2: #161622;
+  --ink-3: #1E1E2E;
+  --off-white: #F4F0E8;
+  --white: #FDFCFA;
+  --muted: #7A7A90;
+  --muted-light: #A8A8B8;
+  --green: #3DB87A;
+  --font-serif: 'Cormorant Garamond', serif;
+  --font-sans: 'Outfit', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { background: var(--ink); color: var(--off-white); font-family: var(--font-sans); font-size: 16px; line-height: 1.7; overflow-x: hidden; }
+
+/* TOP BAR */
+.topbar {
+  background: var(--ink-1);
+  border-bottom: 1px solid var(--gold-border);
+  padding: 14px 32px;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  position: sticky; top: 0; z-index: 100;
+}
+.topbar-logo { font-family: var(--font-serif); font-size: 20px; font-style: italic; color: var(--gold); text-decoration: none; }
+.topbar-progress { display: flex; align-items: center; gap: 12px; }
+.progress-label { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); }
+.progress-track { width: 120px; height: 3px; background: var(--ink-3); border-radius: 2px; overflow: hidden; }
+.progress-fill { height: 100%; background: var(--gold); width: 20%; border-radius: 2px; transition: width 0.5s; }
+.topbar-next { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em; color: var(--gold); text-decoration: none; text-transform: uppercase; border: 1px solid var(--gold-border); padding: 8px 16px; transition: all 0.2s; white-space: nowrap; }
+.topbar-next:hover { background: var(--gold-dim); }
+
+/* LAYOUT */
+.page-layout { display: grid; grid-template-columns: 1fr 320px; min-height: calc(100vh - 57px); }
+
+/* MAIN CONTENT */
+.main-content { padding: 40px 48px 80px; border-right: 1px solid rgba(200,164,90,0.1); }
+
+.module-eyebrow {
+  display: flex; align-items: center; gap: 12px;
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 16px;
+}
+.module-eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--gold); }
+
+.module-title { font-family: var(--font-serif); font-size: clamp(32px, 4vw, 52px); font-weight: 600; color: var(--white); line-height: 1.05; margin-bottom: 12px; }
+.module-title em { font-style: italic; color: var(--gold); }
+.module-tagline { font-size: 15px; color: var(--muted-light); margin-bottom: 36px; max-width: 560px; }
+
+/* VIDEO PLAYER */
+.video-wrapper {
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: var(--ink-2);
+  border: 1px solid var(--gold-border);
+  margin-bottom: 36px;
+  position: relative;
+  overflow: hidden;
+  display: flex; align-items: center; justify-content: center;
+}
+.video-placeholder {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 16px; text-align: center; padding: 32px;
+}
+.play-btn {
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  border: 2px solid var(--gold);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s;
+  background: rgba(200,164,90,0.08);
+}
+.play-btn:hover { background: rgba(200,164,90,0.2); transform: scale(1.05); }
+.play-btn svg { width: 24px; height: 24px; fill: var(--gold); margin-left: 4px; }
+.video-placeholder p { font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); }
+
+/* Replace the placeholder above with an actual embed like:
+*/
+
+/* LESSON NOTES */
+.lesson-section-label {
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--gold);
+  margin-bottom: 16px; display: flex; align-items: center; gap: 10px;
+}
+.lesson-section-label::before { content: ''; width: 18px; height: 1px; background: var(--gold); }
+
+.lesson-overview { font-size: 15px; color: var(--muted-light); line-height: 1.8; margin-bottom: 36px; max-width: 640px; }
+.lesson-overview strong { color: var(--off-white); }
+
+.key-points { display: flex; flex-direction: column; gap: 12px; margin-bottom: 40px; }
+.key-point {
+  display: flex; align-items: flex-start; gap: 16px;
+  padding: 18px 22px;
+  background: var(--ink-1);
+  border: 1px solid rgba(200,164,90,0.08);
+  border-left: 2px solid var(--gold);
+}
+.kp-icon { color: var(--gold); font-size: 14px; flex-shrink: 0; margin-top: 2px; }
+.kp-text { font-size: 14px; color: var(--muted-light); line-height: 1.6; }
+.kp-text strong { color: var(--white); display: block; margin-bottom: 2px; }
+
+.action-box {
+  background: var(--ink-2);
+  border: 1px solid var(--gold-border);
+  padding: 28px 32px;
+  margin-bottom: 40px;
+}
+.action-box h3 { font-family: var(--font-serif); font-size: 22px; font-weight: 600; color: var(--white); margin-bottom: 16px; }
+.action-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.action-list li { display: flex; align-items: flex-start; gap: 12px; font-size: 14px; color: var(--muted-light); }
+.action-list li .ck { color: var(--green); flex-shrink: 0; }
+
+/* NAV BUTTONS */
+.lesson-nav { display: flex; gap: 16px; margin-top: 48px; }
+.nav-btn {
+  flex: 1; display: flex; align-items: center; justify-content: center; gap: 10px;
+  padding: 18px 24px; text-decoration: none; font-weight: 600; font-size: 14px;
+  transition: all 0.2s; border: 1px solid var(--gold-border); color: var(--muted-light);
+  text-transform: uppercase; letter-spacing: 0.04em; font-family: var(--font-sans);
+}
+.nav-btn:hover { border-color: var(--gold); color: var(--gold); }
+.nav-btn.primary { background: var(--gold); color: var(--ink); border-color: var(--gold); font-weight: 700; }
+.nav-btn.primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(200,164,90,0.25); }
+.nav-btn.disabled { opacity: 0.3; pointer-events: none; }
+
+/* SIDEBAR */
+.sidebar { padding: 32px 28px; background: var(--ink-1); }
+.sidebar-label { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 20px; }
+
+.sidebar-modules { display: flex; flex-direction: column; gap: 6px; margin-bottom: 36px; }
+.sidebar-mod {
+  display: flex; align-items: center; gap: 12px;
+  padding: 12px 14px;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: all 0.2s;
+  border-radius: 1px;
+}
+.sidebar-mod:hover { background: var(--ink-2); border-color: rgba(200,164,90,0.15); }
+.sidebar-mod.active { background: var(--ink-2); border-color: var(--gold-border); }
+.sidebar-mod .mod-num { font-family: var(--font-serif); font-size: 22px; font-weight: 700; color: var(--gold); opacity: 0.4; flex-shrink: 0; width: 28px; }
+.sidebar-mod.active .mod-num { opacity: 1; }
+.sidebar-mod .mod-info { flex: 1; }
+.sidebar-mod .mod-name { font-size: 13px; font-weight: 500; color: var(--muted-light); line-height: 1.2; }
+.sidebar-mod.active .mod-name { color: var(--white); }
+.sidebar-mod .mod-status { font-size: 10px; color: var(--muted); margin-top: 2px; }
+.sidebar-mod .mod-check { color: var(--green); font-size: 13px; flex-shrink: 0; }
+.sidebar-mod .mod-lock { color: var(--muted); font-size: 11px; flex-shrink: 0; opacity: 0.5; }
+
+.sidebar-divider { height: 1px; background: rgba(200,164,90,0.08); margin: 24px 0; }
+
+.sidebar-bonus-label { font-family: var(--font-mono); font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
+.sidebar-bonuses { display: flex; flex-direction: column; gap: 6px; }
+.sidebar-bonus {
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 12px;
+  background: var(--ink-2);
+  border: 1px solid rgba(200,164,90,0.08);
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.sidebar-bonus:hover { border-color: rgba(200,164,90,0.3); }
+.sidebar-bonus .sb-icon { font-size: 16px; flex-shrink: 0; }
+.sidebar-bonus .sb-name { font-size: 12px; color: var(--muted-light); flex: 1; }
+.sidebar-bonus .sb-dl { font-size: 10px; color: var(--gold); flex-shrink: 0; }
+
+.sidebar-support {
+  margin-top: 28px;
+  padding: 18px;
+  border: 1px solid rgba(200,164,90,0.08);
+  text-align: center;
+}
+.sidebar-support p { font-size: 12px; color: var(--muted); line-height: 1.6; }
+.sidebar-support a { color: var(--gold); text-decoration: none; font-size: 12px; }
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .page-layout { grid-template-columns: 1fr; }
+  .sidebar { border-top: 1px solid rgba(200,164,90,0.1); }
+  .main-content { padding: 28px 24px 60px; }
+}
+@media (max-width: 560px) {
+  .topbar { padding: 12px 16px; }
+  .topbar-progress { display: none; }
+  .lesson-nav { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<nav class="topbar">
+  <a href="thankyou.html" class="topbar-logo">Zero to Commission</a>
+  <div class="topbar-progress">
+    <span class="progress-label">Progress</span>
+    <div class="progress-track"><div class="progress-fill" style="width:80%"></div></div>
+    <span class="progress-label">4 / 5</span>
+  </div>
+  <a href="module-05.html" class="topbar-next">Next Module →</a>
+</nav>
+
+<div class="page-layout">
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
+    <div class="module-eyebrow">Module 04</div>
+    <h1 class="module-title">Converting Clicks <em>to Commissions</em></h1>
+    <p class="module-tagline">Traffic without conversion is just noise — this module fixes that.</p>
+
+    <!-- VIDEO PLAYER -->
+    <!-- ═══════════════════════════════════════════════════════
+         VIMEO EMBED — MODULE 04
+         HOW TO UPDATE:
+         1. Upload your video to Vimeo
+         2. Open the video in Vimeo → click Share → Embed
+         3. Copy the 8-9 digit number from the embed URL
+            e.g. https://player.vimeo.com/video/123456789 → ID is 123456789
+         4. Replace YOUR_VIMEO_ID_MODULE_4 below with that number
+         5. Save and re-upload this file to GitHub
+         ═══════════════════════════════════════════════════════ -->
+    <div class="video-wrapper" style="position:relative;">
+      <iframe
+        id="vimeo-module-04"
+        src="https://player.vimeo.com/video/YOUR_VIMEO_ID_MODULE_4?badge=0&autopause=0&player_id=0&app_id=58479&title=0&byline=0&portrait=0&color=C8A45A"
+        frameborder="0"
+        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+        allowfullscreen
+        title="Module 04: Converting Clicks to Commissions — Zero to Commission"
+        style="position:absolute;top:0;left:0;width:100%;height:100%;">
+      </iframe>
+    </div>
+
+    <!-- LESSON OVERVIEW -->
+    <div class="lesson-section-label">Lesson Overview</div>
+    <p class="lesson-overview">
+      Getting clicks is only half the battle. In Module 04 you'll learn the anatomy of a <strong>high-converting affiliate promotion</strong> — how to write captions and hooks that pre-sell without being pushy, how to track your results, and the specific mistakes most beginners make that kill the sale at the last second.
+    </p>
+
+    <!-- KEY POINTS -->
+    <div class="lesson-section-label">What You'll Learn</div>
+    <div class="key-points">
+      <div class="key-point">
+        <span class="kp-icon">◆</span>
+        <div class="kp-text">
+          <strong>The anatomy of a high-converting promotion</strong>
+          What separates a post that drives sales from one that gets views but no clicks — broken down into a repeatable structure.
+        </div>
+      </div>
+      <div class="key-point">
+        <span class="kp-icon">◆</span>
+        <div class="kp-text">
+          <strong>Writing captions that pre-sell</strong>
+          How to warm up your audience before they hit the sales page so they arrive ready to buy, not skeptical.
+        </div>
+      </div>
+      <div class="key-point">
+        <span class="kp-icon">◆</span>
+        <div class="kp-text">
+          <strong>Tracking your numbers</strong>
+          How to use your Digistore24 affiliate dashboard to understand what's working, what isn't, and what to do about it.
+        </div>
+      </div>
+      <div class="key-point">
+        <span class="kp-icon">◆</span>
+        <div class="kp-text">
+          <strong>Why beginners lose the sale at the last second</strong>
+          The 3 most common mistakes that kill conversions right before checkout — and exactly how to avoid each one.
+        </div>
+      </div>
+    </div>
+
+    <!-- ACTION STEPS -->
+    <div class="action-box">
+      <h3>Your Action Steps</h3>
+      <ul class="action-list">
+        <li><span class="ck">✓</span>Watch the full module video above</li>
+        <li><span class="ck">✓</span>Review your existing content using the conversion checklist from this module</li>
+        <li><span class="ck">✓</span>Rewrite at least one caption using the pre-sell formula</li>
+        <li><span class="ck">✓</span>Check your Digistore24 stats and note your current click-to-sale ratio</li>
+      </ul>
+    </div>
+
+    <!-- LESSON NAV -->
+    <div class="lesson-nav">
+      <a href="module-03.html" class="nav-btn">← Module 03</a>
+      <a href="module-05.html" class="nav-btn primary">Next: Module 05 →</a>
+    </div>
+  </main>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-label">Course Modules</div>
+    <div class="sidebar-modules">
+      <a href="module-1.html" class="sidebar-mod">
+        <span class="mod-num">01</span>
+        <div class="mod-info">
+          <div class="mod-name">The Affiliate Foundation</div>
+          <div class="mod-status">Currently watching</div>
+        </div>
+      </a>
+      <a href="module-2.html" class="sidebar-mod">
+        <span class="mod-num">02</span>
+        <div class="mod-info">
+          <div class="mod-name">Finding Winning Offers</div>
+          <div class="mod-status">Up next</div>
+        </div>
+        <span class="mod-lock">→</span>
+      </a>
+      <a href="module-3.html" class="sidebar-mod">
+        <span class="mod-num">03</span>
+        <div class="mod-info">
+          <div class="mod-name">Your Free Traffic Engine</div>
+          <div class="mod-status">Locked</div>
+        </div>
+        <span class="mod-lock">🔒</span>
+      </a>
+      <a href="module-4.html" class="sidebar-mod">
+        <span class="mod-num">04</span>
+        <div class="mod-info">
+          <div class="mod-name">Converting Clicks to Commissions</div>
+          <div class="mod-status">Locked</div>
+        </div>
+        <span class="mod-lock">🔒</span>
+      </a>
+      <a href="module-5.html" class="sidebar-mod">
+        <span class="mod-num">05</span>
+        <div class="mod-info">
+          <div class="mod-name">Scaling Your First Win</div>
+          <div class="mod-status">Locked</div>
+        </div>
+        <span class="mod-lock">🔒</span>
+      </a>
+    </div>
+
+    <div class="sidebar-divider"></div>
+
+    <div class="sidebar-bonus-label">Your Bonuses</div>
+    <div class="sidebar-bonuses">
+      <a href="bonus-1.html" class="sidebar-bonus">
+        <span class="sb-icon">📝</span>
+        <span class="sb-name">Done-For-You Scripts</span>
+        <span class="sb-dl">↓</span>
+      </a>
+      <a href="bonus-2.html" class="sidebar-bonus">
+        <span class="sb-icon">🪝</span>
+        <span class="sb-name">30 Hook Swipe File</span>
+        <span class="sb-dl">↓</span>
+      </a>
+      <a href="bonus-3.html" class="sidebar-bonus">
+        <span class="sb-icon">📊</span>
+        <span class="sb-name">Offer Research Cheat Sheet</span>
+        <span class="sb-dl">↓</span>
+      </a>
+    </div>
+
+    <div class="sidebar-support">
+      <p>Need help?<br>
+        <a href="mailto:support@zerotocommission.com">support@zerotocommission.com</a>
+      </p>
+    </div>
+  </aside>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zero to Commission — Affiliate Program</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #C9A84C;
+  --gold-light: #E8C97A;
+  --gold-pale: #F5E6B8;
+  --ink: #0A0A0F;
+  --ink-soft: #13131A;
+  --ink-mid: #1C1C28;
+  --silver: #8A8A9A;
+  --cream: #F0EAD6;
+  --white: #FAFAF8;
+  --red: #E03C2D;
+  --green: #2DC98A;
+  --font-display: 'Bebas Neue', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--ink);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* NAV */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 18px 48px;
+  background: rgba(10,10,15,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(201,168,76,0.15);
+}
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 22px;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+}
+.nav-links { display: flex; gap: 32px; }
+.nav-links a {
+  color: var(--silver);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--gold); }
+.nav-cta {
+  background: var(--gold);
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 10px 22px;
+  border-radius: 2px;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.nav-cta:hover { background: var(--gold-light); }
+
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center;
+  padding: 120px 24px 80px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 50% 0%, rgba(201,168,76,0.12) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 80% 80%, rgba(201,168,76,0.06) 0%, transparent 60%);
+  pointer-events: none;
+}
+.hero-eyebrow {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid rgba(201,168,76,0.3);
+  padding: 8px 18px;
+  margin-bottom: 32px;
+  animation: fadeUp 0.6s ease both;
+}
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(56px, 9vw, 120px);
+  line-height: 0.92;
+  letter-spacing: 0.02em;
+  color: var(--white);
+  animation: fadeUp 0.7s 0.1s ease both;
+  max-width: 1000px;
+}
+.hero h1 span { color: var(--gold); display: block; }
+.hero-sub {
+  margin-top: 28px;
+  font-size: clamp(17px, 2.5vw, 22px);
+  font-weight: 300;
+  color: var(--silver);
+  max-width: 620px;
+  animation: fadeUp 0.7s 0.2s ease both;
+}
+.hero-sub strong { color: var(--white); font-weight: 500; }
+
+.hero-commission-strip {
+  margin-top: 52px;
+  display: flex; gap: 0;
+  border: 1px solid rgba(201,168,76,0.25);
+  animation: fadeUp 0.7s 0.3s ease both;
+}
+.commission-stat {
+  padding: 28px 48px;
+  text-align: center;
+  border-right: 1px solid rgba(201,168,76,0.2);
+}
+.commission-stat:last-child { border-right: none; }
+.commission-stat .num {
+  font-family: var(--font-display);
+  font-size: 52px;
+  color: var(--gold);
+  line-height: 1;
+}
+.commission-stat .label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--silver);
+  margin-top: 6px;
+}
+
+.hero-buttons {
+  margin-top: 44px;
+  display: flex; gap: 16px; flex-wrap: wrap; justify-content: center;
+  animation: fadeUp 0.7s 0.4s ease both;
+}
+.btn-primary {
+  background: var(--gold);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 18px 40px;
+  border-radius: 2px;
+  text-decoration: none;
+  transition: all 0.2s;
+  display: inline-flex; align-items: center; gap: 10px;
+}
+.btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: 0 12px 40px rgba(201,168,76,0.3); }
+.btn-secondary {
+  border: 1px solid rgba(201,168,76,0.4);
+  color: var(--gold);
+  font-size: 15px;
+  font-weight: 500;
+  padding: 18px 40px;
+  border-radius: 2px;
+  text-decoration: none;
+  transition: all 0.2s;
+  display: inline-flex; align-items: center; gap: 10px;
+}
+.btn-secondary:hover { border-color: var(--gold); background: rgba(201,168,76,0.05); }
+
+.hero-ticker {
+  margin-top: 48px;
+  width: 100%;
+  overflow: hidden;
+  border-top: 1px solid rgba(201,168,76,0.1);
+  padding-top: 20px;
+  animation: fadeUp 0.7s 0.5s ease both;
+}
+.ticker-track {
+  display: flex;
+  gap: 60px;
+  white-space: nowrap;
+  animation: ticker 20s linear infinite;
+}
+.ticker-item {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--silver);
+  text-transform: uppercase;
+  display: flex; align-items: center; gap: 12px;
+}
+.ticker-dot { width: 4px; height: 4px; background: var(--gold); border-radius: 50%; }
+
+/* WHY SECTION */
+.section { padding: 100px 24px; max-width: 1100px; margin: 0 auto; }
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+}
+.section h2 {
+  font-family: var(--font-display);
+  font-size: clamp(38px, 5vw, 64px);
+  line-height: 0.95;
+  letter-spacing: 0.02em;
+  margin-bottom: 24px;
+}
+.section h2 em { font-style: normal; color: var(--gold); }
+
+/* WHY PROMOTE GRID */
+.why-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2px;
+  margin-top: 56px;
+  border: 1px solid rgba(201,168,76,0.15);
+}
+.why-card {
+  background: var(--ink-soft);
+  padding: 40px 36px;
+  border-right: 1px solid rgba(201,168,76,0.1);
+  border-bottom: 1px solid rgba(201,168,76,0.1);
+  transition: background 0.25s;
+  position: relative;
+  overflow: hidden;
+}
+.why-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: var(--gold);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.35s;
+}
+.why-card:hover { background: var(--ink-mid); }
+.why-card:hover::before { transform: scaleX(1); }
+.why-icon {
+  font-size: 28px;
+  margin-bottom: 20px;
+  display: block;
+}
+.why-card h3 {
+  font-family: var(--font-display);
+  font-size: 26px;
+  letter-spacing: 0.03em;
+  margin-bottom: 12px;
+}
+.why-card p { color: var(--silver); font-size: 14px; line-height: 1.7; }
+.why-card .accent { color: var(--gold); font-weight: 600; }
+
+/* FUNNEL DIAGRAM */
+.funnel-section {
+  background: var(--ink-soft);
+  border-top: 1px solid rgba(201,168,76,0.1);
+  border-bottom: 1px solid rgba(201,168,76,0.1);
+  padding: 100px 24px;
+}
+.funnel-inner { max-width: 1100px; margin: 0 auto; }
+.funnel-flow {
+  display: flex; align-items: stretch; gap: 0;
+  margin-top: 60px;
+}
+.funnel-step {
+  flex: 1;
+  padding: 40px 28px;
+  text-align: center;
+  position: relative;
+  border: 1px solid rgba(201,168,76,0.15);
+  background: var(--ink);
+  transition: border-color 0.3s;
+}
+.funnel-step:hover { border-color: rgba(201,168,76,0.5); }
+.funnel-step::after {
+  content: '→';
+  position: absolute; right: -18px; top: 50%;
+  transform: translateY(-50%);
+  font-size: 22px;
+  color: var(--gold);
+  z-index: 2;
+}
+.funnel-step:last-child::after { display: none; }
+.funnel-step .step-num {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  color: var(--gold);
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.funnel-step .step-price {
+  font-family: var(--font-display);
+  font-size: 44px;
+  color: var(--white);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.funnel-step .step-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--silver);
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.funnel-step .step-commission {
+  display: inline-block;
+  background: rgba(201,168,76,0.1);
+  border: 1px solid rgba(201,168,76,0.3);
+  padding: 8px 16px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--gold);
+  letter-spacing: 0.08em;
+}
+.funnel-highlight { background: var(--ink-mid) !important; }
+.funnel-highlight .step-price { color: var(--gold); }
+
+/* EARNINGS CALCULATOR */
+.calc-section { padding: 100px 24px; }
+.calc-inner { max-width: 900px; margin: 0 auto; }
+.calc-box {
+  border: 1px solid rgba(201,168,76,0.25);
+  background: var(--ink-soft);
+  padding: 56px;
+}
+.calc-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 40px;
+}
+.calc-field label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--silver);
+  margin-bottom: 12px;
+}
+.calc-field input[type="range"] {
+  width: 100%;
+  accent-color: var(--gold);
+  height: 4px;
+  cursor: pointer;
+}
+.calc-field .val {
+  font-family: var(--font-display);
+  font-size: 36px;
+  color: var(--gold);
+  margin-top: 8px;
+}
+.calc-results {
+  border-top: 1px solid rgba(201,168,76,0.15);
+  padding-top: 40px;
+  display: grid; grid-template-columns: repeat(3,1fr); gap: 32px;
+}
+.calc-result-item .r-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--silver);
+  margin-bottom: 10px;
+}
+.calc-result-item .r-val {
+  font-family: var(--font-display);
+  font-size: 46px;
+  color: var(--white);
+}
+.calc-result-item.highlight .r-val { color: var(--gold); }
+.calc-note {
+  margin-top: 24px;
+  font-size: 12px;
+  color: var(--silver);
+  font-style: italic;
+  text-align: center;
+}
+
+/* TOOLS & SWIPES */
+.tools-section { padding: 100px 24px; background: var(--ink-mid); border-top: 1px solid rgba(201,168,76,0.08); }
+.tools-inner { max-width: 1100px; margin: 0 auto; }
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+  margin-top: 56px;
+}
+.tool-card {
+  background: var(--ink);
+  border: 1px solid rgba(201,168,76,0.12);
+  padding: 32px 28px;
+  transition: all 0.25s;
+  position: relative;
+}
+.tool-card:hover {
+  border-color: rgba(201,168,76,0.4);
+  transform: translateY(-4px);
+}
+.tool-card .t-icon { font-size: 32px; margin-bottom: 16px; }
+.tool-card .t-name {
+  font-family: var(--font-display);
+  font-size: 20px;
+  letter-spacing: 0.04em;
+  margin-bottom: 8px;
+}
+.tool-card .t-desc { font-size: 13px; color: var(--silver); line-height: 1.6; }
+.tool-badge {
+  position: absolute; top: 16px; right: 16px;
+  background: var(--gold);
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 4px 8px;
+  text-transform: uppercase;
+}
+
+/* TESTIMONIALS */
+.testi-section { padding: 100px 24px; max-width: 1100px; margin: 0 auto; }
+.testi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 56px; }
+.testi-card {
+  background: var(--ink-soft);
+  border: 1px solid rgba(201,168,76,0.12);
+  padding: 36px;
+}
+.testi-quote { font-size: 15px; color: var(--white); line-height: 1.7; font-style: italic; margin-bottom: 24px; }
+.testi-author { display: flex; align-items: center; gap: 14px; }
+.testi-avatar {
+  width: 44px; height: 44px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--gold) 0%, rgba(201,168,76,0.3) 100%);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display); font-size: 20px; color: var(--ink);
+}
+.testi-name { font-weight: 600; font-size: 14px; }
+.testi-role { font-size: 12px; color: var(--silver); margin-top: 2px; }
+.testi-stars { color: var(--gold); font-size: 13px; letter-spacing: 2px; margin-bottom: 16px; }
+
+/* REGISTER CTA */
+.register-section {
+  padding: 100px 24px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background: var(--ink-soft);
+  border-top: 1px solid rgba(201,168,76,0.15);
+  border-bottom: 1px solid rgba(201,168,76,0.15);
+}
+.register-section::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(201,168,76,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+.register-section h2 {
+  font-family: var(--font-display);
+  font-size: clamp(44px, 6vw, 80px);
+  line-height: 0.95;
+  margin-bottom: 24px;
+}
+.register-section h2 em { font-style: normal; color: var(--gold); }
+.register-section p { color: var(--silver); font-size: 18px; max-width: 560px; margin: 0 auto 44px; }
+
+/* REGISTER FORM */
+.register-form {
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex; flex-direction: column; gap: 16px;
+}
+.form-group { display: flex; flex-direction: column; gap: 8px; }
+.form-group label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--silver);
+  text-align: left;
+}
+.form-group input {
+  background: var(--ink);
+  border: 1px solid rgba(201,168,76,0.2);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 15px;
+  padding: 16px 18px;
+  border-radius: 2px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.form-group input:focus { border-color: var(--gold); }
+.form-group input::placeholder { color: var(--silver); }
+.submit-btn {
+  margin-top: 8px;
+  background: var(--gold);
+  border: none;
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 20px;
+  cursor: pointer;
+  border-radius: 2px;
+  transition: all 0.2s;
+  width: 100%;
+}
+.submit-btn:hover { background: var(--gold-light); }
+
+/* RULES SECTION */
+.rules-section { padding: 100px 24px; max-width: 900px; margin: 0 auto; }
+.rules-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 48px; }
+.rules-col h3 {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.rules-col.ok h3 { color: var(--green); }
+.rules-col.no h3 { color: var(--red); }
+.rules-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.rules-list li {
+  display: flex; align-items: flex-start; gap: 12px;
+  font-size: 14px; color: var(--silver); line-height: 1.5;
+}
+.rules-list li span.ico { font-size: 15px; flex-shrink: 0; margin-top: 1px; }
+
+/* FAQ */
+.faq-section { padding: 100px 24px; max-width: 760px; margin: 0 auto; }
+.faq-item {
+  border-bottom: 1px solid rgba(201,168,76,0.12);
+  padding: 28px 0;
+}
+.faq-q {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--white);
+  cursor: pointer;
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 16px;
+}
+.faq-q .toggle {
+  width: 28px; height: 28px;
+  border: 1px solid rgba(201,168,76,0.3);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+  color: var(--gold);
+  flex-shrink: 0;
+  transition: transform 0.2s;
+}
+.faq-item.open .faq-q .toggle { transform: rotate(45deg); }
+.faq-a {
+  font-size: 14px;
+  color: var(--silver);
+  line-height: 1.75;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding-top 0.3s;
+}
+.faq-item.open .faq-a { max-height: 300px; padding-top: 16px; }
+
+/* FOOTER */
+footer {
+  padding: 48px 24px;
+  text-align: center;
+  border-top: 1px solid rgba(201,168,76,0.1);
+}
+footer .footer-logo {
+  font-family: var(--font-display);
+  font-size: 28px;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+footer p {
+  font-size: 12px;
+  color: var(--silver);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+footer .footer-links {
+  display: flex; justify-content: center; gap: 32px;
+  margin: 24px 0;
+}
+footer .footer-links a { font-size: 12px; color: var(--silver); text-decoration: none; }
+footer .footer-links a:hover { color: var(--gold); }
+
+/* ANIMATIONS */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* SCROLLED REVEALS */
+.reveal {
+  opacity: 0; transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible { opacity: 1; transform: none; }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .nav { padding: 16px 20px; }
+  .nav-links { display: none; }
+  .commission-stat { padding: 20px 24px; }
+  .commission-stat .num { font-size: 36px; }
+  .funnel-flow { flex-direction: column; }
+  .funnel-step::after { content: '↓'; right: auto; bottom: -16px; left: 50%; transform: translateX(-50%); top: auto; }
+  .calc-row { grid-template-columns: 1fr; }
+  .calc-results { grid-template-columns: 1fr; }
+  .calc-box { padding: 32px 24px; }
+  .rules-grid { grid-template-columns: 1fr; }
+  .hero-commission-strip { flex-direction: column; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-logo">ZTC // Affiliates</div>
+  <div class="nav-links">
+    <a href="#why">Why Promote</a>
+    <a href="#funnel">Funnel</a>
+    <a href="#tools">Tools</a>
+    <a href="#faq">FAQ</a>
+  </div>
+  <a href="#register" class="nav-cta">Get My Link →</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-eyebrow">Zero to Commission — Affiliate / JV Partner Program</div>
+  <h1>EARN MORE.<br><span>PROMOTE LESS.</span></h1>
+  <p class="hero-sub">
+    We pay <strong>75% on the front end</strong> — the highest in the beginner affiliate space — 
+    because we know once they're in, the upsells do the heavy lifting for both of us.
+  </p>
+
+  <div class="hero-commission-strip">
+    <div class="commission-stat">
+      <div class="num">75%</div>
+      <div class="label">Front-End Commission</div>
+    </div>
+    <div class="commission-stat">
+      <div class="num">50%</div>
+      <div class="label">Upsell Commission</div>
+    </div>
+    <div class="commission-stat">
+      <div class="num">$47</div>
+      <div class="label">Front-End Price</div>
+    </div>
+    <div class="commission-stat">
+      <div class="num">$97</div>
+      <div class="label">Upsell Price</div>
+    </div>
+  </div>
+
+  <div class="hero-buttons">
+    <a href="#register" class="btn-primary">Apply Now — It's Free →</a>
+    <a href="#funnel" class="btn-secondary">See The Full Funnel</a>
+  </div>
+
+  <div class="hero-ticker">
+    <div class="ticker-track">
+      <span class="ticker-item"><span class="ticker-dot"></span>75% Front-End Commission</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>Instant Digistore24 Payouts</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>Proven Converting Sales Page</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>Done-For-You Swipe Copy</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>Complete Beginner Audience</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>High-Converting Upsell Sequence</span>
+      <!-- duplicated for seamless loop -->
+      <span class="ticker-item"><span class="ticker-dot"></span>75% Front-End Commission</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>Instant Digistore24 Payouts</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>Proven Converting Sales Page</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>Done-For-You Swipe Copy</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>Complete Beginner Audience</span>
+      <span class="ticker-item"><span class="ticker-dot"></span>High-Converting Upsell Sequence</span>
+    </div>
+  </div>
+</section>
+
+<!-- WHY PROMOTE -->
+<section id="why" style="padding: 100px 24px;">
+  <div class="section reveal" style="max-width:1100px;margin:0 auto;">
+    <div class="section-label">Why Affiliates Choose Us</div>
+    <h2>A product built for <em>your</em><br>bottom line too.</h2>
+    <p style="color:var(--silver);max-width:560px;margin-top:16px;">
+      Most offers pay you less so they earn more. We flipped the model — massive upfront payout, 
+      proven upsell path. You drive traffic once and earn twice.
+    </p>
+    <div class="why-grid">
+      <div class="why-card">
+        <span class="why-icon">💰</span>
+        <h3>$35.25 Per Sale</h3>
+        <p>That's your cut on a $47 front-end sale. <span class="accent">75% — highest in this niche.</span> Promote with confidence that every click pays.</p>
+      </div>
+      <div class="why-card">
+        <span class="why-icon">📈</span>
+        <h3>Stacked Funnel</h3>
+        <p>Every buyer sees a $97 DFY Funnel Kit upsell at 50% commission. That's an extra <span class="accent">$48.50 per upsell</span> — automatic, no extra work.</p>
+      </div>
+      <div class="why-card">
+        <span class="why-icon">🎯</span>
+        <h3>Massive Market</h3>
+        <p>Beginners searching "how to make money online" never stop. <span class="accent">Zero saturation risk</span> — the audience renews itself daily.</p>
+      </div>
+      <div class="why-card">
+        <span class="why-icon">⚡</span>
+        <h3>Instant Payouts</h3>
+        <p>Digistore24 handles everything. <span class="accent">No waiting 30-60 days</span> — your commission hits as soon as the refund window clears.</p>
+      </div>
+      <div class="why-card">
+        <span class="why-icon">🎬</span>
+        <h3>Done-For-You Promos</h3>
+        <p>Email swipes, social captions, hooks, and angles — all written and ready. <span class="accent">Grab and go.</span> No copywriting needed.</p>
+      </div>
+      <div class="why-card">
+        <span class="why-icon">🛡️</span>
+        <h3>Compliance-Safe</h3>
+        <p>No income guarantees. No hype. Built to <span class="accent">pass FTC scrutiny</span> — which means fewer refunds and a clean reputation for you.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FUNNEL -->
+<section id="funnel" class="funnel-section">
+  <div class="funnel-inner reveal">
+    <div class="section-label">The Complete Funnel</div>
+    <h2 style="font-family:var(--font-display);font-size:clamp(38px,5vw,64px);line-height:0.95;letter-spacing:0.02em;">
+      One click. <em style="color:var(--gold);font-style:normal;">Two paydays.</em>
+    </h2>
+    <p style="color:var(--silver);margin-top:16px;max-width:540px;">
+      Send traffic to the sales page once. The funnel handles the rest — from front-end conversion 
+      to upsell and beyond.
+    </p>
+
+    <div class="funnel-flow" style="margin-top:60px;">
+      <div class="funnel-step">
+        <div class="step-num">Step 01 — Traffic</div>
+        <div class="step-price" style="font-size:28px;margin-top:8px;">Your Link</div>
+        <div class="step-name">TikTok · Instagram · Email · Ads</div>
+        <div class="step-commission" style="font-size:11px;padding:6px 12px;">You send the click</div>
+      </div>
+      <div class="funnel-step funnel-highlight">
+        <div class="step-num">Step 02 — Front End</div>
+        <div class="step-price">$47</div>
+        <div class="step-name">Zero to Commission</div>
+        <div class="step-commission">YOU EARN $35.25</div>
+      </div>
+      <div class="funnel-step">
+        <div class="step-num">Step 03 — Upsell</div>
+        <div class="step-price">$97</div>
+        <div class="step-name">Done-For-You Funnel Kit</div>
+        <div class="step-commission">YOU EARN $48.50</div>
+      </div>
+      <div class="funnel-step" style="background:var(--ink-soft);">
+        <div class="step-num">Total Potential</div>
+        <div class="step-price" style="color:var(--gold);">$83.75</div>
+        <div class="step-name">Per Full-Funnel Sale</div>
+        <div class="step-commission" style="background:rgba(201,168,76,0.2);">MAX EARNINGS</div>
+      </div>
+    </div>
+
+    <p style="margin-top:32px;font-size:13px;color:var(--silver);text-align:center;">
+      * Upsell conversion rates vary. Commission amounts are calculated on product prices at current rates.
+    </p>
+  </div>
+</section>
+
+<!-- EARNINGS CALCULATOR -->
+<section class="calc-section">
+  <div class="calc-inner reveal">
+    <div class="section-label">Earnings Calculator</div>
+    <h2 style="font-family:var(--font-display);font-size:clamp(38px,5vw,60px);line-height:0.95;letter-spacing:0.02em;margin-bottom:40px;">
+      Run your own <em style="color:var(--gold);font-style:normal;">numbers.</em>
+    </h2>
+
+    <div class="calc-box">
+      <div class="calc-row">
+        <div class="calc-field">
+          <label>Daily Clicks Sent</label>
+          <input type="range" id="clicks" min="10" max="1000" value="100" step="10">
+          <div class="val" id="clicks-val">100</div>
+        </div>
+        <div class="calc-field">
+          <label>Conversion Rate (%)</label>
+          <input type="range" id="cvr" min="1" max="10" value="2" step="0.5">
+          <div class="val" id="cvr-val">2%</div>
+        </div>
+      </div>
+      <div class="calc-row" style="margin-bottom:0;">
+        <div class="calc-field">
+          <label>Upsell Take Rate (%)</label>
+          <input type="range" id="upsell" min="0" max="40" value="15" step="5">
+          <div class="val" id="upsell-val">15%</div>
+        </div>
+        <div class="calc-field">
+          <label>Days Running</label>
+          <input type="range" id="days" min="1" max="30" value="30" step="1">
+          <div class="val" id="days-val">30</div>
+        </div>
+      </div>
+
+      <div class="calc-results">
+        <div class="calc-result-item">
+          <div class="r-label">Front-End Commissions</div>
+          <div class="r-val" id="r-front">$2,115</div>
+        </div>
+        <div class="calc-result-item">
+          <div class="r-label">Upsell Commissions</div>
+          <div class="r-val" id="r-upsell">$437</div>
+        </div>
+        <div class="calc-result-item highlight">
+          <div class="r-label">Total Earnings</div>
+          <div class="r-val" id="r-total">$2,552</div>
+        </div>
+      </div>
+      <p class="calc-note">*Illustrative only. Results depend on your traffic quality, niche, and audience. No income is guaranteed.</p>
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS & SWIPES -->
+<section id="tools" class="tools-section">
+  <div class="tools-inner reveal">
+    <div class="section-label">Promotional Tools</div>
+    <h2 style="font-family:var(--font-display);font-size:clamp(38px,5vw,64px);line-height:0.95;letter-spacing:0.02em;">
+      Everything you need.<br><em style="color:var(--gold);font-style:normal;">Nothing you don't.</em>
+    </h2>
+    <p style="color:var(--silver);margin-top:16px;max-width:560px;">
+      Once approved, you get instant access to our full affiliate resource vault — 
+      copy, paste, and earn.
+    </p>
+
+    <div class="tools-grid">
+      <div class="tool-card">
+        <div class="tool-badge">Ready</div>
+        <div class="t-icon">✉️</div>
+        <div class="t-name">Email Swipes</div>
+        <div class="t-desc">5-email welcome sequence + broadcast angles. Tested subject lines included.</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-badge">Ready</div>
+        <div class="t-icon">📱</div>
+        <div class="t-name">Social Captions</div>
+        <div class="t-desc">30 done-for-you TikTok & Instagram captions. Hook-first, beginner-targeted.</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-badge">Ready</div>
+        <div class="t-icon">🪝</div>
+        <div class="t-name">30 Video Hooks</div>
+        <div class="t-desc">Scroll-stopping openers for Reels, TikTok, and YouTube Shorts. Proven formats.</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-badge">Ready</div>
+        <div class="t-icon">🖼️</div>
+        <div class="t-name">Promo Graphics</div>
+        <div class="t-desc">Pre-made story and feed graphics. Branded, clean, and plug-and-play.</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-badge">Ready</div>
+        <div class="t-icon">🔗</div>
+        <div class="t-name">Your Unique Link</div>
+        <div class="t-desc">Digistore24 tracking link generated instantly on approval. All commissions tracked automatically.</div>
+      </div>
+      <div class="tool-card">
+        <div class="tool-badge">Ready</div>
+        <div class="t-icon">📊</div>
+        <div class="t-name">Live Dashboard</div>
+        <div class="t-desc">Real-time clicks, conversions, and earnings via your Digistore24 affiliate dashboard.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testi-section reveal">
+  <div class="section-label">Early Affiliate Results</div>
+  <h2 style="font-family:var(--font-display);font-size:clamp(38px,5vw,64px);line-height:0.95;letter-spacing:0.02em;">
+    Real people.<br><em style="color:var(--gold);font-style:normal;">Real commissions.</em>
+  </h2>
+
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-quote">"I've promoted a lot of $47 offers and most pay 50%. Getting 75% upfront is a no-brainer — my first week I pulled $423 from TikTok alone. The swipe files are actually usable too."</p>
+      <div class="testi-author">
+        <div class="testi-avatar">M</div>
+        <div>
+          <div class="testi-name">Marcus T.</div>
+          <div class="testi-role">Affiliate Marketer, Texas</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-quote">"The beginner angle converts so well on Instagram. My audience is people just starting out and this product speaks directly to them. I hit 12 sales in 3 days."</p>
+      <div class="testi-author">
+        <div class="testi-avatar">J</div>
+        <div>
+          <div class="testi-name">Janelle R.</div>
+          <div class="testi-role">Content Creator, Ohio</div>
+        </div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-quote">"The upsell surprised me — better than expected take rate. Made $48 extra on 3 out of my first 10 sales without doing a single thing extra. This is how funnels should work."</p>
+      <div class="testi-author">
+        <div class="testi-avatar">D</div>
+        <div>
+          <div class="testi-name">Derek W.</div>
+          <div class="testi-role">Email Marketer, Florida</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REGISTER -->
+<section id="register" class="register-section">
+  <div style="position:relative;z-index:1;">
+    <div class="section-label" style="display:block;text-align:center;margin-bottom:20px;">Apply Now — Free & Instant</div>
+    <h2>Ready to <em>earn</em><br>your first commission?</h2>
+    <p>Fill out the form below and receive your affiliate link within 24 hours — 
+    often same-day. No experience required.</p>
+
+    <div class="register-form reveal">
+      <div class="form-group">
+        <label>Your Full Name</label>
+        <input type="text" placeholder="First Last">
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" placeholder="you@email.com">
+      </div>
+      <div class="form-group">
+        <label>Digistore24 Username (if you have one)</label>
+        <input type="text" placeholder="Optional — leave blank if new">
+      </div>
+      <div class="form-group">
+        <label>How Will You Promote? (TikTok / Instagram / Email / Other)</label>
+        <input type="text" placeholder="e.g. TikTok short-form content">
+      </div>
+      <button class="submit-btn" onclick="handleSubmit(event)">Apply For Free → Get My Link</button>
+      <p style="font-size:12px;color:var(--silver);text-align:center;margin-top:12px;">
+        No spam. No commitments. Approval usually within 24 hours.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- AFFILIATE RULES -->
+<section class="rules-section reveal">
+  <div class="section-label">Affiliate Guidelines</div>
+  <h2 style="font-family:var(--font-display);font-size:clamp(38px,5vw,64px);line-height:0.95;letter-spacing:0.02em;margin-bottom:8px;">
+    Play fair.<br><em style="color:var(--gold);font-style:normal;">Win together.</em>
+  </h2>
+  <p style="color:var(--silver);margin-top:16px;max-width:560px;">
+    We protect our brand — and yours. These rules keep commissions clean and refunds low.
+  </p>
+
+  <div class="rules-grid">
+    <div class="rules-col ok">
+      <h3>✓ Allowed</h3>
+      <ul class="rules-list">
+        <li><span class="ico">✅</span>Organic TikTok, Instagram, YouTube content</li>
+        <li><span class="ico">✅</span>Email marketing to your own opted-in list</li>
+        <li><span class="ico">✅</span>Honest reviews and walkthroughs</li>
+        <li><span class="ico">✅</span>Paid ads with prior written approval</li>
+        <li><span class="ico">✅</span>Blog posts and SEO content</li>
+        <li><span class="ico">✅</span>Newsletter placements and solo ads</li>
+      </ul>
+    </div>
+    <div class="rules-col no">
+      <h3>✗ Not Allowed</h3>
+      <ul class="rules-list">
+        <li><span class="ico">❌</span>False or misleading income claims</li>
+        <li><span class="ico">❌</span>Spam — in any form, ever</li>
+        <li><span class="ico">❌</span>Negative SEO or review manipulation</li>
+        <li><span class="ico">❌</span>Incentivized clicks or cookie stuffing</li>
+        <li><span class="ico">❌</span>Impersonating the brand or creator</li>
+        <li><span class="ico">❌</span>Self-referrals or fraudulent purchases</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="faq-section reveal">
+  <div class="section-label">FAQ</div>
+  <h2 style="font-family:var(--font-display);font-size:clamp(38px,5vw,64px);line-height:0.95;letter-spacing:0.02em;margin-bottom:48px;">
+    Quick <em style="color:var(--gold);font-style:normal;">answers.</em>
+  </h2>
+
+  <div class="faq-item">
+    <div class="faq-q">How do I get paid?<span class="toggle">+</span></div>
+    <div class="faq-a">All commissions are processed through Digistore24. Once you're approved as a vendor affiliate, you'll receive your unique tracking link and payments are handled automatically by Digistore24's payout system. You can connect a bank account, PayPal, or other supported method directly in your Digistore24 dashboard.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">Do I need a Digistore24 account?<span class="toggle">+</span></div>
+    <div class="faq-a">Yes — Digistore24 is free to join and takes about 5 minutes to set up. If you don't have one, sign up at digistore24.com, then submit your application here. We'll handle the rest.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">What's the refund policy?<span class="toggle">+</span></div>
+    <div class="faq-a">We offer a standard 30-day refund window as required by Digistore24. Our product is built to deliver real value, so refund rates are low. If a refund does occur, the commission is automatically reversed in Digistore24's system.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">Can I run paid ads?<span class="toggle">+</span></div>
+    <div class="faq-a">Paid traffic (Facebook Ads, Google Ads, native) requires prior written approval. We want to review your ad copy and angles to make sure they're compliant and on-brand. Reach out before launching any paid campaigns.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">Is there a minimum traffic requirement?<span class="toggle">+</span></div>
+    <div class="faq-a">No minimums. Whether you have a 200-person email list or 200k followers, you're welcome to promote. We love working with builders at every stage.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q">How long does approval take?<span class="toggle">+</span></div>
+    <div class="faq-a">Usually within 24 hours — often same-day during business hours. You'll receive an email with your affiliate link and the full swipe file vault link once approved.</div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">ZERO TO COMMISSION</div>
+  <div class="footer-links">
+    <a href="mailto:support@zerotocommission.com">Support</a>
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms & Conditions</a>
+    <a href="#">Affiliate Agreement</a>
+  </div>
+  <p>
+    This is an affiliate / JV partner page for Zero to Commission, sold via Digistore24. 
+    All commission rates are current as of this page's publication and subject to change with notice. 
+    Earnings examples are illustrative only and do not constitute income guarantees. Individual results vary. 
+    Affiliates are required to comply with all FTC guidelines and Digistore24's affiliate terms of service.
+  </p>
+  <p style="margin-top:16px;">© 2025 Zero to Commission / zerotocommission.com · All Rights Reserved</p>
+</footer>
+
+<!-- SUCCESS TOAST -->
+<div id="toast" style="
+  position:fixed;bottom:40px;left:50%;transform:translateX(-50%) translateY(80px);
+  background:var(--ink-soft);border:1px solid var(--gold);
+  padding:20px 36px;border-radius:2px;
+  font-family:var(--font-mono);font-size:13px;letter-spacing:0.08em;color:var(--gold);
+  z-index:999;opacity:0;transition:all 0.4s;white-space:nowrap;text-align:center;
+">
+  ✓ Application received! Check your inbox within 24 hours.
+</div>
+
+<script>
+// CALCULATOR
+const inputs = {
+  clicks: { el: document.getElementById('clicks'), out: document.getElementById('clicks-val'), fmt: v => v },
+  cvr: { el: document.getElementById('cvr'), out: document.getElementById('cvr-val'), fmt: v => v + '%' },
+  upsell: { el: document.getElementById('upsell'), out: document.getElementById('upsell-val'), fmt: v => v + '%' },
+  days: { el: document.getElementById('days'), out: document.getElementById('days-val'), fmt: v => v }
+};
+
+function calcEarnings() {
+  const clicks = +document.getElementById('clicks').value;
+  const cvr = +document.getElementById('cvr').value / 100;
+  const upsellRate = +document.getElementById('upsell').value / 100;
+  const days = +document.getElementById('days').value;
+
+  const dailySales = clicks * cvr;
+  const frontEnd = dailySales * 35.25 * days;
+  const upsellEarns = dailySales * upsellRate * 48.50 * days;
+  const total = frontEnd + upsellEarns;
+
+  const fmt = n => '$' + Math.round(n).toLocaleString();
+  document.getElementById('r-front').textContent = fmt(frontEnd);
+  document.getElementById('r-upsell').textContent = fmt(upsellEarns);
+  document.getElementById('r-total').textContent = fmt(total);
+}
+
+Object.entries(inputs).forEach(([key, {el, out, fmt}]) => {
+  el.addEventListener('input', () => {
+    out.textContent = fmt(el.value);
+    calcEarnings();
+  });
+});
+calcEarnings();
+
+// FAQ
+document.querySelectorAll('.faq-item').forEach(item => {
+  item.querySelector('.faq-q').addEventListener('click', () => {
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+
+// SCROLL REVEALS
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// FORM SUBMIT
+function handleSubmit(e) {
+  e.preventDefault();
+  const toast = document.getElementById('toast');
+  toast.style.opacity = '1';
+  toast.style.transform = 'translateX(-50%) translateY(0)';
+  setTimeout(() => {
+    toast.style.opacity = '0';
+    toast.style.transform = 'translateX(-50%) translateY(80px)';
+  }, 4500);
+}
+</script>
+</body>
+</html>

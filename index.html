@@ -1,0 +1,1347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zero to Commission — Get Your First Affiliate Paycheck</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #C8A45A;
+  --gold-light: #E2C47E;
+  --gold-dim: rgba(200,164,90,0.15);
+  --gold-border: rgba(200,164,90,0.25);
+  --ink: #080810;
+  --ink-1: #0F0F1A;
+  --ink-2: #161622;
+  --ink-3: #1E1E2E;
+  --off-white: #F4F0E8;
+  --white: #FDFCFA;
+  --muted: #7A7A90;
+  --muted-light: #A8A8B8;
+  --red: #D94F3D;
+  --green: #3DB87A;
+  --font-serif: 'Cormorant Garamond', serif;
+  --font-sans: 'Outfit', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+  --max: 860px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--ink);
+  color: var(--off-white);
+  font-family: var(--font-sans);
+  font-size: 17px;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ── GRAIN OVERLAY ── */
+body::after {
+  content: '';
+  position: fixed; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.4;
+}
+
+/* ── TOP BAR ── */
+.top-bar {
+  background: var(--gold);
+  color: var(--ink);
+  text-align: center;
+  padding: 12px 24px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center;
+  padding: 80px 24px 100px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 70% 50% at 50% -10%, rgba(200,164,90,0.18) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 60% at 100% 100%, rgba(200,164,90,0.06) 0%, transparent 55%),
+    radial-gradient(ellipse 40% 40% at 0% 60%, rgba(200,164,90,0.04) 0%, transparent 55%);
+}
+
+/* animated ring */
+.hero-ring {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 700px; height: 700px;
+  border-radius: 50%;
+  border: 1px solid rgba(200,164,90,0.07);
+  animation: pulse-ring 6s ease-in-out infinite;
+  pointer-events: none;
+}
+.hero-ring:nth-child(2) { width: 900px; height: 900px; animation-delay: 2s; }
+.hero-ring:nth-child(3) { width: 1100px; height: 1100px; animation-delay: 4s; }
+
+@keyframes pulse-ring {
+  0%, 100% { opacity: 0.4; transform: translate(-50%, -50%) scale(1); }
+  50% { opacity: 0.08; transform: translate(-50%, -50%) scale(1.03); }
+}
+
+.hero-inner { position: relative; z-index: 2; max-width: 820px; }
+
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid var(--gold-border);
+  padding: 9px 20px;
+  margin-bottom: 36px;
+  animation: fadeUp 0.6s ease both;
+}
+.eyebrow-dot { width: 5px; height: 5px; background: var(--gold); border-radius: 50%; animation: blink 2s infinite; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.2} }
+
+.hero h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(46px, 8vw, 96px);
+  font-weight: 600;
+  line-height: 1.0;
+  letter-spacing: -0.01em;
+  color: var(--white);
+  animation: fadeUp 0.7s 0.1s ease both;
+  margin-bottom: 12px;
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.hero-divider {
+  width: 60px; height: 1px;
+  background: var(--gold);
+  margin: 32px auto;
+  animation: fadeUp 0.7s 0.2s ease both;
+}
+
+.hero-sub {
+  font-size: clamp(16px, 2.2vw, 21px);
+  font-weight: 300;
+  color: var(--muted-light);
+  max-width: 620px;
+  margin: 0 auto;
+  animation: fadeUp 0.7s 0.25s ease both;
+  line-height: 1.65;
+}
+.hero-sub strong { color: var(--off-white); font-weight: 500; }
+
+.hero-proof {
+  display: flex; align-items: center; justify-content: center; gap: 32px;
+  margin-top: 44px;
+  padding-top: 44px;
+  border-top: 1px solid rgba(200,164,90,0.12);
+  animation: fadeUp 0.7s 0.35s ease both;
+  flex-wrap: wrap;
+}
+.proof-item {
+  text-align: center;
+}
+.proof-num {
+  font-family: var(--font-serif);
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+}
+.proof-label {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 6px;
+}
+.proof-sep { width: 1px; height: 48px; background: rgba(200,164,90,0.15); }
+
+.hero-cta {
+  margin-top: 52px;
+  animation: fadeUp 0.7s 0.45s ease both;
+}
+
+/* ── BUTTONS ── */
+.btn-gold {
+  display: inline-flex; align-items: center; gap: 12px;
+  background: var(--gold);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 20px 48px;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.25s;
+  position: relative;
+  overflow: hidden;
+}
+.btn-gold::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: rgba(255,255,255,0.15);
+  transform: translateX(-100%);
+  transition: transform 0.3s;
+}
+.btn-gold:hover::before { transform: translateX(0); }
+.btn-gold:hover { transform: translateY(-2px); box-shadow: 0 16px 48px rgba(200,164,90,0.35); }
+
+.btn-arrow { font-size: 18px; transition: transform 0.2s; }
+.btn-gold:hover .btn-arrow { transform: translateX(4px); }
+
+.cta-sub {
+  margin-top: 14px;
+  font-size: 12px;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  letter-spacing: 0.08em;
+}
+.cta-sub span { color: var(--gold); }
+
+/* ── SECTION BASE ── */
+.section {
+  padding: 96px 24px;
+}
+.section-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+}
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+  display: flex; align-items: center; gap: 12px;
+}
+.section-label::before {
+  content: '';
+  display: inline-block;
+  width: 24px; height: 1px;
+  background: var(--gold);
+}
+
+.section h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(34px, 5vw, 58px);
+  font-weight: 600;
+  line-height: 1.05;
+  color: var(--white);
+  margin-bottom: 24px;
+}
+.section h2 em { font-style: italic; color: var(--gold); }
+
+/* ── PAIN SECTION ── */
+.pain-section { background: var(--ink-1); border-top: 1px solid rgba(200,164,90,0.08); border-bottom: 1px solid rgba(200,164,90,0.08); }
+
+.pain-intro {
+  font-size: clamp(20px, 3vw, 28px);
+  font-family: var(--font-serif);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--muted-light);
+  max-width: 680px;
+  line-height: 1.55;
+  margin-bottom: 52px;
+}
+.pain-intro strong { color: var(--off-white); font-style: normal; font-weight: 600; }
+
+.pain-list { display: flex; flex-direction: column; gap: 16px; margin-bottom: 52px; }
+.pain-item {
+  display: flex; align-items: flex-start; gap: 18px;
+  padding: 24px 28px;
+  background: var(--ink-2);
+  border: 1px solid rgba(200,164,90,0.08);
+  border-left: 3px solid var(--red);
+  transition: border-color 0.2s;
+}
+.pain-item:hover { border-color: rgba(200,164,90,0.2); }
+.pain-x {
+  color: var(--red);
+  font-size: 18px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.pain-item p { font-size: 15px; color: var(--muted-light); line-height: 1.6; }
+.pain-item p strong { color: var(--off-white); }
+
+.pain-bridge {
+  font-size: clamp(22px, 3.5vw, 34px);
+  font-family: var(--font-serif);
+  font-weight: 600;
+  color: var(--white);
+  line-height: 1.2;
+  border-top: 1px solid rgba(200,164,90,0.15);
+  padding-top: 48px;
+}
+.pain-bridge em { color: var(--gold); font-style: italic; }
+
+/* ── WHAT IS IT ── */
+.what-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  margin-top: 52px;
+  border: 1px solid rgba(200,164,90,0.12);
+}
+.what-card {
+  background: var(--ink-1);
+  padding: 36px 32px;
+  border-right: 1px solid rgba(200,164,90,0.08);
+  border-bottom: 1px solid rgba(200,164,90,0.08);
+  transition: background 0.25s;
+}
+.what-card:hover { background: var(--ink-2); }
+.what-icon { font-size: 26px; margin-bottom: 16px; }
+.what-card h3 {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 10px;
+}
+.what-card p { font-size: 14px; color: var(--muted-light); line-height: 1.7; }
+
+/* ── MODULES ── */
+.modules-section { background: var(--ink-1); }
+
+.module-list { display: flex; flex-direction: column; gap: 2px; margin-top: 52px; }
+.module-item {
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 0;
+  background: var(--ink-2);
+  border: 1px solid rgba(200,164,90,0.1);
+  overflow: hidden;
+  transition: all 0.25s;
+  cursor: pointer;
+}
+.module-item:hover { border-color: rgba(200,164,90,0.35); }
+.module-item.open { border-color: rgba(200,164,90,0.4); }
+
+.module-num {
+  background: var(--ink-3);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-serif);
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--gold);
+  border-right: 1px solid rgba(200,164,90,0.1);
+  padding: 28px 0;
+}
+.module-content { padding: 28px 32px; }
+.module-header {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+}
+.module-title {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--white);
+}
+.module-toggle {
+  width: 30px; height: 30px; flex-shrink: 0;
+  border: 1px solid rgba(200,164,90,0.3);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--gold);
+  font-size: 18px;
+  transition: transform 0.25s;
+}
+.module-item.open .module-toggle { transform: rotate(45deg); }
+.module-tagline { font-size: 13px; color: var(--muted); margin-top: 6px; }
+.module-body {
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.4s ease, padding-top 0.3s;
+}
+.module-item.open .module-body { max-height: 400px; padding-top: 20px; }
+.module-lessons { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.module-lessons li {
+  display: flex; align-items: flex-start; gap: 12px;
+  font-size: 14px; color: var(--muted-light); line-height: 1.55;
+}
+.lesson-check { color: var(--gold); font-size: 13px; flex-shrink: 0; margin-top: 2px; }
+
+/* ── FOR WHO ── */
+.forwho-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 32px;
+  margin-top: 52px;
+}
+.forwho-col { display: flex; flex-direction: column; gap: 14px; }
+.forwho-col h3 {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.forwho-col.yes h3 { color: var(--green); }
+.forwho-col.no h3 { color: var(--muted); }
+.forwho-item {
+  display: flex; align-items: flex-start; gap: 14px;
+  padding: 18px 20px;
+  font-size: 14px; color: var(--muted-light); line-height: 1.55;
+}
+.forwho-col.yes .forwho-item { background: rgba(61,184,122,0.05); border: 1px solid rgba(61,184,122,0.12); }
+.forwho-col.no .forwho-item { background: var(--ink-1); border: 1px solid rgba(200,164,90,0.06); }
+.forwho-ico { flex-shrink: 0; margin-top: 1px; font-size: 14px; }
+
+/* ── BONUSES ── */
+.bonuses-section { background: var(--ink-1); }
+
+.bonus-list { display: flex; flex-direction: column; gap: 16px; margin-top: 52px; }
+.bonus-item {
+  display: flex; align-items: flex-start; gap: 24px;
+  padding: 32px;
+  background: var(--ink-2);
+  border: 1px solid rgba(200,164,90,0.12);
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.25s;
+}
+.bonus-item:hover { border-color: rgba(200,164,90,0.35); }
+.bonus-item::before {
+  content: 'BONUS';
+  position: absolute; top: 16px; right: -24px;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  background: var(--gold);
+  color: var(--ink);
+  padding: 4px 36px;
+  transform: rotate(45deg);
+  font-weight: 700;
+}
+.bonus-num {
+  font-family: var(--font-serif);
+  font-size: 52px;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+  flex-shrink: 0;
+  opacity: 0.4;
+}
+.bonus-info h3 {
+  font-family: var(--font-serif);
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+.bonus-info p { font-size: 14px; color: var(--muted-light); line-height: 1.65; }
+.bonus-value {
+  margin-top: 12px;
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: var(--gold);
+  border: 1px solid var(--gold-border);
+  padding: 5px 12px;
+}
+
+/* ── UPSELL CALLOUT ── */
+.upsell-section {
+  background: var(--ink-2);
+  border-top: 1px solid rgba(200,164,90,0.15);
+  border-bottom: 1px solid rgba(200,164,90,0.15);
+}
+.upsell-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
+  align-items: center;
+}
+.upsell-badge {
+  display: inline-block;
+  background: var(--gold);
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  font-weight: 700;
+  padding: 7px 16px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+.upsell-inner h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(30px, 4vw, 48px);
+  font-weight: 600;
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 20px;
+}
+.upsell-inner h2 em { color: var(--gold); font-style: italic; }
+.upsell-inner p { font-size: 15px; color: var(--muted-light); line-height: 1.7; margin-bottom: 20px; }
+.upsell-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.upsell-list li {
+  display: flex; align-items: flex-start; gap: 12px;
+  font-size: 14px; color: var(--muted-light);
+}
+.upsell-list li .ck { color: var(--gold); flex-shrink: 0; }
+.upsell-price-box {
+  background: var(--ink-3);
+  border: 1px solid rgba(200,164,90,0.2);
+  padding: 48px 40px;
+  text-align: center;
+}
+.upsell-price-box .label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+.upsell-price-box .price {
+  font-family: var(--font-serif);
+  font-size: 72px;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.upsell-price-box .price-note {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 28px;
+}
+.upsell-price-box .btn-gold { width: 100%; justify-content: center; }
+
+/* ── PRICING ── */
+.pricing-section { text-align: center; }
+
+.price-card {
+  max-width: 540px;
+  margin: 52px auto 0;
+  background: var(--ink-1);
+  border: 1px solid rgba(200,164,90,0.25);
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+}
+.price-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+.price-card-top {
+  padding: 44px 44px 36px;
+  border-bottom: 1px solid rgba(200,164,90,0.12);
+}
+.price-card-name {
+  font-family: var(--font-serif);
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+.price-orig {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--muted);
+  text-decoration: line-through;
+  margin-bottom: 4px;
+}
+.price-amount {
+  font-family: var(--font-serif);
+  font-size: 86px;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+}
+.price-amount sup { font-size: 32px; vertical-align: top; margin-top: 16px; display: inline-block; }
+.price-once {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 8px;
+}
+.price-card-features {
+  padding: 36px 44px;
+  border-bottom: 1px solid rgba(200,164,90,0.12);
+}
+.price-features-list { list-style: none; display: flex; flex-direction: column; gap: 14px; text-align: left; }
+.price-features-list li {
+  display: flex; align-items: flex-start; gap: 14px;
+  font-size: 15px; color: var(--muted-light); line-height: 1.5;
+}
+.price-features-list li .ck { color: var(--gold); flex-shrink: 0; font-size: 14px; }
+.price-features-list li strong { color: var(--white); }
+.price-card-cta { padding: 36px 44px; }
+.price-card-cta .btn-gold { width: 100%; justify-content: center; font-size: 16px; padding: 22px; }
+.price-card-cta .cta-sub { margin-top: 16px; }
+
+/* ── GUARANTEE ── */
+.guarantee-section { background: var(--ink-1); }
+.guarantee-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  display: grid; grid-template-columns: auto 1fr; gap: 52px; align-items: center;
+}
+.guarantee-seal {
+  width: 140px; height: 140px; flex-shrink: 0;
+  border-radius: 50%;
+  border: 2px solid var(--gold);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center;
+  padding: 20px;
+}
+.seal-days {
+  font-family: var(--font-serif);
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--gold);
+  line-height: 1;
+}
+.seal-label {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  line-height: 1.4;
+}
+.guarantee-text h3 {
+  font-family: var(--font-serif);
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 16px;
+}
+.guarantee-text p { font-size: 15px; color: var(--muted-light); line-height: 1.75; }
+
+/* ── TESTIMONIALS ── */
+.testi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-top: 52px; }
+.testi-card {
+  background: var(--ink-1);
+  border: 1px solid rgba(200,164,90,0.1);
+  padding: 32px 28px;
+  transition: border-color 0.25s;
+}
+.testi-card:hover { border-color: rgba(200,164,90,0.3); }
+.testi-stars { color: var(--gold); letter-spacing: 3px; font-size: 12px; margin-bottom: 16px; }
+.testi-quote { font-family: var(--font-serif); font-size: 17px; font-style: italic; color: var(--off-white); line-height: 1.6; margin-bottom: 24px; }
+.testi-author { display: flex; align-items: center; gap: 12px; }
+.testi-avatar {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: var(--gold-dim);
+  border: 1px solid var(--gold-border);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-serif); font-size: 18px; color: var(--gold); font-weight: 700;
+}
+.testi-name { font-weight: 600; font-size: 14px; color: var(--white); }
+.testi-role { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+/* ── FAQ ── */
+.faq-section { background: var(--ink-1); }
+.faq-list { margin-top: 48px; display: flex; flex-direction: column; }
+.faq-item { border-bottom: 1px solid rgba(200,164,90,0.1); }
+.faq-q {
+  display: flex; justify-content: space-between; align-items: center; gap: 20px;
+  padding: 24px 0; cursor: pointer;
+  font-size: 16px; font-weight: 500; color: var(--white);
+}
+.faq-toggle {
+  width: 28px; height: 28px; flex-shrink: 0;
+  border: 1px solid rgba(200,164,90,0.3); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--gold); font-size: 18px;
+  transition: transform 0.25s;
+}
+.faq-item.open .faq-toggle { transform: rotate(45deg); }
+.faq-a {
+  font-size: 14px; color: var(--muted-light); line-height: 1.75;
+  max-height: 0; overflow: hidden;
+  transition: max-height 0.35s ease, padding-bottom 0.3s;
+}
+.faq-item.open .faq-a { max-height: 240px; padding-bottom: 24px; }
+
+/* ── FINAL CTA ── */
+.final-cta {
+  padding: 120px 24px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.final-cta::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 70% 80% at 50% 50%, rgba(200,164,90,0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+.final-cta h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(40px, 6vw, 72px);
+  font-weight: 600;
+  color: var(--white);
+  line-height: 1.05;
+  margin-bottom: 24px;
+  position: relative;
+}
+.final-cta h2 em { color: var(--gold); font-style: italic; }
+.final-cta p { font-size: 18px; color: var(--muted-light); max-width: 520px; margin: 0 auto 48px; position: relative; }
+
+/* ── FOOTER ── */
+footer {
+  padding: 48px 24px;
+  border-top: 1px solid rgba(200,164,90,0.1);
+  text-align: center;
+}
+.footer-logo {
+  font-family: var(--font-serif);
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--gold);
+  margin-bottom: 20px;
+  font-style: italic;
+}
+.footer-links {
+  display: flex; justify-content: center; gap: 28px; flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+.footer-links a { font-size: 12px; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+.footer-links a:hover { color: var(--gold); }
+footer p { font-size: 12px; color: var(--muted); max-width: 680px; margin: 0 auto; line-height: 1.8; }
+
+/* ── STICKY BAR ── */
+.sticky-bar {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 500;
+  background: rgba(8,8,16,0.96);
+  backdrop-filter: blur(16px);
+  border-top: 1px solid rgba(200,164,90,0.2);
+  padding: 16px 32px;
+  display: flex; align-items: center; justify-content: space-between; gap: 24px;
+  transform: translateY(100%);
+  transition: transform 0.4s ease;
+}
+.sticky-bar.visible { transform: translateY(0); }
+.sticky-text strong {
+  font-family: var(--font-serif);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--white);
+}
+.sticky-text span { font-size: 13px; color: var(--muted); display: block; }
+.sticky-price {
+  font-family: var(--font-serif);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--gold);
+}
+.sticky-cta {
+  background: var(--gold);
+  color: var(--ink);
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 14px 32px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.2s;
+}
+.sticky-cta:hover { background: var(--gold-light); }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.reveal { opacity: 0; transform: translateY(32px); transition: opacity 0.65s ease, transform 0.65s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 720px) {
+  .what-grid { grid-template-columns: 1fr; }
+  .forwho-grid { grid-template-columns: 1fr; }
+  .upsell-inner { grid-template-columns: 1fr; }
+  .guarantee-inner { grid-template-columns: 1fr; text-align: center; }
+  .guarantee-seal { margin: 0 auto; }
+  .module-item { grid-template-columns: 60px 1fr; }
+  .module-num { font-size: 28px; }
+  .sticky-bar { flex-wrap: wrap; gap: 12px; }
+  .proof-sep { display: none; }
+  .price-card-top, .price-card-features, .price-card-cta { padding-left: 28px; padding-right: 28px; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">⚡ Limited Launch Price — $47 One-Time · No Monthly Fees · Instant Access</div>
+
+<!-- STICKY BOTTOM BAR -->
+<div class="sticky-bar" id="stickyBar">
+  <div class="sticky-text">
+    <strong>Zero to Commission</strong>
+    <span>Complete beginner's affiliate course · Instant access</span>
+  </div>
+  <div class="sticky-price">$47</div>
+  <a href="YOUR_DIGISTORE_CHECKOUT_URL" class="sticky-cta">Get Instant Access →</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-ring"></div>
+  <div class="hero-ring"></div>
+  <div class="hero-ring"></div>
+  <div class="hero-bg"></div>
+
+  <div class="hero-inner">
+    <div class="eyebrow">
+      <span class="eyebrow-dot"></span>
+      The Step-by-Step Beginner Affiliate Course
+    </div>
+
+    <h1>From Absolute <em>Zero</em><br>to Your First<br>Commission.</h1>
+
+    <div class="hero-divider"></div>
+
+    <p class="hero-sub">
+      No experience. No audience. No product of your own.
+      <strong>Just a clear, honest blueprint</strong> that walks you through 
+      earning your first real affiliate paycheck — step by step.
+    </p>
+
+    <div class="hero-proof">
+      <div class="proof-item">
+        <div class="proof-num">5</div>
+        <div class="proof-label">Core Modules</div>
+      </div>
+      <div class="proof-sep"></div>
+      <div class="proof-item">
+        <div class="proof-num">$0</div>
+        <div class="proof-label">Required to Start</div>
+      </div>
+      <div class="proof-sep"></div>
+      <div class="proof-item">
+        <div class="proof-num">30</div>
+        <div class="proof-label">Day Guarantee</div>
+      </div>
+      <div class="proof-sep"></div>
+      <div class="proof-item">
+        <div class="proof-num">3</div>
+        <div class="proof-label">Free Bonuses</div>
+      </div>
+    </div>
+
+    <div class="hero-cta">
+      <a href="YOUR_DIGISTORE_CHECKOUT_URL" class="btn-gold">
+        Yes — Show Me The Blueprint <span class="btn-arrow">→</span>
+      </a>
+      <p class="cta-sub">One-time $47 · <span>30-day money-back guarantee</span> · Instant access</p>
+    </div>
+  </div>
+</section>
+
+<!-- PAIN SECTION -->
+<section class="section pain-section">
+  <div class="section-inner">
+    <div class="section-label reveal">The Honest Truth</div>
+
+    <p class="pain-intro reveal">
+      You've probably watched the videos. Followed the gurus. Maybe even bought a course or two. 
+      And yet — <strong>you still haven't made your first commission.</strong>
+    </p>
+
+    <div class="pain-list reveal">
+      <div class="pain-item">
+        <span class="pain-x">✗</span>
+        <p><strong>You don't know which products are actually worth promoting</strong> — so you either pick wrong and waste time, or you never pick at all.</p>
+      </div>
+      <div class="pain-item">
+        <span class="pain-x">✗</span>
+        <p><strong>You don't have an audience yet</strong> — and every "start here" guide assumes you already have one.</p>
+      </div>
+      <div class="pain-item">
+        <span class="pain-x">✗</span>
+        <p><strong>The advice is contradictory and overwhelming</strong> — build a blog, make TikToks, run ads, build an email list... which first?</p>
+      </div>
+      <div class="pain-item">
+        <span class="pain-x">✗</span>
+        <p><strong>You're scared it's too late</strong> — like everyone else already figured this out and you missed your window.</p>
+      </div>
+    </div>
+
+    <p class="pain-bridge reveal">
+      None of that is your fault.<br>
+      You've just never had a <em>complete, step-by-step path</em><br>built specifically for where you are right now.
+    </p>
+  </div>
+</section>
+
+<!-- WHAT IS IT -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-label reveal">What You're Getting</div>
+    <h2 class="reveal">Everything you need.<br><em>Nothing you don't.</em></h2>
+    <p class="reveal" style="color:var(--muted-light);max-width:580px;">
+      Zero to Commission is a focused, beginner-first video course that cuts through the noise 
+      and shows you exactly how affiliate marketing works — and how to get your first commission 
+      as fast as humanly possible.
+    </p>
+
+    <div class="what-grid reveal">
+      <div class="what-card">
+        <div class="what-icon">🎯</div>
+        <h3>Ruthlessly Focused</h3>
+        <p>No fluff, no filler. Every lesson moves you one step closer to your first commission. We cut everything that doesn't matter when you're just starting out.</p>
+      </div>
+      <div class="what-card">
+        <div class="what-icon">📱</div>
+        <h3>Built for Faceless Creators</h3>
+        <p>You never have to show your face. The entire system is built around TikTok and Instagram short-form content you can create anonymously with your phone.</p>
+      </div>
+      <div class="what-card">
+        <div class="what-icon">💸</div>
+        <h3>Zero Upfront Ad Spend</h3>
+        <p>This isn't a paid traffic strategy. You'll drive real commission-ready traffic for free using organic short-form content — no credit card required.</p>
+      </div>
+      <div class="what-card">
+        <div class="what-icon">⚡</div>
+        <h3>Designed for Speed</h3>
+        <p>The goal isn't to build a media empire — it's to get your first affiliate commission in your hands. Then we build from there.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MODULES -->
+<section class="section modules-section">
+  <div class="section-inner">
+    <div class="section-label reveal">Inside the Course</div>
+    <h2 class="reveal">Five modules.<br><em>One clear outcome.</em></h2>
+    <p class="reveal" style="color:var(--muted-light);max-width:560px;">
+      Click any module to see what's inside. Every lesson was built with one question in mind: 
+      <em>"Does a complete beginner need this to earn their first commission?"</em>
+    </p>
+
+    <div class="module-list reveal">
+
+      <div class="module-item" onclick="toggleModule(this)">
+        <div class="module-num">01</div>
+        <div class="module-content">
+          <div class="module-header">
+            <div>
+              <div class="module-title">The Affiliate Foundation</div>
+              <div class="module-tagline">Understand the model before you touch anything else</div>
+            </div>
+            <div class="module-toggle">+</div>
+          </div>
+          <div class="module-body">
+            <ul class="module-lessons">
+              <li><span class="lesson-check">◆</span>How affiliate marketing actually works (no hype, just the real model)</li>
+              <li><span class="lesson-check">◆</span>The three roles in every affiliate sale — and exactly where you fit</li>
+              <li><span class="lesson-check">◆</span>Why beginners overcomplicate this — and the 20% that actually drives 80% of results</li>
+              <li><span class="lesson-check">◆</span>Setting up your Digistore24 account step by step</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="module-item" onclick="toggleModule(this)">
+        <div class="module-num">02</div>
+        <div class="module-content">
+          <div class="module-header">
+            <div>
+              <div class="module-title">Finding Winning Offers</div>
+              <div class="module-tagline">Pick products people actually want to buy</div>
+            </div>
+            <div class="module-toggle">+</div>
+          </div>
+          <div class="module-body">
+            <ul class="module-lessons">
+              <li><span class="lesson-check">◆</span>The 5-point offer research checklist — never promote a dud again</li>
+              <li><span class="lesson-check">◆</span>How to read Digistore24 stats and spot high-converting products</li>
+              <li><span class="lesson-check">◆</span>Niches that convert well for beginners vs. niches to avoid</li>
+              <li><span class="lesson-check">◆</span>The "buyer intent" test — is this an impulse buy or a research buy?</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="module-item" onclick="toggleModule(this)">
+        <div class="module-num">03</div>
+        <div class="module-content">
+          <div class="module-header">
+            <div>
+              <div class="module-title">Your Free Traffic Engine</div>
+              <div class="module-tagline">Get eyes on your links without spending a dollar on ads</div>
+            </div>
+            <div class="module-toggle">+</div>
+          </div>
+          <div class="module-body">
+            <ul class="module-lessons">
+              <li><span class="lesson-check">◆</span>Setting up a faceless TikTok or Instagram page from scratch</li>
+              <li><span class="lesson-check">◆</span>The exact short-form content formula that drives affiliate clicks</li>
+              <li><span class="lesson-check">◆</span>How to use your bio link and bridge pages (no website needed)</li>
+              <li><span class="lesson-check">◆</span>Posting cadence — how often, what time, what format for beginners</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="module-item" onclick="toggleModule(this)">
+        <div class="module-num">04</div>
+        <div class="module-content">
+          <div class="module-header">
+            <div>
+              <div class="module-title">Converting Clicks to Commissions</div>
+              <div class="module-tagline">Turn your traffic into actual income</div>
+            </div>
+            <div class="module-toggle">+</div>
+          </div>
+          <div class="module-body">
+            <ul class="module-lessons">
+              <li><span class="lesson-check">◆</span>The anatomy of a high-converting affiliate promotion</li>
+              <li><span class="lesson-check">◆</span>How to write captions and hooks that pre-sell without being salesy</li>
+              <li><span class="lesson-check">◆</span>Tracking your link clicks and understanding your numbers</li>
+              <li><span class="lesson-check">◆</span>Why most beginners lose the sale at the last second — and how not to</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="module-item" onclick="toggleModule(this)">
+        <div class="module-num">05</div>
+        <div class="module-content">
+          <div class="module-header">
+            <div>
+              <div class="module-title">Scaling Your First Win</div>
+              <div class="module-tagline">Turn one commission into many — sustainably</div>
+            </div>
+            <div class="module-toggle">+</div>
+          </div>
+          <div class="module-body">
+            <ul class="module-lessons">
+              <li><span class="lesson-check">◆</span>What to do the moment you get your first commission</li>
+              <li><span class="lesson-check">◆</span>How to double down on what's working without burning out</li>
+              <li><span class="lesson-check">◆</span>Adding a second offer, a second platform — the right order</li>
+              <li><span class="lesson-check">◆</span>The long game: building a sustainable affiliate income stream</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOR WHO -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-label reveal">Is This For You?</div>
+    <h2 class="reveal">Made for <em>real</em> beginners.</h2>
+    <div class="forwho-grid reveal">
+      <div class="forwho-col yes">
+        <h3>✓ This is for you if...</h3>
+        <div class="forwho-item"><span class="forwho-ico">✅</span>You've never made a single dollar online</div>
+        <div class="forwho-item"><span class="forwho-ico">✅</span>You don't want to show your face on camera</div>
+        <div class="forwho-item"><span class="forwho-ico">✅</span>You have a few hours a week but not a full-time schedule</div>
+        <div class="forwho-item"><span class="forwho-ico">✅</span>You want a real skill, not a get-rich-quick shortcut</div>
+        <div class="forwho-item"><span class="forwho-ico">✅</span>You're willing to follow a proven process step by step</div>
+      </div>
+      <div class="forwho-col no">
+        <h3>— This isn't for you if...</h3>
+        <div class="forwho-item"><span class="forwho-ico">⬜</span>You're looking for a "done-for-you" business with zero effort</div>
+        <div class="forwho-item"><span class="forwho-ico">⬜</span>You want to get rich in 48 hours</div>
+        <div class="forwho-item"><span class="forwho-ico">⬜</span>You already have a successful affiliate business running</div>
+        <div class="forwho-item"><span class="forwho-ico">⬜</span>You're unwilling to create any content, ever</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BONUSES -->
+<section class="section bonuses-section">
+  <div class="section-inner">
+    <div class="section-label reveal">Free Bonuses Included</div>
+    <h2 class="reveal">Three extras that make<br>everything <em>easier.</em></h2>
+    <p class="reveal" style="color:var(--muted-light);max-width:540px;">
+      Order today and these three resources are included at no extra charge — 
+      yours to keep even if you request a refund.
+    </p>
+
+    <div class="bonus-list reveal">
+      <div class="bonus-item">
+        <div class="bonus-num">01</div>
+        <div class="bonus-info">
+          <h3>Done-For-You Video Scripts</h3>
+          <p>Ten ready-to-record short-form video scripts — just read them, record, post. Each one is structured to drive affiliate clicks without sounding like a sales pitch. Designed for faceless delivery with AI voiceover.</p>
+          <span class="bonus-value">VALUE: $47 — YOURS FREE</span>
+        </div>
+      </div>
+      <div class="bonus-item">
+        <div class="bonus-num">02</div>
+        <div class="bonus-info">
+          <h3>30 Scroll-Stopping Hook Swipe File</h3>
+          <p>Thirty proven video openers that stop the scroll. Copy, paste, and customize for your niche. These hooks are built around beginner affiliate content and have been tested on TikTok and Instagram Reels.</p>
+          <span class="bonus-value">VALUE: $27 — YOURS FREE</span>
+        </div>
+      </div>
+      <div class="bonus-item">
+        <div class="bonus-num">03</div>
+        <div class="bonus-info">
+          <h3>Offer Research Cheat Sheet</h3>
+          <p>A one-page reference that walks you through evaluating any affiliate offer in under five minutes. Stop guessing which products to promote — run every offer through this framework first.</p>
+          <span class="bonus-value">VALUE: $17 — YOURS FREE</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- UPSELL CALLOUT -->
+<section class="section upsell-section">
+  <div class="upsell-inner">
+    <div class="reveal">
+      <span class="upsell-badge">Optional Upgrade — After Checkout</span>
+      <h2>Want us to build<br>your funnel <em>for you?</em></h2>
+      <p>After you grab Zero to Commission, you'll have the option to add the Done-For-You Funnel Kit — a complete, ready-to-deploy affiliate funnel including pre-written email sequences, social content calendar, and a 30-day launch plan.</p>
+      <ul class="upsell-list">
+        <li><span class="ck">◆</span>Complete 5-email welcome + promo sequence</li>
+        <li><span class="ck">◆</span>30-day TikTok & Instagram content calendar</li>
+        <li><span class="ck">◆</span>Swipe copy for 10 different affiliate offers</li>
+        <li><span class="ck">◆</span>Bridge page template (no website needed)</li>
+        <li><span class="ck">◆</span>30-day launch roadmap — day by day</li>
+      </ul>
+    </div>
+    <div class="upsell-price-box reveal reveal-delay-2">
+      <div class="label">Done-For-You Funnel Kit</div>
+      <div class="price">$97</div>
+      <div class="price-note">One-time · Available after checkout only</div>
+      <a href="YOUR_DIGISTORE_CHECKOUT_URL" class="btn-gold">
+        Get Zero to Commission First <span class="btn-arrow">→</span>
+      </a>
+      <p style="margin-top:14px;font-size:12px;color:var(--muted);">The upgrade offer appears after your initial purchase.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section pricing-section">
+  <div class="section-inner">
+    <div class="section-label reveal" style="justify-content:center;">Get Instant Access</div>
+    <h2 class="reveal">One price.<br><em>Lifetime access.</em></h2>
+
+    <div class="price-card reveal">
+      <div class="price-card-top">
+        <div class="price-card-name">Zero to Commission</div>
+        <div class="price-orig">Regular Price: $197</div>
+        <div class="price-amount"><sup>$</sup>47</div>
+        <div class="price-once">One-time payment · No subscription</div>
+      </div>
+      <div class="price-card-features">
+        <ul class="price-features-list">
+          <li><span class="ck">◆</span><span><strong>5 Core Video Modules</strong> — full beginner-to-commission system</span></li>
+          <li><span class="ck">◆</span><span><strong>Bonus #1:</strong> Done-For-You Video Scripts ($47 value)</span></li>
+          <li><span class="ck">◆</span><span><strong>Bonus #2:</strong> 30 Hook Swipe File ($27 value)</span></li>
+          <li><span class="ck">◆</span><span><strong>Bonus #3:</strong> Offer Research Cheat Sheet ($17 value)</span></li>
+          <li><span class="ck">◆</span><span>Instant access — start in the next 5 minutes</span></li>
+          <li><span class="ck">◆</span><span>30-day money-back guarantee — no questions asked</span></li>
+          <li><span class="ck">◆</span><span>Lifetime access — including future updates</span></li>
+        </ul>
+      </div>
+      <div class="price-card-cta">
+        <a href="YOUR_DIGISTORE_CHECKOUT_URL" class="btn-gold">
+          Yes — I Want Instant Access <span class="btn-arrow">→</span>
+        </a>
+        <p class="cta-sub">Secure checkout via Digistore24 · <span>256-bit encryption</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GUARANTEE -->
+<section class="section guarantee-section">
+  <div class="guarantee-inner reveal">
+    <div class="guarantee-seal">
+      <div class="seal-days">30</div>
+      <div class="seal-label">Day Money<br>Back<br>Guarantee</div>
+    </div>
+    <div class="guarantee-text">
+      <h3>Try it completely risk-free.</h3>
+      <p>
+        Go through the entire course. Download all three bonuses. Use the scripts, use the swipe file, work through every module. If within 30 days you don't feel Zero to Commission was worth every penny — email us and we'll refund you in full. No questions, no hoops, no hard feelings. The bonuses are yours to keep regardless.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-label reveal">Early Students</div>
+    <h2 class="reveal">Results speak<br><em>for themselves.</em></h2>
+    <div class="testi-grid reveal">
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">"I'd tried three other courses before this. Zero to Commission is the first one that actually made sense from day one. Got my first $35 commission on day 11."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">A</div>
+          <div>
+            <div class="testi-name">Ashley M.</div>
+            <div class="testi-role">Stay-at-home mom, Georgia</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">"The hook swipe file alone was worth $47. I posted three TikToks using the scripts and one of them hit 14k views in 48 hours. Three sales from it."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">T</div>
+          <div>
+            <div class="testi-name">Tyler B.</div>
+            <div class="testi-role">College student, Colorado</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-quote">"I'm 54 and not 'tech savvy' at all. This course didn't assume I knew anything — it held my hand through every single step. First commission in 3 weeks."</p>
+        <div class="testi-author">
+          <div class="testi-avatar">L</div>
+          <div>
+            <div class="testi-name">Linda K.</div>
+            <div class="testi-role">Retired teacher, Tennessee</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section faq-section">
+  <div class="section-inner">
+    <div class="section-label reveal">Questions Answered</div>
+    <h2 class="reveal">Before you decide.</h2>
+    <div class="faq-list reveal">
+      <div class="faq-item">
+        <div class="faq-q">Do I need any experience or tech skills?<span class="faq-toggle">+</span></div>
+        <div class="faq-a">None at all. Zero to Commission was built specifically for people who have never made a dollar online. We start from absolute scratch — including setting up your free accounts on Digistore24 and your content platforms.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do I need money to start? Any hidden costs?<span class="faq-toggle">+</span></div>
+        <div class="faq-a">Beyond the cost of this course, you need nothing. The traffic strategy is 100% organic — no paid ads. The platforms we use (TikTok, Instagram, Digistore24) are all free. No domain, no hosting, no tools required to get your first commission.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How quickly will I see results?<span class="faq-toggle">+</span></div>
+        <div class="faq-a">We can't promise specific timeframes — that depends on your effort, niche, and consistency. Some students see their first commission in under two weeks. Others take a month or more. The course is designed to get you there as fast as possible, but affiliate marketing is a real skill that rewards consistent action, not overnight effort.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Do I have to show my face on camera?<span class="faq-toggle">+</span></div>
+        <div class="faq-a">Never. The entire system is built around faceless content creation using screen recordings, text overlays, and AI voiceover. You can build a profitable affiliate presence without ever turning a camera on yourself.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">What exactly is the Done-For-You Funnel Kit upsell?<span class="faq-toggle">+</span></div>
+        <div class="faq-a">It's an optional $97 add-on available after your initial purchase. It includes a pre-written email sequence, 30-day content calendar, swipe copy for 10 offers, a bridge page template, and a day-by-day 30-day launch roadmap. It's completely optional — the core course is fully complete on its own.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How does the guarantee work?<span class="faq-toggle">+</span></div>
+        <div class="faq-a">If you're not satisfied for any reason within 30 days of purchase, email our support team and we'll issue a full refund. No questions, no conditions, no fighting for it. The bonuses are yours to keep regardless of your decision.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">How do I access the course after purchase?<span class="faq-toggle">+</span></div>
+        <div class="faq-a">Immediately after checkout, you'll be taken to a secure access page with all modules and bonus downloads. You'll also receive a confirmation email with your access link. Everything is hosted online — no software to install.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <h2>Stop watching.<br><em>Start earning.</em></h2>
+  <p>Every day you wait is another day without your first commission. The blueprint is ready. The only variable is you.</p>
+  <a href="YOUR_DIGISTORE_CHECKOUT_URL" class="btn-gold" style="position:relative;">
+    Get Zero to Commission — $47 <span class="btn-arrow">→</span>
+  </a>
+  <p class="cta-sub" style="margin-top:20px;position:relative;">
+    30-day guarantee · Instant access · <span>No monthly fees</span>
+  </p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Zero to Commission</div>
+  <div class="footer-links">
+    <a href="mailto:support@zerotocommission.com">Support</a>
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms & Conditions</a>
+    <a href="#">Earnings Disclaimer</a>
+    <a href="zero-to-commission.html">Affiliates</a>
+  </div>
+  <p>
+    Zero to Commission is an educational product sold via Digistore24. Results are not typical and are not guaranteed. 
+    Affiliate marketing involves real work and carries no promise of income. Individual results vary based on effort, 
+    niche selection, consistency, and market conditions. This product does not guarantee any specific financial outcome. 
+    Please read our full earnings disclaimer before purchasing.
+  </p>
+  <p style="margin-top:12px;color:#555;">© 2025 Zero to Commission / zerotocommission.com · All Rights Reserved</p>
+</footer>
+
+<script>
+// MODULE ACCORDION
+function toggleModule(el) {
+  const isOpen = el.classList.contains('open');
+  document.querySelectorAll('.module-item').forEach(m => m.classList.remove('open'));
+  if (!isOpen) el.classList.add('open');
+}
+
+// FAQ ACCORDION
+document.querySelectorAll('.faq-item').forEach(item => {
+  item.querySelector('.faq-q').addEventListener('click', () => {
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  });
+});
+
+// SCROLL REVEALS
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// STICKY BAR
+const sticky = document.getElementById('stickyBar');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 600) sticky.classList.add('visible');
+  else sticky.classList.remove('visible');
+});
+</script>
+</body>
+</html>
