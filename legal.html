@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Legal Information — Zero to Commission</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,400;1,600&family=Outfit:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #C8A45A;
+  --gold-light: #E2C47E;
+  --gold-dim: rgba(200,164,90,0.12);
+  --gold-border: rgba(200,164,90,0.22);
+  --ink: #080810;
+  --ink-1: #0F0F1A;
+  --ink-2: #161622;
+  --off-white: #F4F0E8;
+  --white: #FDFCFA;
+  --muted: #7A7A90;
+  --muted-light: #A8A8B8;
+  --font-serif: 'Cormorant Garamond', serif;
+  --font-sans: 'Outfit', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--ink); color: var(--off-white); font-family: var(--font-sans); font-size: 16px; line-height: 1.75; }
+
+.topbar {
+  background: var(--ink-1);
+  border-bottom: 1px solid var(--gold-border);
+  padding: 14px 32px;
+  display: flex; align-items: center; justify-content: space-between;
+  position: sticky; top: 0; z-index: 100;
+}
+.topbar-back {
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em;
+  color: var(--gold); text-decoration: none; text-transform: uppercase;
+  border: 1px solid var(--gold-border); padding: 8px 16px; transition: all 0.2s;
+}
+.topbar-back:hover { background: var(--gold-dim); }
+
+.page { max-width: 760px; margin: 0 auto; padding: 64px 24px 100px; }
+
+.page-eyebrow {
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--gold);
+  display: flex; align-items: center; gap: 10px; margin-bottom: 16px;
+}
+.page-eyebrow::before { content: ''; width: 20px; height: 1px; background: var(--gold); }
+
+h1 {
+  font-family: var(--font-serif); font-size: clamp(32px, 5vw, 52px);
+  font-weight: 600; color: var(--white); line-height: 1.05; margin-bottom: 40px;
+}
+
+.section-block {
+  background: var(--ink-1);
+  border: 1px solid var(--gold-border);
+  padding: 36px 40px;
+  margin-bottom: 24px;
+  position: relative;
+  overflow: hidden;
+}
+.section-block::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+.section-block h2 {
+  font-family: var(--font-serif); font-size: 22px; font-weight: 600;
+  color: var(--white); margin-bottom: 20px;
+  display: flex; align-items: center; gap: 10px;
+}
+.section-block h2::before {
+  content: ''; width: 16px; height: 1px; background: var(--gold); flex-shrink: 0;
+}
+
+.info-row {
+  display: grid; grid-template-columns: 180px 1fr; gap: 8px 24px;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(200,164,90,0.07);
+  align-items: start;
+}
+.info-row:last-child { border-bottom: none; }
+.info-label {
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--muted); padding-top: 2px;
+}
+.info-value { font-size: 15px; color: var(--off-white); }
+.info-value a { color: var(--gold); text-decoration: none; }
+.info-value a:hover { text-decoration: underline; }
+
+.prose { font-size: 14px; color: var(--muted-light); line-height: 1.8; }
+.prose p { margin-bottom: 16px; }
+.prose p:last-child { margin-bottom: 0; }
+.prose strong { color: var(--off-white); }
+
+.divider { height: 1px; background: rgba(200,164,90,0.1); margin: 40px 0; }
+
+footer {
+  text-align: center; padding: 32px 24px;
+  border-top: 1px solid rgba(200,164,90,0.08);
+  margin-top: 60px;
+}
+footer p { font-size: 12px; color: var(--muted); }
+footer a { color: var(--gold); text-decoration: none; }
+
+@media (max-width: 560px) {
+  .section-block { padding: 24px 20px; }
+  .info-row { grid-template-columns: 1fr; gap: 4px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="topbar">
+  <a href="index.html" class="topbar-back" style="text-decoration:none;display:inline-flex;align-items:center;gap:10px;">
+    <svg width="22" height="22" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <polygon points="14,1 27,8 27,20 14,27 1,20 1,8" fill="none" stroke="#C8A45A" stroke-width="1.4"/>
+      <polygon points="14,4.5 24,10 24,18 14,23.5 4,18 4,10" fill="rgba(200,164,90,0.08)" stroke="#C8A45A" stroke-width="0.6"/>
+      <path d="M15.8,8.5 L11.2,14.5 L14,14.5 L12.2,19.5 L17.8,13 L15,13 Z" fill="#C8A45A"/>
+    </svg>
+    <span style="font-family:'Cormorant Garamond',serif;font-size:17px;font-style:italic;color:#C8A45A;">Zero to Commission</span>
+  </a>
+  <a href="index.html" class="topbar-back">← Back to Sales Page</a>
+</nav>
+
+<div class="page">
+
+  <div class="page-eyebrow">Legal Information</div>
+  <h1>Company &amp; Legal<br>Information</h1>
+
+  <!-- COMPANY INFORMATION -->
+  <div class="section-block">
+    <h2>Company Information</h2>
+    <div class="info-row">
+      <span class="info-label">Business Owner</span>
+      <span class="info-value">Keath DesRochers</span>
+    </div>
+    <div class="info-row">
+      <span class="info-label">Trading Name</span>
+      <span class="info-value">Zero to Commission</span>
+    </div>
+    <div class="info-row">
+      <span class="info-label">Business Type</span>
+      <span class="info-value">Sole Proprietor / Individual</span>
+    </div>
+    <div class="info-row">
+      <span class="info-label">Address</span>
+      <!-- ⚠️ REPLACE WITH YOUR REAL ADDRESS BEFORE RESUBMITTING -->
+      <span class="info-value">
+        Jefferson St.<br>
+        Mansfield, LA<br>
+        United States
+      </span>
+    </div>
+    <div class="info-row">
+      <span class="info-label">Email</span>
+      <span class="info-value"><a href="mailto:support@zerotocommission.com">support@zerotocommission.com</a></span>
+    </div>
+    <div class="info-row">
+      <span class="info-label">Website</span>
+      <span class="info-value"><a href="https://zerotocommission.com">zerotocommission.com</a></span>
+    </div>
+    <div class="info-row">
+      <span class="info-label">VAT / Tax ID</span>
+      <!-- ⚠️ US sole proprietors: use your SSN or EIN. If you have no VAT, write "Not applicable — US-based individual" -->
+      <span class="info-value">Not applicable — US-based individual seller. Sales tax handled by Digistore24 as Merchant of Record.</span>
+    </div>
+    <div class="info-row">
+      <span class="info-label">Payment Processor</span>
+      <span class="info-value">Digistore24 Inc., 360 Central Avenue, Suite 800, St. Petersburg, FL 33701, USA</span>
+    </div>
+  </div>
+
+  <!-- PRODUCT INFORMATION -->
+  <div class="section-block">
+    <h2>Product Information</h2>
+    <div class="info-row">
+      <span class="info-label">Product Name</span>
+      <span class="info-value">Zero to Commission</span>
+    </div>
+    <div class="info-row">
+      <span class="info-label">Product Type</span>
+      <span class="info-value"><strong>Digital product</strong> — online video course delivered via a password-free access page. No physical item will be shipped.</span>
+    </div>
+    <div class="info-row">
+      <span class="info-label">Delivery Method</span>
+      <span class="info-value">Instant access. After purchase you are redirected to the course access page immediately. A confirmation email is also sent by Digistore24.</span>
+    </div>
+    <div class="info-row">
+      <span class="info-label">Price</span>
+      <span class="info-value">$47.00 USD — one-time payment, no subscription</span>
+    </div>
+    <div class="info-row">
+      <span class="info-label">Optional Upsell</span>
+      <span class="info-value">Done-For-You Funnel Kit — $97.00 USD, one-time payment. Offered after initial purchase. Separate product; not required to access the main course.</span>
+    </div>
+    <div class="info-row">
+      <span class="info-label">Billing Statement</span>
+      <span class="info-value">Your credit card or bank statement will show a charge from <strong>Digistore24</strong>.</span>
+    </div>
+  </div>
+
+  <!-- REFUND POLICY -->
+  <div class="section-block">
+    <h2>Refund &amp; Guarantee Policy</h2>
+    <div class="prose">
+      <p>
+        Zero to Commission offers a <strong>60-day money-back guarantee</strong>. If you are not satisfied with your purchase for any reason within 60 days of the original transaction date, contact us at <a href="mailto:support@zerotocommission.com">support@zerotocommission.com</a> and we will issue a full refund — no questions asked.
+      </p>
+      <p>
+        Refunds are processed through Digistore24 and typically appear within 5–10 business days depending on your bank or card issuer. The bonus materials are yours to keep regardless of your refund decision.
+      </p>
+      <p>
+        Please note: refund requests must be submitted within 60 days of purchase. After this period, refunds cannot be processed as Digistore24's system does not support reversals beyond 60 days.
+      </p>
+    </div>
+  </div>
+
+  <!-- EARNINGS DISCLAIMER -->
+  <div class="section-block">
+    <h2>Earnings Disclaimer</h2>
+    <div class="prose">
+      <p>
+        Zero to Commission is an educational course. Results from applying the methods taught in this course vary significantly based on individual effort, consistency, niche selection, market conditions, and other factors beyond our control.
+      </p>
+      <p>
+        <strong>We make no income guarantees.</strong> Any earnings figures referenced on this website are illustrative examples only and do not represent typical or guaranteed results. Most people who purchase online courses do not complete them or achieve significant results. Your results will depend entirely on your own work and decisions.
+      </p>
+      <p>
+        This product is intended for educational and informational purposes only. Nothing on this website constitutes financial, legal, or business advice.
+      </p>
+    </div>
+  </div>
+
+  <!-- PRIVACY POLICY -->
+  <div class="section-block">
+    <h2>Privacy Policy</h2>
+    <div class="prose">
+      <p>
+        When you purchase Zero to Commission, your payment and personal information is collected and processed by <strong>Digistore24 Inc.</strong> as the Merchant of Record. Please refer to Digistore24's Privacy Policy at <a href="https://www.digistore24.com/page/legal-notice" target="_blank" rel="noopener">digistore24.com</a> for details on how your transaction data is handled.
+      </p>
+      <p>
+        We collect your name and email address for the purpose of delivering your product access, providing customer support, and sending relevant product communications. We do not sell your personal data to third parties. You may opt out of marketing emails at any time using the unsubscribe link included in any email we send.
+      </p>
+    </div>
+  </div>
+
+  <!-- TERMS OF USE -->
+  <div class="section-block">
+    <h2>Terms of Use</h2>
+    <div class="prose">
+      <p>
+        By purchasing Zero to Commission, you agree to the following terms:
+      </p>
+      <p>
+        This product is licensed for personal use only. You may not redistribute, resell, share access, copy, reproduce, or create derivative works from any part of this course or its materials without prior written permission.
+      </p>
+      <p>
+        Zero to Commission is sold "as is." We reserve the right to update course content at any time. Access is provided for the lifetime of the product as hosted on zerotocommission.com.
+      </p>
+      <p>
+        For any questions regarding these terms, contact <a href="mailto:support@zerotocommission.com">support@zerotocommission.com</a>.
+      </p>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <p style="font-size:13px;color:var(--muted);text-align:center;line-height:1.7;">
+    This page constitutes the legal disclosure required under applicable consumer protection law and Digistore24's vendor terms of service.<br>
+    Last updated: May 2025 · <a href="index.html" style="color:var(--gold);text-decoration:none;">Return to Sales Page</a>
+  </p>
+
+</div>
+
+<footer>
+  <p>
+    © 2025 Zero to Commission / zerotocommission.com · All Rights Reserved ·
+    <a href="mailto:support@zerotocommission.com">support@zerotocommission.com</a>
+  </p>
+</footer>
+
+</body>
+</html>
