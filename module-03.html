@@ -233,24 +233,20 @@ body { background: var(--ink); color: var(--off-white); font-family: var(--font-
 
     <!-- VIDEO PLAYER -->
     <!-- ═══════════════════════════════════════════════════════
-         VIMEO EMBED — MODULE 03
-         HOW TO UPDATE:
-         1. Upload your video to Vimeo
-         2. Open the video in Vimeo → click Share → Embed
-         3. Copy the 8-9 digit number from the embed URL
-            e.g. https://player.vimeo.com/video/123456789 → ID is 123456789
-         4. Replace 1193423746 below with that number
-         5. Save and re-upload this file to GitHub
+         SYNTHESIA EMBED — MODULE 03
+         Video hosted on Synthesia (public share link).
+         To swap the video: replace the ID in the iframe src below,
+         then commit and push.
          ═══════════════════════════════════════════════════════ -->
     <div class="video-wrapper" style="position:relative;">
       <iframe
-        id="vimeo-module-03"
-        src="https://player.vimeo.com/video/1193423746?h=be527bbd3f&badge=0&autopause=0&player_id=0&app_id=58479&title=0&byline=0&portrait=0&color=C8A45A"
-        frameborder="0"
-        allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media"
+        id="synthesia-module-03"
+        src="https://share.synthesia.io/embeds/videos/f53d5619-4a11-48b9-8a83-c6917862774f"
+        loading="lazy"
+        allow="encrypted-media; fullscreen; microphone; screen-wake-lock;"
         allowfullscreen referrerpolicy="origin"
         title="Module 03: Your Free Traffic Engine — Zero to Commission"
-        style="position:absolute;top:0;left:0;width:100%;height:100%;">
+        style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;">
       </iframe>
     </div>
 
