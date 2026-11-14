@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Zero to Commission — Beginner Affiliate Marketing Course</title>
-<meta name="description" content="A beginner-friendly affiliate marketing course. Learn how affiliate marketing works and how to start promoting offers with free, organic content — no paid ads, no audience, no tech skills required. 60-day money-back guarantee. Results are not guaranteed.">
+<meta name="description" content="A beginner-friendly affiliate marketing course. Learn how affiliate marketing works and how to start promoting offers with free, organic content — no paid ads, no audience, no prior experience required. 60-day money-back guarantee. Results are not guaranteed.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://zerotocommission.com/">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -18,10 +18,9 @@
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Zero to Commission — Beginner Affiliate Marketing Course">
-<meta name="twitter:description" content="A beginner affiliate marketing course. No paid ads, no audience, no tech skills required. 60-day money-back guarantee. Results not guaranteed.">
+<meta name="twitter:description" content="A beginner affiliate marketing course. No paid ads, no audience, no prior experience required. 60-day money-back guarantee. Results not guaranteed.">
 <meta name="twitter:image" content="https://zerotocommission.com/og-image.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="fonts/fonts.css">
 <style>
 :root {
   --gold: #C8A45A;
@@ -482,75 +481,6 @@ body::after {
   padding: 5px 12px;
 }
 
-/* ── UPSELL CALLOUT ── */
-.upsell-section {
-  background: var(--ink-2);
-  border-top: 1px solid rgba(200,164,90,0.15);
-  border-bottom: 1px solid rgba(200,164,90,0.15);
-}
-.upsell-inner {
-  max-width: var(--max);
-  margin: 0 auto;
-  display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
-  align-items: center;
-}
-.upsell-badge {
-  display: inline-block;
-  background: var(--gold);
-  color: var(--ink);
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.18em;
-  font-weight: 700;
-  padding: 7px 16px;
-  margin-bottom: 20px;
-  text-transform: uppercase;
-}
-.upsell-inner h2 {
-  font-family: var(--font-serif);
-  font-size: clamp(30px, 4vw, 48px);
-  font-weight: 600;
-  color: var(--white);
-  line-height: 1.1;
-  margin-bottom: 20px;
-}
-.upsell-inner h2 em { color: var(--gold); font-style: italic; }
-.upsell-inner p { font-size: 15px; color: var(--muted-light); line-height: 1.7; margin-bottom: 20px; }
-.upsell-list { list-style: none; display: flex; flex-direction: column; gap: 12px; }
-.upsell-list li {
-  display: flex; align-items: flex-start; gap: 12px;
-  font-size: 14px; color: var(--muted-light);
-}
-.upsell-list li .ck { color: var(--gold); flex-shrink: 0; }
-.upsell-price-box {
-  background: var(--ink-3);
-  border: 1px solid rgba(200,164,90,0.2);
-  padding: 48px 40px;
-  text-align: center;
-}
-.upsell-price-box .label {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 16px;
-}
-.upsell-price-box .price {
-  font-family: var(--font-serif);
-  font-size: 72px;
-  font-weight: 700;
-  color: var(--gold);
-  line-height: 1;
-  margin-bottom: 8px;
-}
-.upsell-price-box .price-note {
-  font-size: 13px;
-  color: var(--muted);
-  margin-bottom: 28px;
-}
-.upsell-price-box .btn-gold { width: 100%; justify-content: center; }
-
 /* ── PRICING ── */
 .pricing-section { text-align: center; }
 
@@ -680,6 +610,16 @@ body::after {
 
 /* ── FAQ ── */
 .faq-section { background: var(--ink-1); }
+
+/* ── FREE CHECKLIST SIGNUP ── */
+.lead-section .section-inner { max-width: 640px; text-align: center; }
+.lead-section .section-label { justify-content: center; }
+.lead-section p { color: var(--muted-light); font-size: 16px; line-height: 1.8; }
+.lead-form { margin: 36px auto 0; max-width: 540px; border-radius: 6px; overflow: hidden; }
+.lead-form iframe { display: block; width: 100%; height: 520px; border: 0; margin: 0 auto; }
+@media (max-width: 480px) { .lead-form iframe { height: 640px; } }
+.lead-note { margin-top: 20px; font-size: 13px; color: var(--muted); line-height: 1.7; }
+.lead-note a { color: var(--gold); text-decoration: none; }
 .faq-list { margin-top: 48px; display: flex; flex-direction: column; }
 .faq-item { border-bottom: 1px solid rgba(200,164,90,0.1); }
 .faq-q {
@@ -803,7 +743,6 @@ footer p { font-size: 12px; color: var(--muted); max-width: 680px; margin: 0 aut
 @media (max-width: 720px) {
   .what-grid { grid-template-columns: 1fr; }
   .forwho-grid { grid-template-columns: 1fr; }
-  .upsell-inner { grid-template-columns: 1fr; }
   .guarantee-inner { grid-template-columns: 1fr; text-align: center; }
   .guarantee-seal { margin: 0 auto; }
   .module-item { grid-template-columns: 60px 1fr; }
@@ -817,16 +756,16 @@ footer p { font-size: 12px; color: var(--muted); max-width: 680px; margin: 0 aut
 <body>
 
 <!-- TOP BAR -->
-<div class="top-bar">Digital Course — $47 One-Time · No Monthly Fees · Instant Online Access</div>
+<div class="top-bar">Course Launching Soon · $47 One-Time · Free Checklist Available Now</div>
 
 <!-- STICKY BOTTOM BAR -->
 <div class="sticky-bar" id="stickyBar">
   <div class="sticky-text">
     <strong>Zero to Commission</strong>
-    <span>Complete beginner's affiliate course · Instant access</span>
+    <span>Beginner affiliate course · Launching soon</span>
   </div>
   <div class="sticky-price">$47</div>
-  <a href="https://www.checkout-ds24.com/product/692943" class="sticky-cta">Get Instant Access →</a>
+  <a href="#checklist" class="sticky-cta">Get the Free Checklist →</a>
 </div>
 
 <!-- HERO -->
@@ -870,16 +809,16 @@ footer p { font-size: 12px; color: var(--muted); max-width: 680px; margin: 0 aut
       </div>
       <div class="proof-sep"></div>
       <div class="proof-item">
-        <div class="proof-num">3</div>
-        <div class="proof-label">Free Bonuses</div>
+        <div class="proof-num">4</div>
+        <div class="proof-label">Included Bonuses</div>
       </div>
     </div>
 
     <div class="hero-cta">
-      <a href="https://www.checkout-ds24.com/product/692943" class="btn-gold">
-        Yes — Show Me The Blueprint <span class="btn-arrow">→</span>
+      <a href="#checklist" class="btn-gold">
+        Get the Free Checklist <span class="btn-arrow">→</span>
       </a>
-      <p class="cta-sub">One-time $47 · <span>60-day money-back guarantee</span> · Instant access</p>
+      <p class="cta-sub">Course launching soon · One-time $47 · <span>60-day money-back guarantee</span></p>
     </div>
   </div>
 </section>
@@ -891,7 +830,7 @@ footer p { font-size: 12px; color: var(--muted); max-width: 680px; margin: 0 aut
 
     <p class="pain-intro reveal">
       You've probably watched the videos. Followed the gurus. Maybe even bought a course or two. 
-      And yet — <strong>you still haven't made your first commission.</strong>
+      And yet — <strong>you may still be waiting on your first commission.</strong>
     </p>
 
     <div class="pain-list reveal">
@@ -940,12 +879,12 @@ footer p { font-size: 12px; color: var(--muted); max-width: 680px; margin: 0 aut
       <div class="what-card">
         <div class="what-icon">📱</div>
         <h3>Built for Faceless Creators</h3>
-        <p>You never have to show your face. The entire system is built around TikTok and Instagram short-form content you can create anonymously with your phone.</p>
+        <p>You never have to show your face. The entire system is built around TikTok and Instagram short-form content you can make without showing your face, using screen recordings, simple slides or stock footage.</p>
       </div>
       <div class="what-card">
         <div class="what-icon">💸</div>
         <h3>Zero Upfront Ad Spend</h3>
-        <p>This isn't a paid traffic strategy. You'll learn to drive traffic for free using organic short-form content — no paid ads required.</p>
+        <p>This isn't a paid traffic strategy. You'll learn how to share offers with organic short-form content — no paid ads required. Organic reach is never guaranteed.</p>
       </div>
       <div class="what-card">
         <div class="what-icon">⚡</div>
@@ -963,7 +902,7 @@ footer p { font-size: 12px; color: var(--muted); max-width: 680px; margin: 0 aut
     <h2 class="reveal">Five modules.<br><em>One clear outcome.</em></h2>
     <p class="reveal" style="color:var(--muted-light);max-width:560px;">
       Click any module to see what's inside. Every lesson was built with one question in mind: 
-      <em>"Does a complete beginner need this to earn their first commission?"</em>
+      <em>"Does a complete beginner need this to get started?"</em>
     </p>
 
     <div class="module-list reveal">
@@ -982,8 +921,8 @@ footer p { font-size: 12px; color: var(--muted); max-width: 680px; margin: 0 aut
             <ul class="module-lessons">
               <li><span class="lesson-check">◆</span>How affiliate marketing actually works (no hype, just the real model)</li>
               <li><span class="lesson-check">◆</span>The three roles in every affiliate sale — and exactly where you fit</li>
-              <li><span class="lesson-check">◆</span>Why beginners overcomplicate this — and the 20% that actually drives 80% of results</li>
-              <li><span class="lesson-check">◆</span>Setting up your Digistore24 account step by step</li>
+              <li><span class="lesson-check">◆</span>Why beginners overcomplicate this — and the few essentials that matter first</li>
+              <li><span class="lesson-check">◆</span>Setting up your free Digistore24 account</li>
             </ul>
           </div>
         </div>
@@ -995,15 +934,15 @@ footer p { font-size: 12px; color: var(--muted); max-width: 680px; margin: 0 aut
           <div class="module-header">
             <div>
               <div class="module-title">Finding Winning Offers</div>
-              <div class="module-tagline">Pick products people actually want to buy</div>
+              <div class="module-tagline">Learn how to evaluate an offer before you promote it</div>
             </div>
             <div class="module-toggle">+</div>
           </div>
           <div class="module-body">
             <ul class="module-lessons">
-              <li><span class="lesson-check">◆</span>The 5-point offer research checklist — never promote a dud again</li>
-              <li><span class="lesson-check">◆</span>How to read Digistore24 stats and spot high-converting products</li>
-              <li><span class="lesson-check">◆</span>Niches that convert well for beginners vs. niches to avoid</li>
+              <li><span class="lesson-check">◆</span>The 5-point offer research checklist — a repeatable way to vet any offer</li>
+              <li><span class="lesson-check">◆</span>How to read Digistore24 stats, and what they do and don't tell you</li>
+              <li><span class="lesson-check">◆</span>Niches that tend to suit beginners vs. niches that need extra care</li>
               <li><span class="lesson-check">◆</span>The "buyer intent" test — is this an impulse buy or a research buy?</li>
             </ul>
           </div>
@@ -1016,16 +955,17 @@ footer p { font-size: 12px; color: var(--muted); max-width: 680px; margin: 0 aut
           <div class="module-header">
             <div>
               <div class="module-title">Your Free Traffic Engine</div>
-              <div class="module-tagline">Get eyes on your links without spending a dollar on ads</div>
+              <div class="module-tagline">Get your links seen without paying for ads</div>
             </div>
             <div class="module-toggle">+</div>
           </div>
           <div class="module-body">
             <ul class="module-lessons">
               <li><span class="lesson-check">◆</span>Setting up a faceless TikTok or Instagram page from scratch</li>
-              <li><span class="lesson-check">◆</span>The exact short-form content formula that drives affiliate clicks</li>
+              <li><span class="lesson-check">◆</span>A simple, repeatable structure for short videos: hook, value, soft call to action</li>
               <li><span class="lesson-check">◆</span>How to use your bio link and bridge pages (no website needed)</li>
-              <li><span class="lesson-check">◆</span>Posting cadence — how often, what time, what format for beginners</li>
+              <li><span class="lesson-check">◆</span>Posting cadence — a sustainable rhythm for beginners</li>
+              <li><span class="lesson-check">◆</span>How to disclose affiliate links correctly (FTC and platform rules)</li>
             </ul>
           </div>
         </div>
@@ -1037,16 +977,16 @@ footer p { font-size: 12px; color: var(--muted); max-width: 680px; margin: 0 aut
           <div class="module-header">
             <div>
               <div class="module-title">Converting Clicks to Commissions</div>
-              <div class="module-tagline">Turn your traffic into actual income</div>
+              <div class="module-tagline">Learn to read your numbers and improve what you share</div>
             </div>
             <div class="module-toggle">+</div>
           </div>
           <div class="module-body">
             <ul class="module-lessons">
-              <li><span class="lesson-check">◆</span>The anatomy of a high-converting affiliate promotion</li>
-              <li><span class="lesson-check">◆</span>How to write captions and hooks that pre-sell without being salesy</li>
+              <li><span class="lesson-check">◆</span>The anatomy of a clear, honest affiliate promotion</li>
+              <li><span class="lesson-check">◆</span>How to write captions that explain an offer clearly, without hype</li>
               <li><span class="lesson-check">◆</span>Tracking your link clicks and understanding your numbers</li>
-              <li><span class="lesson-check">◆</span>Why most beginners lose the sale at the last second — and how not to</li>
+              <li><span class="lesson-check">◆</span>Common reasons clicks don't turn into sales — and what to check</li>
             </ul>
           </div>
         </div>
@@ -1058,16 +998,16 @@ footer p { font-size: 12px; color: var(--muted); max-width: 680px; margin: 0 aut
           <div class="module-header">
             <div>
               <div class="module-title">Scaling Your First Win</div>
-              <div class="module-tagline">Turn one commission into many — sustainably</div>
+              <div class="module-tagline">Build on what works — sustainably</div>
             </div>
             <div class="module-toggle">+</div>
           </div>
           <div class="module-body">
             <ul class="module-lessons">
-              <li><span class="lesson-check">◆</span>What to do the moment you get your first commission</li>
+              <li><span class="lesson-check">◆</span>What to do if and when your first commission arrives</li>
               <li><span class="lesson-check">◆</span>How to double down on what's working without burning out</li>
-              <li><span class="lesson-check">◆</span>Adding a second offer, a second platform — the right order</li>
-              <li><span class="lesson-check">◆</span>The long game: building a sustainable affiliate income stream</li>
+              <li><span class="lesson-check">◆</span>Adding a second offer — when, and how to choose it</li>
+              <li><span class="lesson-check">◆</span>The long game: building a skill, with realistic expectations</li>
             </ul>
           </div>
         </div>
@@ -1105,10 +1045,10 @@ footer p { font-size: 12px; color: var(--muted); max-width: 680px; margin: 0 aut
 <!-- BONUSES -->
 <section class="section bonuses-section">
   <div class="section-inner">
-    <div class="section-label reveal">Free Bonuses Included</div>
-    <h2 class="reveal">Three extras that make<br>everything <em>easier.</em></h2>
+    <div class="section-label reveal">Bonuses Included</div>
+    <h2 class="reveal">Four extras that make<br>everything <em>easier.</em></h2>
     <p class="reveal" style="color:var(--muted-light);max-width:540px;">
-      Order today and these three resources are included at no extra charge — 
+      These four resources are included with your purchase at no extra charge — 
       yours to keep even if you request a refund.
     </p>
 
@@ -1116,9 +1056,9 @@ footer p { font-size: 12px; color: var(--muted); max-width: 680px; margin: 0 aut
       <div class="bonus-item">
         <div class="bonus-num">01</div>
         <div class="bonus-info">
-          <h3>Done-For-You Video Scripts</h3>
-          <p>Ten ready-to-record short-form video scripts — just read them, record, post. Each one is structured to drive affiliate clicks without sounding like a sales pitch. Designed for faceless delivery with AI voiceover.</p>
-          <span class="bonus-value">INCLUDED FREE</span>
+          <h3>Video Script Templates</h3>
+          <p>Ten fill-in-the-blank short-form video scripts. You replace each placeholder with something that is genuinely true for you, then record. Each one follows a hook, value and call-to-action structure and includes a disclosure reminder. Designed for faceless delivery.</p>
+          <span class="bonus-value">INCLUDED</span>
         </div>
       </div>
       <div class="bonus-item">
@@ -1126,44 +1066,25 @@ footer p { font-size: 12px; color: var(--muted); max-width: 680px; margin: 0 aut
         <div class="bonus-info">
           <h3>30 Scroll-Stopping Hook Swipe File</h3>
           <p>Thirty video-opener templates for short-form content. Copy, paste, and customize for your niche — filled in with your own real experience. Built around beginner affiliate content for TikTok and Instagram Reels.</p>
-          <span class="bonus-value">INCLUDED FREE</span>
+          <span class="bonus-value">INCLUDED</span>
         </div>
       </div>
       <div class="bonus-item">
         <div class="bonus-num">03</div>
         <div class="bonus-info">
           <h3>Offer Research Cheat Sheet</h3>
-          <p>A one-page reference that walks you through evaluating any affiliate offer in under five minutes. Stop guessing which products to promote — run every offer through this framework first.</p>
-          <span class="bonus-value">INCLUDED FREE</span>
+          <p>A five-checkpoint guide to evaluating an affiliate offer before you promote it: a one-page summary of all five points, a score tracker, and what to check at each step. It helps you spot obvious problems; it cannot guarantee an offer will sell.</p>
+          <span class="bonus-value">INCLUDED</span>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- UPSELL CALLOUT -->
-<section class="section upsell-section">
-  <div class="upsell-inner">
-    <div class="reveal">
-      <span class="upsell-badge">Optional Upgrade — After Checkout</span>
-      <h2>Want us to build<br>your funnel <em>for you?</em></h2>
-      <p>After you grab Zero to Commission, you'll have the option to add the Done-For-You Funnel Kit — a complete, ready-to-deploy affiliate funnel including pre-written email sequences, social content calendar, and a 30-day launch plan.</p>
-      <ul class="upsell-list">
-        <li><span class="ck">◆</span>Complete 5-email welcome + promo sequence</li>
-        <li><span class="ck">◆</span>30-day TikTok & Instagram content calendar</li>
-        <li><span class="ck">◆</span>Swipe copy for 10 different affiliate offers</li>
-        <li><span class="ck">◆</span>Bridge page template (no website needed)</li>
-        <li><span class="ck">◆</span>30-day launch roadmap — day by day</li>
-      </ul>
-    </div>
-    <div class="upsell-price-box reveal reveal-delay-2">
-      <div class="label">Done-For-You Funnel Kit</div>
-      <div class="price">$97</div>
-      <div class="price-note">One-time · Available after checkout only</div>
-      <a href="https://www.checkout-ds24.com/product/692943" class="btn-gold">
-        Get Zero to Commission First <span class="btn-arrow">→</span>
-      </a>
-      <p style="margin-top:14px;font-size:12px;color:var(--muted);">The upgrade offer appears after your initial purchase.</p>
+      <div class="bonus-item">
+        <div class="bonus-num">04</div>
+        <div class="bonus-info">
+          <h3>Starter Funnel Kit</h3>
+          <p>Fill-in-the-blank templates for your first 30 days: a five-email sequence, a 30-day content calendar, ten swipe-copy angles, a bridge page template and a day-by-day roadmap, plus a copy-paste text version. Disclosure language is built in. The templates do not do the work for you and do not guarantee results.</p>
+          <span class="bonus-value">INCLUDED</span>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1171,34 +1092,35 @@ footer p { font-size: 12px; color: var(--muted); max-width: 680px; margin: 0 aut
 <!-- PRICING -->
 <section class="section pricing-section">
   <div class="section-inner">
-    <div class="section-label reveal" style="justify-content:center;">Get Instant Access</div>
-    <h2 class="reveal">One price.<br><em>Lifetime access.</em></h2>
+    <div class="section-label reveal" style="justify-content:center;">Get the Course</div>
+    <h2 class="reveal">One price.<br><em>Yours to keep.</em></h2>
 
     <div class="price-card reveal">
       <div class="price-card-top">
         <div class="price-card-name">Zero to Commission</div>
         <div class="price-amount"><sup>$</sup>47</div>
-        <div class="price-once">One-time payment · No subscription</div>
+        <div class="price-once">One-time payment · No subscription · Plus applicable sales tax</div>
       </div>
       <div class="price-card-features">
         <ul class="price-features-list">
-          <li><span class="ck">◆</span><span><strong>5 Core Video Modules</strong> — full beginner-to-commission system</span></li>
-          <li><span class="ck">◆</span><span><strong>Bonus #1:</strong> Done-For-You Video Scripts</span></li>
+          <li><span class="ck">◆</span><span><strong>5 Video Modules</strong> — downloadable MP4 lessons</span></li>
+          <li><span class="ck">◆</span><span><strong>Course Workbook</strong> — PDF with key points and action steps</span></li>
+          <li><span class="ck">◆</span><span><strong>Bonus #1:</strong> Video Script Templates</span></li>
           <li><span class="ck">◆</span><span><strong>Bonus #2:</strong> 30 Hook Swipe File</span></li>
           <li><span class="ck">◆</span><span><strong>Bonus #3:</strong> Offer Research Cheat Sheet</span></li>
-          <li><span class="ck">◆</span><span>Instant access — start in the next 5 minutes</span></li>
+          <li><span class="ck">◆</span><span><strong>Bonus #4:</strong> Starter Funnel Kit</span></li>
+          <li><span class="ck">◆</span><span>Digital download — no physical item shipped</span></li>
           <li><span class="ck">◆</span><span>60-day money-back guarantee — no questions asked</span></li>
-          <li><span class="ck">◆</span><span>Lifetime access — including future updates</span></li>
+          <li><span class="ck">◆</span><span>Download once and keep your files — no subscription</span></li>
         </ul>
       </div>
       <div class="price-card-cta">
-        <a href="https://www.checkout-ds24.com/product/692943" class="btn-gold">
-          Yes — I Want Instant Access <span class="btn-arrow">→</span>
+        <a href="#checklist" class="btn-gold">
+          Launching Soon — Get the Free Checklist <span class="btn-arrow">→</span>
         </a>
-        <p class="cta-sub">Secure checkout via Digistore24 · <span>256-bit encryption</span></p>
+        <p class="cta-sub">The course is not on sale yet</p>
         <p style="font-size:12px;color:var(--muted);margin-top:10px;line-height:1.6;">
-          📦 <strong style="color:var(--muted-light);">Digital product — instant access.</strong> No physical item will be shipped. Your credit card statement will show a charge from <strong style="color:var(--muted-light);">Digistore24</strong>.
-          The withdrawal from your account will be done by Digistore24.
+          Sign up for the free First Offer Checklist and we'll email you when the course opens. Checkout, payment and delivery details will be published here before launch.
         </p>
       </div>
     </div>
@@ -1213,9 +1135,9 @@ footer p { font-size: 12px; color: var(--muted); max-width: 680px; margin: 0 aut
       <div class="seal-label">Day Money<br>Back<br>Guarantee</div>
     </div>
     <div class="guarantee-text">
-      <h3>Try it completely risk-free.</h3>
+      <h3>Backed by a 60-day money-back guarantee.</h3>
       <p>
-        Go through the entire course. Download all three bonuses. Use the scripts, use the swipe file, work through every module. If within 60 days you don't feel Zero to Commission was worth every penny — email us and we'll refund you in full. No questions, no hoops, no hard feelings. The bonuses are yours to keep regardless.
+        Go through the entire course. Download all four bonuses. Use the scripts and the swipe file, and work through every module. If within 60 days you don't feel Zero to Commission was worth every penny — email us and we'll refund you in full. No questions, no hoops, no hard feelings. The bonuses are yours to keep regardless.
       </p>
     </div>
   </div>
@@ -1230,7 +1152,7 @@ footer p { font-size: 12px; color: var(--muted); max-width: 680px; margin: 0 aut
       Zero to Commission is a brand-new course — so you won't find a wall of five-star testimonials here yet, and we're not going to invent any. We'd rather earn your trust with the work itself.
     </p>
     <p class="reveal" style="max-width:640px;margin:0 auto 24px;font-size:18px;line-height:1.7;color:var(--muted-light);">
-      What we <strong style="color:var(--off-white);">can</strong> promise is the method: every lesson is built for someone starting from absolute zero — no paid ads, no existing audience, no tech skills required. We can't promise you'll make money; affiliate marketing is real work and results depend entirely on your effort, niche, and consistency.
+      What we <strong style="color:var(--off-white);">can</strong> promise is the method: every lesson is built for someone starting from absolute zero — no paid ads, no existing audience, no prior experience required. We can't promise you'll make money; affiliate marketing is real work and results depend entirely on your effort, niche, and consistency.
     </p>
     <p class="reveal" style="max-width:640px;margin:0 auto;font-size:18px;line-height:1.7;color:var(--muted-light);">
       So here's the deal: go through the entire course. If it's not for you, the <strong style="color:var(--gold);">60-day money-back guarantee</strong> means you risk nothing. Judge the material, not a stranger's story.
@@ -1246,11 +1168,11 @@ footer p { font-size: 12px; color: var(--muted); max-width: 680px; margin: 0 aut
     <div class="faq-list reveal">
       <div class="faq-item">
         <div class="faq-q">Do I need any experience or tech skills?<span class="faq-toggle">+</span></div>
-        <div class="faq-a">None at all. Zero to Commission was built specifically for people who have never made a dollar online. We start from absolute scratch — including setting up your free accounts on Digistore24 and your content platforms.</div>
+        <div class="faq-a">No prior experience is needed. Zero to Commission was built for people who have never made a dollar online. We start from scratch, including setting up a free Digistore24 affiliate account and a TikTok or Instagram account. You will need to be comfortable making simple short videos on a phone or computer; Module Three explains the basics.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q">Do I need money to start? Any hidden costs?<span class="faq-toggle">+</span></div>
-        <div class="faq-a">Beyond the cost of this course, nothing is required to get started. The traffic strategy is organic — no paid ads. TikTok, Instagram and Digistore24 are free to join. The bonus materials mention optional free or low-cost tools (such as CapCut or an AI voiceover app); some of those have paid tiers, but you can start with their free versions.</div>
+        <div class="faq-a">Beyond the cost of this course, nothing is required to get started. The traffic strategy is organic — no paid ads. TikTok, Instagram and Digistore24 are free to join. The bonus materials mention optional free or low-cost tools (such as CapCut or an AI voiceover app); some of those have paid tiers, and free plans of some tools do not allow commercial use, so check each tool's license before you use it.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q">How quickly will I see results?<span class="faq-toggle">+</span></div>
@@ -1258,21 +1180,34 @@ footer p { font-size: 12px; color: var(--muted); max-width: 680px; margin: 0 aut
       </div>
       <div class="faq-item">
         <div class="faq-q">Do I have to show my face on camera?<span class="faq-toggle">+</span></div>
-        <div class="faq-a">Never. The entire system is built around faceless content creation using screen recordings, text overlays, and AI voiceover. You can build a profitable affiliate presence without ever turning a camera on yourself.</div>
+        <div class="faq-a">Never. The entire system is built around faceless content creation using screen recordings, text overlays, and AI voiceover. You can create and share content without ever turning a camera on yourself. You are still required to disclose affiliate links clearly.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">What exactly is the Done-For-You Funnel Kit upsell?<span class="faq-toggle">+</span></div>
-        <div class="faq-a">It's an optional $97 add-on available after your initial purchase. It includes a pre-written email sequence, 30-day content calendar, swipe copy for 10 offers, a bridge page template, and a day-by-day 30-day launch roadmap. It's completely optional — the core course is fully complete on its own.</div>
+        <div class="faq-q">Who presents the video lessons?<span class="faq-toggle">+</span></div>
+        <div class="faq-a">The video lessons are presented by an AI-generated narrator, not a real person telling a personal story. The material is educational, and the course workbook covers the same lessons in writing.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q">How does the guarantee work?<span class="faq-toggle">+</span></div>
         <div class="faq-a">If you're not satisfied for any reason within 60 days of purchase, email our support team and we'll issue a full refund. No questions, no conditions, no fighting for it. The bonuses are yours to keep regardless of your decision.</div>
       </div>
       <div class="faq-item">
-        <div class="faq-q">How do I access the course after purchase?<span class="faq-toggle">+</span></div>
-        <div class="faq-a">Immediately after checkout, you'll be taken to a secure access page with all modules and bonus downloads. You'll also receive a confirmation email with your access link. Everything is hosted online — no software to install.</div>
+        <div class="faq-q">How will I get the course?<span class="faq-toggle">+</span></div>
+        <div class="faq-a">The course isn't on sale yet. When it launches, you'll be able to download your files right after checkout: the course workbook (PDF), the five video modules (MP4), the four bonus PDFs and a copy-paste text file for the Starter Funnel Kit. Save the files to your device; the PDFs open in any PDF reader and the videos play in any standard video player. To hear when it opens, sign up for the free checklist below.</div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- FREE CHECKLIST SIGNUP -->
+<section class="section lead-section" id="checklist">
+  <div class="section-inner">
+    <div class="section-label reveal">Free Download</div>
+    <h2 class="reveal">Not ready yet?<br><em>Start with the checklist.</em></h2>
+    <p class="reveal">A free two-page checklist for judging an affiliate offer before you promote it. Enter your email and I'll send it to you.</p>
+    <div class="lead-form reveal">
+      <iframe title="Sign up for the free First Offer Checklist" loading="lazy" src="https://83b03bdb.sibforms.com/v2/serve/MUIFANCGvph4ReH8y-d1ecqljxGnIEs88JxhGxj5Rju9BoMmysdjs2j1eCrK5hDeChQdW1JTycGzvSZqJLCIhu51FnyJcL1B9TaaEgZoI2LC9L_Lwasp6Bb-8ptmo4m5llDMcx0LDIj28z_pttwc48rqn35m6aDj0tskYsLwQxn5uKwZnt8jPCdfCZY_9SqGo7MnzUKRONSJiDGYqA=="></iframe>
+    </div>
+    <p class="lead-note reveal">The checklist is free and you never need to buy anything to use it. Zero to Commission is my own course, so I'd earn money if you bought it. Emails are sent through Brevo; see the <a href="legal.html#privacy">Privacy Policy</a>.</p>
   </div>
 </section>
 
@@ -1280,11 +1215,11 @@ footer p { font-size: 12px; color: var(--muted); max-width: 680px; margin: 0 aut
 <section class="final-cta">
   <h2>Ready to <em>get started?</em></h2>
   <p>Everything you need to learn the basics is in one place. Your results depend on your own effort, and no outcome is guaranteed.</p>
-  <a href="https://www.checkout-ds24.com/product/692943" class="btn-gold" style="position:relative;">
-    Get Zero to Commission — $47 <span class="btn-arrow">→</span>
+  <a href="#checklist" class="btn-gold" style="position:relative;">
+    Get the Free Checklist <span class="btn-arrow">→</span>
   </a>
   <p class="cta-sub" style="margin-top:20px;position:relative;">
-    60-day guarantee · Instant access · <span>No monthly fees</span>
+    Course launching soon · 60-day guarantee · <span>No monthly fees</span>
   </p>
 </section>
 
@@ -1304,10 +1239,9 @@ footer p { font-size: 12px; color: var(--muted); max-width: 680px; margin: 0 aut
     <a href="legal.html#privacy">Privacy Policy</a>
     <a href="legal.html#terms">Terms &amp; Conditions</a>
     <a href="legal.html#earnings">Earnings Disclaimer</a>
-    <a href="affiliates.html">Affiliates</a>
   </div>
   <p>
-    Zero to Commission is an educational product sold via Digistore24. Results are not typical and are not guaranteed. 
+    Zero to Commission is an educational product. Results are not typical and are not guaranteed. 
     Affiliate marketing involves real work and carries no promise of income. Individual results vary based on effort, 
     niche selection, consistency, and market conditions. This product does not guarantee any specific financial outcome. 
     Please read our full earnings disclaimer before purchasing.
