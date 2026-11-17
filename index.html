@@ -441,6 +441,11 @@ body::after {
 }
 .module-item.open .module-toggle { transform: rotate(45deg); }
 .module-tagline { font-size: 13px; color: var(--muted); margin-top: 6px; }
+.module-time { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; color: var(--gold); white-space: nowrap; }
+.dont-list { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 32px; }
+.dont-item { background: var(--ink-1); border: 1px solid rgba(200,164,90,0.12); padding: 18px 20px; font-size: 15px; color: var(--muted-light); line-height: 1.6; }
+.dont-item strong { color: var(--off-white); display: block; margin-bottom: 4px; }
+@media (max-width: 700px) { .dont-list { grid-template-columns: 1fr; } }
 .module-body {
   max-height: 0; overflow: hidden;
   transition: max-height 0.4s ease, padding-top 0.3s;
@@ -938,8 +943,8 @@ footer p { font-size: 12px; color: var(--muted); max-width: 680px; margin: 0 aut
       </div>
       <div class="what-card">
         <div class="what-icon">⚡</div>
-        <h3>Designed for Speed</h3>
-        <p>The goal isn't to build a media empire — it's to understand the basics and take your first real steps. Results depend on your effort and are not guaranteed.</p>
+        <h3>Short on Purpose</h3>
+        <p>About 32 minutes of video in total, plus a 12-page workbook. That's deliberate: it covers the basics and your first real steps, not a media empire. If you want hours of video, this isn't that course. Results depend on your effort and are not guaranteed.</p>
       </div>
     </div>
   </div>
@@ -949,9 +954,9 @@ footer p { font-size: 12px; color: var(--muted); max-width: 680px; margin: 0 aut
 <section class="section modules-section">
   <div class="section-inner">
     <div class="section-label reveal">Inside the Course</div>
-    <h2 class="reveal">Five modules.<br><em>One clear outcome.</em></h2>
+    <h2 class="reveal">Five modules.<br><em>One clear path.</em></h2>
     <p class="reveal" style="color:var(--muted-light);max-width:560px;">
-      Click any module to see what's inside. Every lesson was built with one question in mind: 
+      Click any module to see what's inside. Each module is one video lesson (about 32 minutes in total) with a matching chapter in the workbook. Every lesson was built with one question in mind:
       <em>"Does a complete beginner need this to get started?"</em>
     </p>
 
@@ -963,7 +968,7 @@ footer p { font-size: 12px; color: var(--muted); max-width: 680px; margin: 0 aut
           <div class="module-header">
             <div>
               <div class="module-title">The Affiliate Foundation</div>
-              <div class="module-tagline">Understand the model before you touch anything else</div>
+              <div class="module-tagline">Understand the model before you touch anything else · <span class="module-time">Video ≈ 7 min</span></div>
             </div>
             <div class="module-toggle">+</div>
           </div>
@@ -984,7 +989,7 @@ footer p { font-size: 12px; color: var(--muted); max-width: 680px; margin: 0 aut
           <div class="module-header">
             <div>
               <div class="module-title">Finding Winning Offers</div>
-              <div class="module-tagline">Learn how to evaluate an offer before you promote it</div>
+              <div class="module-tagline">Learn how to evaluate an offer before you promote it · <span class="module-time">Video ≈ 7 min</span></div>
             </div>
             <div class="module-toggle">+</div>
           </div>
@@ -1005,7 +1010,7 @@ footer p { font-size: 12px; color: var(--muted); max-width: 680px; margin: 0 aut
           <div class="module-header">
             <div>
               <div class="module-title">Your Free Traffic Engine</div>
-              <div class="module-tagline">Get your links seen without paying for ads</div>
+              <div class="module-tagline">Get your links seen without paying for ads · <span class="module-time">Video ≈ 8 min</span></div>
             </div>
             <div class="module-toggle">+</div>
           </div>
@@ -1027,7 +1032,7 @@ footer p { font-size: 12px; color: var(--muted); max-width: 680px; margin: 0 aut
           <div class="module-header">
             <div>
               <div class="module-title">Converting Clicks to Commissions</div>
-              <div class="module-tagline">Learn to read your numbers and improve what you share</div>
+              <div class="module-tagline">Learn to read your numbers and improve what you share · <span class="module-time">Video ≈ 6 min</span></div>
             </div>
             <div class="module-toggle">+</div>
           </div>
@@ -1048,7 +1053,7 @@ footer p { font-size: 12px; color: var(--muted); max-width: 680px; margin: 0 aut
           <div class="module-header">
             <div>
               <div class="module-title">Scaling Your First Win</div>
-              <div class="module-tagline">Build on what works — sustainably</div>
+              <div class="module-tagline">Build on what works — sustainably · <span class="module-time">Video ≈ 5 min</span></div>
             </div>
             <div class="module-toggle">+</div>
           </div>
@@ -1087,6 +1092,11 @@ footer p { font-size: 12px; color: var(--muted); max-width: 680px; margin: 0 aut
         <div class="forwho-item"><span class="forwho-ico">⬜</span>You want to get rich in 48 hours</div>
         <div class="forwho-item"><span class="forwho-ico">⬜</span>You already have a successful affiliate business running</div>
         <div class="forwho-item"><span class="forwho-ico">⬜</span>You're unwilling to create any content, ever</div>
+        <div class="forwho-item"><span class="forwho-ico">⬜</span>You want hours of video (this is about 32 minutes, on purpose)</div>
+        <div class="forwho-item"><span class="forwho-ico">⬜</span>You want live coaching or a community (neither is included)</div>
+        <div class="forwho-item"><span class="forwho-ico">⬜</span>You want to learn blogging, SEO or paid ads (this course teaches short-form video)</div>
+        <div class="forwho-item"><span class="forwho-ico">⬜</span>You need money quickly (affiliate income is never guaranteed and can take months, if it comes at all)</div>
+        <div class="forwho-item"><span class="forwho-ico">⬜</span>You don't want to disclose your affiliate links (the course teaches you to, every time)</div>
       </div>
     </div>
   </div>
@@ -1187,7 +1197,7 @@ footer p { font-size: 12px; color: var(--muted); max-width: 680px; margin: 0 aut
     <div class="guarantee-text">
       <h3>Backed by a 30-day money-back guarantee.</h3>
       <p>
-        Go through the entire course. Download all four bonuses. Use the scripts and the swipe file, and work through every module. If within 30 days you don't feel Zero to Commission was worth every penny — email us and we'll refund you in full. No questions, no hoops, no hard feelings. The bonuses are yours to keep regardless.
+        Watch the lessons, read the workbook, try the templates. If within 30 days of purchase you decide Zero to Commission isn't for you, for any reason, email <a href="mailto:support@zerotocommission.com" style="color:var(--gold);">support@zerotocommission.com</a> and we'll refund you in full. You don't have to prove you did the work, and a refund is never tied to leaving a review. The bonuses are yours to keep regardless.
       </p>
     </div>
   </div>
@@ -1205,7 +1215,31 @@ footer p { font-size: 12px; color: var(--muted); max-width: 680px; margin: 0 aut
       What we <strong style="color:var(--off-white);">can</strong> promise is the method: every lesson is built for someone starting from absolute zero — no paid ads, no existing audience, no prior experience required. We can't promise you'll make money; affiliate marketing is real work and results depend entirely on your effort, niche, and consistency.
     </p>
     <p class="reveal" style="max-width:640px;margin:0 auto;font-size:18px;line-height:1.7;color:var(--muted-light);">
-      So here's the deal: go through the entire course. If it's not for you, the <strong style="color:var(--gold);">30-day money-back guarantee</strong> means you risk nothing. Judge the material, not a stranger's story.
+      So here's the deal: go through the entire course. If it's not for you, the <strong style="color:var(--gold);">30-day money-back guarantee</strong> means you can ask for your money back. Judge the material, not a stranger's story.
+    </p>
+  </div>
+</section>
+
+<!-- WHAT WE DON'T DO -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-label reveal">What We Don't Do</div>
+    <h2 class="reveal">The things you<br><em>won't find here.</em></h2>
+    <p class="reveal" style="color:var(--muted-light);max-width:580px;">
+      A lot of courses in this space follow the same playbook. We decided not to.
+    </p>
+    <div class="dont-list reveal">
+      <div class="dont-item"><strong>No upsells</strong>One product, one price. No order bumps, no "VIP upgrade" after checkout.</div>
+      <div class="dont-item"><strong>No coaching pitch</strong>The course doesn't end with a sales call or an "inner circle" offer.</div>
+      <div class="dont-item"><strong>No monthly fees</strong>You pay once. There is no membership to cancel.</div>
+      <div class="dont-item"><strong>No income claims</strong>No earnings screenshots, no "passive income" promises, no lifestyle photos.</div>
+      <div class="dont-item"><strong>No invented reviews</strong>No paid, fake or AI-written testimonials. When real reviews come in, they'll be shown as they are.</div>
+      <div class="dont-item"><strong>No fake urgency</strong>No countdown timers, no "only 3 spots left," no "price goes up at midnight."</div>
+      <div class="dont-item"><strong>No "resell this course" loop</strong>The course teaches you to promote other people's products, not to recruit people into this one.</div>
+      <div class="dont-item"><strong>No hidden refund conditions</strong>30 days, any reason. You don't have to prove you did the work or leave a review.</div>
+    </div>
+    <p class="reveal" style="color:var(--muted);font-size:14px;margin-top:24px;">
+      Who runs this, how we use AI, and what has changed in the course: see <a href="about.html" style="color:var(--gold);">About &amp; our standards</a>.
     </p>
   </div>
 </section>
@@ -1239,6 +1273,14 @@ footer p { font-size: 12px; color: var(--muted); max-width: 680px; margin: 0 aut
       <div class="faq-item">
         <div class="faq-q">How does the guarantee work?<span class="faq-toggle">+</span></div>
         <div class="faq-a">If you're not satisfied for any reason within 30 days of purchase, email our support team and we'll issue a full refund. No questions, no conditions, no fighting for it. The bonuses are yours to keep regardless of your decision.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Can I learn this for free somewhere else?<span class="faq-toggle">+</span></div>
+        <div class="faq-a">Yes, a lot of it. Good free starting points include <a href="https://ahrefs.com/academy" rel="noopener" style="color:var(--gold);">Ahrefs Academy</a>, <a href="https://www.digistore24.com/en/blog/learn-affiliate-marketing-free/" rel="noopener" style="color:var(--gold);">Digistore24's free learning guide</a>, the FTC's <a href="https://www.ftc.gov/business-guidance/resources/disclosures-101-social-media-influencers" rel="noopener" style="color:var(--gold);">Disclosures 101</a> and our own <a href="guides/" style="color:var(--gold);">free guides</a>. What the course adds is one short, ordered path, a workbook and ready-to-fill templates. None of these links are affiliate links.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">When was the course last updated?<span class="faq-toggle">+</span></div>
+        <div class="faq-a">November 2026 (workbook edition 1.2). Every change is listed on the <a href="about.html#changes" style="color:var(--gold);">About page</a>.</div>
       </div>
       <div class="faq-item">
         <div class="faq-q">How do I access the course after purchase?<span class="faq-toggle">+</span></div>
@@ -1285,6 +1327,7 @@ footer p { font-size: 12px; color: var(--muted); max-width: 680px; margin: 0 aut
 </div>
   <div class="footer-links">
     <a href="mailto:support@zerotocommission.com">Support</a>
+    <a href="about.html">About &amp; Standards</a>
     <a href="legal.html">Legal Information</a>
     <a href="legal.html#privacy">Privacy Policy</a>
     <a href="legal.html#terms">Terms &amp; Conditions</a>
@@ -1298,7 +1341,7 @@ footer p { font-size: 12px; color: var(--muted); max-width: 680px; margin: 0 aut
     <a href="https://www.tiktok.com/@zerotocommissionhq" rel="noopener">TikTok</a>
   </div>
   <p>
-    Zero to Commission is an educational product sold via Gumroad. Results are not typical and are not guaranteed. 
+    Zero to Commission is an educational product sold via Gumroad. We make no income claims, and no result is guaranteed.
     Affiliate marketing involves real work and carries no promise of income. Individual results vary based on effort, 
     niche selection, consistency, and market conditions. This product does not guarantee any specific financial outcome. 
     Please read our full earnings disclaimer before purchasing.

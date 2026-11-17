@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About &amp; Our Standards — Zero to Commission</title>
+<meta name="description" content="Who runs Zero to Commission, how it makes money, how it uses AI, its no-income-claims and disclosure standards, and a list of every change to the course.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://zerotocommission.com/about.html">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="fonts/fonts.css">
+<style>
+:root {
+  --gold: #C8A45A;
+  --gold-light: #E2C47E;
+  --gold-dim: rgba(200,164,90,0.12);
+  --gold-border: rgba(200,164,90,0.22);
+  --ink: #080810;
+  --ink-1: #0F0F1A;
+  --ink-2: #161622;
+  --off-white: #F4F0E8;
+  --white: #FDFCFA;
+  --muted: #7A7A90;
+  --muted-light: #A8A8B8;
+  --font-serif: 'Cormorant Garamond', serif;
+  --font-sans: 'Outfit', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--ink); color: var(--off-white); font-family: var(--font-sans); font-size: 16px; line-height: 1.75; }
+
+.topbar {
+  background: var(--ink-1);
+  border-bottom: 1px solid var(--gold-border);
+  padding: 14px 32px;
+  display: flex; align-items: center; justify-content: space-between;
+  position: sticky; top: 0; z-index: 100;
+}
+.topbar-back {
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.1em;
+  color: var(--gold); text-decoration: none; text-transform: uppercase;
+  border: 1px solid var(--gold-border); padding: 8px 16px; transition: all 0.2s;
+}
+.topbar-back:hover { background: var(--gold-dim); }
+
+.page { max-width: 760px; margin: 0 auto; padding: 64px 24px 100px; }
+
+.page-eyebrow {
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--gold);
+  display: flex; align-items: center; gap: 10px; margin-bottom: 16px;
+}
+.page-eyebrow::before { content: ''; width: 20px; height: 1px; background: var(--gold); }
+
+h1 {
+  font-family: var(--font-serif); font-size: clamp(32px, 5vw, 52px);
+  font-weight: 600; color: var(--white); line-height: 1.05; margin-bottom: 40px;
+}
+
+.section-block {
+  background: var(--ink-1);
+  border: 1px solid var(--gold-border);
+  padding: 36px 40px;
+  margin-bottom: 24px;
+  position: relative;
+  overflow: hidden;
+}
+.section-block::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+.section-block h2 {
+  font-family: var(--font-serif); font-size: 22px; font-weight: 600;
+  color: var(--white); margin-bottom: 20px;
+  display: flex; align-items: center; gap: 10px;
+}
+.section-block h2::before {
+  content: ''; width: 16px; height: 1px; background: var(--gold); flex-shrink: 0;
+}
+
+.info-row {
+  display: grid; grid-template-columns: 180px 1fr; gap: 8px 24px;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(200,164,90,0.07);
+  align-items: start;
+}
+.info-row:last-child { border-bottom: none; }
+.info-label {
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--muted); padding-top: 2px;
+}
+.info-value { font-size: 15px; color: var(--off-white); }
+.info-value a { color: var(--gold); text-decoration: none; }
+.info-value a:hover { text-decoration: underline; }
+
+.prose { font-size: 14px; color: var(--muted-light); line-height: 1.8; }
+.prose p { margin-bottom: 16px; }
+.prose p:last-child { margin-bottom: 0; }
+.prose strong { color: var(--off-white); }
+
+.changelog { list-style: none; }
+.changelog li { padding: 12px 0; border-bottom: 1px solid rgba(200,164,90,0.07); }
+.changelog li:last-child { border-bottom: none; }
+.changelog .date { font-family: var(--font-mono); font-size: 11px; color: var(--gold); display: block; margin-bottom: 4px; }
+.prose a { color: var(--gold); }
+.divider { height: 1px; background: rgba(200,164,90,0.1); margin: 40px 0; }
+
+footer {
+  text-align: center; padding: 32px 24px;
+  border-top: 1px solid rgba(200,164,90,0.08);
+  margin-top: 60px;
+}
+footer p { font-size: 12px; color: var(--muted); }
+footer a { color: var(--gold); text-decoration: none; }
+
+@media (max-width: 560px) {
+  .section-block { padding: 24px 20px; }
+  .info-row { grid-template-columns: 1fr; gap: 4px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="topbar">
+  <a href="index.html" class="topbar-back" style="text-decoration:none;display:inline-flex;align-items:center;gap:10px;">
+    <svg width="22" height="22" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <polygon points="14,1 27,8 27,20 14,27 1,20 1,8" fill="none" stroke="#C8A45A" stroke-width="1.4"/>
+      <polygon points="14,4.5 24,10 24,18 14,23.5 4,18 4,10" fill="rgba(200,164,90,0.08)" stroke="#C8A45A" stroke-width="0.6"/>
+      <path d="M15.8,8.5 L11.2,14.5 L14,14.5 L12.2,19.5 L17.8,13 L15,13 Z" fill="#C8A45A"/>
+    </svg>
+    <span style="font-family:'Cormorant Garamond',serif;font-size:17px;font-style:italic;color:#C8A45A;">Zero to Commission</span>
+  </a>
+  <a href="index.html" class="topbar-back">← Back to Sales Page</a>
+</nav>
+
+<div class="page">
+
+  <div class="page-eyebrow">About &amp; Standards</div>
+  <h1>Who's behind this,<br>and how we work</h1>
+
+  <div class="section-block" id="who">
+    <h2>Who runs Zero to Commission</h2>
+    <div class="prose">
+      <p>Zero to Commission is a one-person business: a sole proprietor in Louisiana, United States, signing emails as Keath. There is no team, no call center and no sales staff. The full business details (owner, mailing address, payment processor) are on the <a href="legal.html">Legal Information</a> page.</p>
+      <p>You can reach a real person at <a href="mailto:support@zerotocommission.com">support@zerotocommission.com</a>, for questions before you buy, help after you buy, or a refund.</p>
+      <p>The brand is "faceless" because the course teaches faceless content, and the lessons practise what they teach. Faceless does not mean anonymous: the business and the person behind it are named on the Legal page.</p>
+    </div>
+  </div>
+
+  <div class="section-block" id="money">
+    <h2>How we make money</h2>
+    <div class="prose">
+      <p>From one thing: sales of the Zero to Commission course ($47, one time, sold through Gumroad). The free checklist and the free guides are free, and you never need to buy anything to use them.</p>
+      <p>None of the links on this website are affiliate links. When a guide or the course names a company or platform, nobody paid for that mention. If that ever changes, the link will be clearly disclosed where it appears.</p>
+    </div>
+  </div>
+
+  <div class="section-block" id="ai">
+    <h2>How we use AI</h2>
+    <div class="prose">
+      <p><strong>The video lessons</strong> are presented by an AI-generated narrator, not a real person telling a personal story. The workbook covers the same lessons in writing.</p>
+      <p><strong>Our short videos</strong> on YouTube, TikTok, Instagram and Facebook use an AI voice with stock footage, and each one is labeled or described as AI-made on the platform.</p>
+      <p><strong>Writing:</strong> we use AI tools to help draft and check material. A person reviews everything before it is published, and we check every claim against what the course actually contains.</p>
+      <p>We never use AI to create testimonials, reviews, results or people who don't exist.</p>
+    </div>
+  </div>
+
+  <div class="section-block" id="claims">
+    <h2>Our no-income-claims rule</h2>
+    <div class="prose">
+      <p>We don't tell you what you will earn, what other people earned, or how fast. No earnings screenshots, no "passive income," no lifestyle photos, no "results not typical" small print hiding a big promise. Most beginners earn little or nothing at first, and some never earn a commission.</p>
+      <p>When the course or a guide shows a dollar figure, it is arithmetic (for example, price times commission rate) to explain how payouts work, not a prediction. See the <a href="legal.html#earnings">Earnings Disclaimer</a>.</p>
+      <p>Testimonials: we have none yet and won't invent any. When real reviews come in, we won't pay for positive ones, hide negative ones, or tie a refund to a review. If someone received the course for free in exchange for an honest review, we'll say so next to it.</p>
+    </div>
+  </div>
+
+  <div class="section-block" id="say-only">
+    <h2>We only describe what we deliver</h2>
+    <div class="prose">
+      <p>Everything this website says the course includes is in the course: five video lessons (about 32 minutes in total, with subtitle files), a 12-page workbook, four bonus PDFs and a copy-paste text file. If something isn't built yet, we don't mention it as if it were.</p>
+      <p>The refund terms are the same everywhere: 30 days, any reason, full refund, as set out in the <a href="legal.html#refund">Refund Policy</a>.</p>
+    </div>
+  </div>
+
+  <div class="section-block" id="changes">
+    <h2>What has changed in the course</h2>
+    <div class="prose">
+      <ul class="changelog">
+        <li><span class="date">November 17, 2026</span>Workbook edition 1.2: clearer affiliate-disclosure wording. The disclosure examples now use "#ad" or a sentence saying you earn a commission, and note that the words "affiliate link" on their own may not be clear enough (following FTC guidance).</li>
+        <li><span class="date">November 13, 2026</span>Course released on Gumroad. Workbook edition 1.1, rewritten to match the five video lessons. Money-back guarantee set at 30 days. Bonus 1 renamed "Video Script Templates," and a one-page summary added to the front of Bonus 3.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <p style="font-size:13px;color:var(--muted);text-align:center;line-height:1.7;">
+    Last updated: November 2026 · <a href="index.html" style="color:var(--gold);text-decoration:none;">Return to Sales Page</a>
+  </p>
+
+</div>
+
+<footer>
+  <p>
+    © 2026 Zero to Commission / zerotocommission.com · All Rights Reserved ·
+    <a href="mailto:support@zerotocommission.com">support@zerotocommission.com</a>
+  </p>
+</footer>
+
+</body>
+</html>
