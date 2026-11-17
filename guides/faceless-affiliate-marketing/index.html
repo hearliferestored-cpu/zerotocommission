@@ -112,6 +112,12 @@ th { font-family: var(--mono); font-size: 12px; text-transform: uppercase; lette
 footer { border-top: 1px solid var(--gold-border); margin-top: 64px; padding: 32px 0 48px; font-size: 14px; color: var(--muted); text-align: center; }
 footer a { color: var(--muted); margin: 0 10px; }
 footer p { margin: 14px 0 0; }
+.signup-form { margin: 20px auto 0; max-width: 540px; border-radius: 6px; overflow: hidden; }
+.signup-form iframe { display: block; width: 100%; height: 520px; border: 0; }
+@media (max-width: 480px) { .signup-form iframe { height: 640px; } }
+.signup-note { font-size: 13px; color: var(--muted, #8a8a99); margin-top: 14px; }
+.mid-cta { border-left: 3px solid var(--gold); background: var(--ink-2); padding: 14px 18px; margin: 32px 0; border-radius: 4px; }
+.mid-cta p { margin: 0; }
 </style>
 </head>
 <body>
@@ -174,6 +180,7 @@ footer p { margin: 14px 0 0; }
 <div class="note"><strong>Example (about 30 seconds):</strong> "Before you buy any online course, check these three things. One: can you see the full price and what you get before checkout? Two: is there a clear refund policy? Three: are there any guaranteed-income promises? If so, skip it. I've put a free checklist in my profile. Some links there are affiliate links, so I may earn a commission."</div>
 <p>Avoid hooks that invent results or experiences, like claiming you earned a certain amount. If it didn't happen, don't say it.</p>
 
+<div class="mid-cta"><p><strong>Free:</strong> the First Offer Checklist, ten yes/no questions to ask before you promote any offer. <a href="#signup">Get it by email</a>.</p></div>
 <h2>Faceless content ideas for affiliate marketing</h2>
 <p>Ideas that work without a face, and without making claims you can't back up:</p>
 <ul>
@@ -216,10 +223,11 @@ footer p { margin: 14px 0 0; }
 <h3>How often should I post?</h3>
 <p>Daily posting for the first month is a common suggestion because every video is practice, but it's demanding. A schedule you can keep is better than one you abandon after a week.</p>
 
-<div class="cta">
+<div class="cta" id="signup">
 <h2>Start with the right offer</h2>
 <p>Before you make a single video, check the offer. Our free First Offer Checklist has ten yes/no questions on one printable page.</p>
-<a class="btn" href="/#checklist">Get the free First Offer Checklist</a>
+<div class="signup-form"><iframe title="Sign up for the free First Offer Checklist" loading="lazy" src="https://83b03bdb.sibforms.com/v2/serve/MUIFANCGvph4ReH8y-d1ecqljxGnIEs88JxhGxj5Rju9BoMmysdjs2j1eCrK5hDeChQdW1JTycGzvSZqJLCIhu51FnyJcL1B9TaaEgZoI2LC9L_Lwasp6Bb-8ptmo4m5llDMcx0LDIj28z_pttwc48rqn35m6aDj0tskYsLwQxn5uKwZnt8jPCdfCZY_9SqGo7MnzUKRONSJiDGYqA=="></iframe></div>
+<p class="signup-note">Free, double opt-in, unsubscribe any time. You never need to buy anything to use the checklist. Emails are sent through Brevo; see our <a href="/legal.html#privacy">Privacy Policy</a>. Form not loading? <a href="/#checklist">Sign up on the main page</a>.</p>
 </div>
 
 <p>Zero to Commission is our beginner course built around faceless short-form content: how affiliate marketing works, choosing an offer, making faceless videos, disclosure and reading your numbers. It's our own product, so we earn money if you buy it. No income or results are guaranteed.</p>

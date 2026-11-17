@@ -99,6 +99,12 @@ th { font-family: var(--mono); font-size: 12px; text-transform: uppercase; lette
 footer { border-top: 1px solid var(--gold-border); margin-top: 64px; padding: 32px 0 48px; font-size: 14px; color: var(--muted); text-align: center; }
 footer a { color: var(--muted); margin: 0 10px; }
 footer p { margin: 14px 0 0; }
+.signup-form { margin: 20px auto 0; max-width: 540px; border-radius: 6px; overflow: hidden; }
+.signup-form iframe { display: block; width: 100%; height: 520px; border: 0; }
+@media (max-width: 480px) { .signup-form iframe { height: 640px; } }
+.signup-note { font-size: 13px; color: var(--muted, #8a8a99); margin-top: 14px; }
+.mid-cta { border-left: 3px solid var(--gold); background: var(--ink-2); padding: 14px 18px; margin: 32px 0; border-radius: 4px; }
+.mid-cta p { margin: 0; }
 </style>
 </head>
 <body>
@@ -197,6 +203,7 @@ footer p { margin: 14px 0 0; }
 <p>"This is for busy parents who want a simple weekly meal plan. It's not for anyone on a medical diet." If you can't write that sentence, you don't know the product well enough to recommend it yet.</p>
 </div>
 
+<div class="mid-cta"><p><strong>Free:</strong> the First Offer Checklist, ten yes/no questions to ask before you promote any offer. <a href="#signup">Get it by email</a>.</p></div>
 <h2>How to read your result</h2>
 <div class="table-scroll">
 <table>
@@ -242,10 +249,11 @@ footer p { margin: 14px 0 0; }
 <h3>Is a high-converting offer always a good choice?</h3>
 <p>No. Conversion figures are past results from other affiliates, not a prediction. An offer can convert well and still fail question 3 or have a high refund rate.</p>
 
-<div class="cta">
+<div class="cta" id="signup">
 <h2>Get the printable checklist</h2>
 <p>All ten questions on one page, with tick boxes and space for your commission number. It's free, and you never need to buy anything to use it.</p>
-<a class="btn" href="/#checklist">Get the free First Offer Checklist</a>
+<div class="signup-form"><iframe title="Sign up for the free First Offer Checklist" loading="lazy" src="https://83b03bdb.sibforms.com/v2/serve/MUIFANCGvph4ReH8y-d1ecqljxGnIEs88JxhGxj5Rju9BoMmysdjs2j1eCrK5hDeChQdW1JTycGzvSZqJLCIhu51FnyJcL1B9TaaEgZoI2LC9L_Lwasp6Bb-8ptmo4m5llDMcx0LDIj28z_pttwc48rqn35m6aDj0tskYsLwQxn5uKwZnt8jPCdfCZY_9SqGo7MnzUKRONSJiDGYqA=="></iframe></div>
+<p class="signup-note">Free, double opt-in, unsubscribe any time. You never need to buy anything to use the checklist. Emails are sent through Brevo; see our <a href="/legal.html#privacy">Privacy Policy</a>. Form not loading? <a href="/#checklist">Sign up on the main page</a>.</p>
 </div>
 
 <p>If you want the full beginner path (how affiliate marketing works, choosing an offer, sharing it with faceless short-form content, and reading your numbers), that's what our course <a href="/">Zero to Commission</a> covers. It's our own product, so we earn money if you buy it. No income or results are guaranteed.</p>
