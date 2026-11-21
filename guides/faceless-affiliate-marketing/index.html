@@ -138,6 +138,16 @@ footer p { margin: 14px 0 0; }
 <p>Yes. Affiliate marketing only needs three things: something useful to say, a place to say it, and a link with an honest disclosure. None of that requires a face on camera. Plenty of creators teach, review and explain things using screen recordings, text and a voiceover. Every short video on our own channels is made that way, with an AI voice that we label.</p>
 <p>What being faceless <em>doesn't</em> change: you still have to be useful, you still have to disclose your affiliate links, and results are never guaranteed. Faceless removes the camera, not the work.</p>
 
+<figure class="yt">
+  <a class="yt-poster" href="https://www.youtube.com/shorts/1kX2L_r6Kfc" data-yt="1kX2L_r6Kfc" rel="noopener" aria-label="Play video: Faceless affiliate marketing, how it works without showing your face">
+    <span class="yt-kicker">40-second video</span>
+    <span class="yt-title">Faceless affiliate marketing: how it works without showing your face</span>
+    <span class="yt-play" aria-hidden="true">&#9654;</span>
+    <span class="yt-brand">Zero to Commission</span>
+  </a>
+  <figcaption>Prefer video? The short version, made the faceless way with a labeled AI voice. The video loads from YouTube only when you press play (<a href="/legal.html#privacy">privacy</a>).</figcaption>
+</figure>
+
 <h2>How faceless affiliate marketing works</h2>
 <ol>
 <li><strong>Pick one offer</strong> you can recommend honestly. Our guide on <a href="/guides/how-to-find-affiliate-products-to-promote/">how to find affiliate products to promote</a> has a 10-question checklist for this.</li>
@@ -247,5 +257,19 @@ footer p { margin: 14px 0 0; }
   </div>
 </footer>
 
+<script>
+document.querySelectorAll('.yt-poster[data-yt]').forEach(function (a) {
+  a.addEventListener('click', function (e) {
+    e.preventDefault();
+    var f = document.createElement('iframe');
+    f.src = 'https://www.youtube-nocookie.com/embed/' + a.dataset.yt + '?autoplay=1&rel=0&playsinline=1';
+    f.title = a.getAttribute('aria-label');
+    f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+    f.allowFullscreen = true;
+    f.referrerPolicy = 'strict-origin-when-cross-origin';
+    a.replaceWith(f);
+  });
+});
+</script>
 </body>
 </html>
