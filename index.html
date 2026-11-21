@@ -664,6 +664,19 @@ body::after {
 .testi-role { font-size: 12px; color: var(--muted); margin-top: 2px; }
 
 /* ── FAQ ── */
+.guides-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-top: 44px; }
+.guide-card {
+  display: block; padding: 26px 28px;
+  background: var(--ink-2);
+  border: 1px solid rgba(200,164,90,0.12);
+  text-decoration: none;
+  transition: border-color 0.25s, transform 0.25s;
+}
+.guide-card:hover { border-color: rgba(200,164,90,0.45); transform: translateY(-2px); }
+.guide-card h3 { font-family: var(--font-serif); font-size: 19px; font-weight: 600; color: var(--white); margin-bottom: 8px; line-height: 1.35; }
+.guide-card p { font-size: 14px; color: var(--muted-light); line-height: 1.6; margin: 0; }
+.guides-more { margin-top: 28px; font-size: 15px; color: var(--muted-light); }
+.guides-more a { color: var(--gold); }
 .faq-section { background: var(--ink-1); }
 
 /* ── FREE CHECKLIST SIGNUP ── */
@@ -1287,6 +1300,41 @@ footer p { font-size: 12px; color: var(--muted); max-width: 680px; margin: 0 aut
         <div class="faq-a">Right after checkout on Gumroad you get access to the course page, where you can watch the five video lessons in your browser and download every file: the course workbook (PDF), the five video modules (MP4, with subtitle files), the four bonus PDFs and a copy-paste text file for the Starter Funnel Kit. Gumroad also emails you a receipt with a link to the same page, and the course stays in your Gumroad Library. Save the files to your device; the PDFs open in any PDF reader and the videos play in any standard video player.</div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- FREE GUIDES -->
+<section class="section" id="guides">
+  <div class="section-inner">
+    <div class="section-label reveal">Free Guides</div>
+    <h2 class="reveal">Start here,<br><em>for free.</em></h2>
+    <div class="guides-grid reveal">
+      <a class="guide-card" href="guides/is-affiliate-marketing-worth-it/">
+        <h3>Is affiliate marketing worth it?</h3>
+        <p>An honest answer: who it suits, who should skip it, and the red flags to avoid.</p>
+      </a>
+      <a class="guide-card" href="guides/how-to-start-affiliate-marketing-with-no-money/">
+        <h3>How to start with no money</h3>
+        <p>What's really free, what isn't, and the hidden costs to watch for.</p>
+      </a>
+      <a class="guide-card" href="guides/how-to-find-affiliate-products-to-promote/">
+        <h3>How to find products to promote</h3>
+        <p>10 yes/no questions to ask before you promote any offer.</p>
+      </a>
+      <a class="guide-card" href="guides/faceless-affiliate-marketing/">
+        <h3>Faceless affiliate marketing</h3>
+        <p>Video formats, content ideas and AI voices, without showing your face.</p>
+      </a>
+      <a class="guide-card" href="guides/affiliate-marketing-without-followers/">
+        <h3>Starting with zero followers</h3>
+        <p>Where your first viewers come from, and why buying followers backfires.</p>
+      </a>
+      <a class="guide-card" href="guides/affiliate-disclosure-examples/">
+        <h3>Affiliate disclosure examples</h3>
+        <p>Copy-paste FTC-based wording for TikTok, Instagram, YouTube and more.</p>
+      </a>
+    </div>
+    <p class="guides-more reveal"><a href="guides/">See all free guides</a> or try the <a href="tools/affiliate-disclosure-generator/">free affiliate disclosure generator</a>.</p>
   </div>
 </section>
 
