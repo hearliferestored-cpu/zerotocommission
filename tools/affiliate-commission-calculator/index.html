@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Affiliate Commission Calculator: Per Sale, EPC and Goals</title>
+<meta name="description" content="Free affiliate commission calculator: earnings per sale after refunds, click-to-sale ratio, EPC and the sales a goal takes. Runs in your browser.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://zerotocommission.com/tools/affiliate-commission-calculator/">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Zero to Commission">
+<meta property="og:title" content="Free Affiliate Commission Calculator">
+<meta property="og:description" content="Earnings per sale after refunds, click-to-sale ratio, EPC and the sales a goal takes. Arithmetic, not a forecast.">
+<meta property="og:url" content="https://zerotocommission.com/tools/affiliate-commission-calculator/">
+<meta property="og:image" content="https://zerotocommission.com/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/fonts/fonts.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "Free Affiliate Commission Calculator",
+      "description": "Earnings per sale after refunds, click-to-sale ratio, EPC and the sales a goal takes. Arithmetic, not a forecast.",
+      "url": "https://zerotocommission.com/tools/affiliate-commission-calculator/",
+      "applicationCategory": "BusinessApplication",
+      "operatingSystem": "Any",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "publisher": {
+        "@id": "https://zerotocommission.com/#org"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://zerotocommission.com/#org",
+      "name": "Zero to Commission",
+      "url": "https://zerotocommission.com/"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://zerotocommission.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Tools",
+          "item": "https://zerotocommission.com/tools/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Affiliate commission calculator"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<style>
+:root {
+  --gold: #C8A45A; --gold-light: #E2C47E; --gold-dim: rgba(200,164,90,0.12); --gold-border: rgba(200,164,90,0.25);
+  --ink: #080810; --ink-2: #161622; --off-white: #F4F0E8; --muted: #8A8AA0; --muted-light: #B4B4C4;
+  --red: #E0705F; --green: #4FC48A;
+  --serif: 'Cormorant Garamond', Georgia, serif; --sans: 'Outfit', 'Segoe UI', Arial, sans-serif; --mono: 'Space Mono', monospace;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--ink); color: var(--off-white); font-family: var(--sans); font-size: 18px; line-height: 1.75; font-weight: 300; }
+a { color: var(--gold-light); }
+a:hover { color: var(--gold); }
+.wrap { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+header.site { border-bottom: 1px solid var(--gold-border); padding: 16px 0; }
+header.site a { font-family: var(--serif); font-style: italic; font-size: 22px; color: var(--gold); text-decoration: none; }
+nav.crumbs { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 36px 0 12px; }
+nav.crumbs a { color: var(--muted); }
+h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(34px, 6vw, 50px); line-height: 1.1; margin-bottom: 18px; }
+h2 { font-family: var(--serif); font-weight: 400; font-size: clamp(26px, 4.5vw, 34px); line-height: 1.2; margin: 52px 0 14px; color: var(--gold-light); }
+h3 { font-size: 19px; font-weight: 500; margin: 28px 0 8px; }
+p, ul, ol { margin-bottom: 18px; }
+ul, ol { padding-left: 24px; }
+li { margin-bottom: 8px; }
+strong { font-weight: 500; color: #fff; }
+.lede { font-size: 20px; color: var(--muted-light); }
+.meta { font-family: var(--mono); font-size: 12px; color: var(--muted); margin-bottom: 28px; }
+.note { background: var(--gold-dim); border-left: 3px solid var(--gold); padding: 14px 18px; font-size: 16px; margin: 24px 0; }
+.q { border: 1px solid var(--gold-border); border-radius: 6px; padding: 18px 20px; margin: 14px 0; background: var(--ink-2); }
+.q h3 { margin-top: 0; }
+.q p:last-child { margin-bottom: 0; }
+.must { font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink); background: var(--gold); padding: 2px 8px; border-radius: 3px; margin-left: 6px; white-space: nowrap; vertical-align: middle; }
+table { width: 100%; border-collapse: collapse; font-size: 16px; margin: 18px 0 24px; }
+th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--gold-border); vertical-align: top; }
+th { font-family: var(--mono); font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--gold); font-weight: 400; }
+.table-scroll { overflow-x: auto; }
+.cta { border: 1px solid var(--gold); border-radius: 8px; padding: 26px 24px; margin: 40px 0; text-align: center; background: var(--ink-2); }
+.cta h2 { margin-top: 0; }
+.btn { display: inline-block; background: var(--gold); color: var(--ink); text-decoration: none; font-weight: 500; padding: 14px 26px; border-radius: 4px; margin-top: 6px; }
+.btn:hover { background: var(--gold-light); color: var(--ink); }
+.yt { margin: 28px auto; max-width: 300px; }
+.yt-poster, .yt iframe { display: flex; flex-direction: column; justify-content: space-between; width: 100%; aspect-ratio: 9 / 16; border-radius: 10px; border: 1px solid var(--gold-border); }
+.yt-poster { position: relative; padding: 26px 22px; text-decoration: none; color: var(--off-white); background: radial-gradient(circle at 30% 20%, rgba(200,164,90,0.22), transparent 60%), linear-gradient(160deg, #1E1E2E, #080810); }
+.yt-poster:hover { border-color: var(--gold); color: var(--off-white); }
+.yt-kicker { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); }
+.yt-title { font-family: var(--serif); font-size: 30px; line-height: 1.15; }
+.yt-play { align-self: center; width: 72px; height: 72px; border-radius: 50%; background: var(--gold); color: var(--ink); display: flex; align-items: center; justify-content: center; font-size: 26px; padding-left: 5px; transition: transform 0.2s; }
+.yt-poster:hover .yt-play { transform: scale(1.08); }
+.yt-brand { font-family: var(--serif); font-style: italic; color: var(--gold); font-size: 18px; }
+.yt figcaption { font-size: 14px; color: var(--muted); text-align: center; margin-top: 10px; line-height: 1.5; }
+.yt figcaption a { color: var(--muted); }
+footer { border-top: 1px solid var(--gold-border); margin-top: 64px; padding: 32px 0 48px; font-size: 14px; color: var(--muted); text-align: center; }
+footer a { color: var(--muted); margin: 0 10px; }
+footer p { margin: 14px 0 0; }
+.ex { border: 1px solid var(--gold-border); border-radius: 6px; padding: 14px 18px; margin: 12px 0; background: var(--ink-2); }
+.ex .where { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); display: block; margin-bottom: 6px; }
+.ex q { quotes: none; display: block; font-size: 18px; color: #fff; font-weight: 400; }
+.ex small { display: block; color: var(--muted-light); font-size: 15px; margin-top: 6px; }
+.bad td:first-child { color: var(--red); }
+.signup-form { margin: 20px auto 0; max-width: 540px; border-radius: 6px; overflow: hidden; }
+.signup-form iframe { display: block; width: 100%; height: 520px; border: 0; }
+@media (max-width: 480px) { .signup-form iframe { height: 640px; } }
+.signup-note { font-size: 13px; color: var(--muted, #8a8a99); margin-top: 14px; }
+.mid-cta { border-left: 3px solid var(--gold); background: var(--ink-2); padding: 14px 18px; margin: 32px 0; border-radius: 4px; }
+.mid-cta p { margin: 0; }
+
+.gen { border: 1px solid var(--gold-border); border-radius: 8px; background: var(--ink-2); padding: 22px 20px; margin: 28px 0; }
+.gen fieldset { border: 0; margin: 0 0 22px; }
+.gen legend { font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+.opts { display: flex; flex-wrap: wrap; gap: 8px; }
+.opts label { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--gold-border); border-radius: 4px; padding: 8px 12px; font-size: 16px; cursor: pointer; line-height: 1.3; }
+.opts label:has(input:checked) { border-color: var(--gold); background: var(--gold-dim); color: #fff; }
+.opts input { accent-color: var(--gold); }
+.gen .field { display: block; font-size: 16px; margin-top: 4px; }
+.gen input[type=text] { width: 100%; background: var(--ink); border: 1px solid var(--gold-border); color: var(--off-white); font: inherit; font-size: 16px; padding: 10px 12px; border-radius: 4px; margin-top: 6px; }
+.gen input[type=text]:focus, .opts label:focus-within { outline: 2px solid var(--gold); outline-offset: 1px; }
+.hint { font-size: 14px; color: var(--muted-light); margin: 8px 0 0; }
+#out .ex { position: relative; padding-right: 92px; }
+.copy { position: absolute; top: 12px; right: 12px; background: transparent; border: 1px solid var(--gold); color: var(--gold-light); font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase; padding: 6px 10px; border-radius: 3px; cursor: pointer; }
+.copy:hover { background: var(--gold); color: var(--ink); }
+.out-empty { color: var(--muted-light); font-size: 16px; }
+@media (max-width: 480px) { #out .ex { padding-right: 18px; } .copy { position: static; margin-top: 10px; } }
+
+.gen { border: 1px solid var(--gold-border); border-radius: 8px; background: var(--ink-2); padding: 22px 20px; margin: 28px 0; }
+.gen fieldset { border: 0; margin: 0 0 22px; }
+.gen fieldset:last-child { margin-bottom: 0; }
+.gen legend { font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+.opts { display: flex; flex-wrap: wrap; gap: 8px; }
+.opts label { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--gold-border); border-radius: 4px; padding: 8px 12px; font-size: 16px; cursor: pointer; line-height: 1.3; }
+.opts label:has(input:checked) { border-color: var(--gold); background: var(--gold-dim); color: #fff; }
+.opts input { accent-color: var(--gold); }
+.gen .field { display: block; font-size: 16px; margin-top: 10px; }
+.gen input[type=text], .gen input[type=number] { width: 100%; background: var(--ink); border: 1px solid var(--gold-border); color: var(--off-white); font: inherit; font-size: 16px; padding: 10px 12px; border-radius: 4px; margin-top: 6px; }
+.gen input:focus, .opts label:focus-within { outline: 2px solid var(--gold); outline-offset: 1px; }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0 16px; }
+@media (max-width: 560px) { .grid2 { grid-template-columns: 1fr; } }
+.hint { font-size: 14px; color: var(--muted-light); margin: 8px 0 0; }
+.out-empty { color: var(--muted-light); font-size: 16px; }
+
+.res { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 10px; margin: 18px 0 8px; }
+.stat { border: 1px solid var(--gold-border); border-radius: 6px; padding: 14px 16px; background: var(--ink); }
+.stat .k { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gold); display: block; }
+.stat .v { font-family: var(--serif); font-size: 32px; line-height: 1.2; color: #fff; display: block; }
+.stat small { font-size: 14px; color: var(--muted-light); line-height: 1.4; display: block; }
+.calc-note { font-size: 15px; color: var(--muted-light); }
+
+</style>
+</head>
+<body>
+
+<header class="site"><div class="wrap"><a href="/">Zero to Commission</a></div></header>
+
+<main class="wrap">
+<nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a> / <a href="/tools/">Tools</a></nav>
+
+<article>
+<h1>Free Affiliate Commission Calculator</h1>
+<p class="lede">Enter a product&#x27;s price, commission and refund rate to see what one sale is really worth to you. Add your own clicks and sales for your click-to-sale ratio and EPC. No sign-up needed.</p>
+<p class="meta">Zero to Commission · Updated November 21, 2026 · Runs in your browser; nothing you type is sent anywhere</p>
+
+<p class="note">Disclosure: Zero to Commission sells a beginner course on affiliate marketing, linked at the end of this page. We earn money if you buy it. This tool contains no affiliate links. The numbers it shows are arithmetic on what you type in, not a prediction of what you will earn. Many people who try affiliate marketing earn nothing.</p>
+
+<form class="gen" id="calc" onsubmit="return false">
+<fieldset>
+<legend>1. What you earn per sale</legend>
+<div class="grid2">
+<label class="field" for="price">Product price ($)<input type="number" id="price" min="0" step="0.01" value="47" inputmode="decimal"></label>
+<label class="field" for="rate">Commission (%)<input type="number" id="rate" min="0" max="100" step="0.1" value="50" inputmode="decimal"></label>
+</div>
+<label class="field" for="net">Or the listing&#x27;s earnings per sale ($, optional)<input type="number" id="net" min="0" step="0.01" placeholder="Leave empty to use price x commission" inputmode="decimal"></label>
+<p class="hint">Digistore24 shows this as <strong>Net earnings/sale</strong> on each listing. If you enter it, it replaces price x commission.</p>
+<label class="field" for="refund">Refund or cancellation rate (%)<input type="number" id="refund" min="0" max="100" step="0.1" value="5" inputmode="decimal"></label>
+<p class="hint">Use the rate shown on the listing if there is one. Refunded sales usually reverse the commission.</p>
+</fieldset>
+<fieldset>
+<legend>2. Your own numbers (optional)</legend>
+<div class="grid2">
+<label class="field" for="clicks">Clicks on your link<input type="number" id="clicks" min="0" step="1" placeholder="e.g. 200" inputmode="numeric"></label>
+<label class="field" for="sales">Sales from those clicks<input type="number" id="sales" min="0" step="1" placeholder="e.g. 1" inputmode="numeric"></label>
+</div>
+<p class="hint">On Digistore24, use <strong>Promoclicks</strong> and <strong>Conversions</strong> from your affiliate dashboard. A handful of clicks isn&#x27;t enough to tell you much.</p>
+</fieldset>
+<fieldset>
+<legend>3. A goal (optional)</legend>
+<label class="field" for="goal">Amount you want to work towards ($)<input type="number" id="goal" min="0" step="1" placeholder="e.g. 100" inputmode="decimal"></label>
+</fieldset>
+</form>
+
+<h2>Your numbers</h2>
+<div id="out" aria-live="polite"><p class="out-empty">Turn on JavaScript to use the calculator. The formulas are listed below so you can do it by hand.</p></div>
+
+<div class="mid-cta"><p><strong>Free:</strong> the First Offer Checklist, ten yes/no questions to ask before you promote any offer. <a href="#signup">Get it by email</a>.</p></div>
+
+<h2>How the calculator works</h2>
+<table>
+<thead><tr><th>Figure</th><th>Formula</th></tr></thead>
+<tbody>
+<tr><td>Commission per sale</td><td>Price x commission %. Or the listing&#x27;s earnings per sale, if you entered it.</td></tr>
+<tr><td>After refunds</td><td>Commission per sale x (1 - refund rate). An average: each individual sale either stays or is reversed.</td></tr>
+<tr><td>Click-to-sale ratio</td><td>Sales / clicks.</td></tr>
+<tr><td>EPC (earnings per click)</td><td>Commission per sale after refunds x sales / clicks.</td></tr>
+<tr><td>Sales for your goal</td><td>Goal / commission after refunds, rounded up.</td></tr>
+<tr><td>Clicks for your goal</td><td>Sales for your goal / your click-to-sale ratio. Only shown when you have at least one sale.</td></tr>
+</tbody>
+</table>
+<p>Payout fees, taxes and currency conversion aren&#x27;t included. Check your platform&#x27;s payout terms; for Digistore24 see the payment section of our <a href="/guides/digistore24-for-beginners/#payment-methods">Digistore24 guide</a>.</p>
+
+<h2>How to use the result</h2>
+<ul>
+<li><strong>Compare offers, don&#x27;t forecast income.</strong> The useful question is &quot;which of these two offers pays more per sale after refunds?&quot;, not &quot;how much will I make?&quot;.</li>
+<li><strong>A high commission isn&#x27;t the whole story.</strong> A product that rarely sells or gets refunded a lot can be worth less than a lower commission on a product people keep.</li>
+<li><strong>Your own ratio needs time.</strong> With a few dozen clicks, one sale more or less changes everything. Note your numbers weekly.</li>
+<li><strong>Then check the offer itself.</strong> Numbers can&#x27;t tell you whether the sales page is honest. Our guide to <a href="/guides/how-to-find-affiliate-products-to-promote/">finding affiliate products to promote</a> has ten questions for that.</li>
+</ul>
+
+<h2>Questions</h2>
+<h3>What is a good EPC?</h3>
+<p>There&#x27;s no universal number. EPC depends on the product, the price, your audience and where your clicks come from. Use it to compare your own offers and to see whether changes you make help over time.</p>
+<h3>Is this the same as Digistore24&#x27;s conversion rate?</h3>
+<p>No. Digistore24&#x27;s <strong>Conversion rate</strong> counts buyers among people who reached the order form. This calculator&#x27;s click-to-sale ratio counts buyers among everyone who clicked your link, which is always lower.</p>
+<h3>Do you save what I type?</h3>
+<p>No. The calculator runs entirely in your browser. Nothing is sent to us or stored.</p>
+
+<div class="cta" id="signup">
+<h2>Check the offer, not just the numbers</h2>
+<p>Our free First Offer Checklist has ten yes/no questions to ask before you promote any offer, including what you earn per sale and the refund policy.</p>
+<div class="signup-form"><iframe title="Sign up for the free First Offer Checklist" loading="lazy" src="https://83b03bdb.sibforms.com/v2/serve/MUIFANCGvph4ReH8y-d1ecqljxGnIEs88JxhGxj5Rju9BoMmysdjs2j1eCrK5hDeChQdW1JTycGzvSZqJLCIhu51FnyJcL1B9TaaEgZoI2LC9L_Lwasp6Bb-8ptmo4m5llDMcx0LDIj28z_pttwc48rqn35m6aDj0tskYsLwQxn5uKwZnt8jPCdfCZY_9SqGo7MnzUKRONSJiDGYqA=="></iframe></div>
+<p class="signup-note">Free, double opt-in, unsubscribe any time. You never need to buy anything to use the checklist. Emails are sent through Brevo; see our <a href="/legal.html#privacy">Privacy Policy</a>. Form not loading? <a href="/#checklist">Sign up on the main page</a>.</p>
+</div>
+
+<p>Our course <a href="/">Zero to Commission</a> covers reading offer statistics in Module 2 and tracking your own numbers in Module 4. It&#x27;s our own product, so we earn money if you buy it. No income or results are guaranteed.</p>
+
+</article>
+</main>
+
+<footer>
+  <div class="wrap">
+    <a href="/">Home</a>
+    <a href="/guides/">All guides</a>
+    <a href="/#checklist">Free checklist</a>
+    <a href="mailto:support@zerotocommission.com">Support</a>
+    <a href="/legal.html">Legal</a>
+    <a href="/legal.html#earnings">Earnings disclaimer</a>
+    <p>Educational content only. Nothing here is financial, legal or business advice. No income or results are guaranteed, and many people who try affiliate marketing earn nothing.</p>
+    <p>© 2026 Zero to Commission</p>
+  </div>
+</footer>
+<script>
+(function () {
+  var f = document.getElementById('calc'), out = document.getElementById('out');
+  function n(id) { var v = parseFloat(document.getElementById(id).value); return isFinite(v) && v >= 0 ? v : null; }
+  function money(v) { return '$' + v.toFixed(2); }
+  function stat(k, v, s) { return '<div class="stat"><span class="k">' + k + '</span><span class="v">' + v + '</span>' + (s ? '<small>' + s + '</small>' : '') + '</div>'; }
+  function build() {
+    var price = n('price'), rate = n('rate'), net = n('net'), refund = n('refund') || 0;
+    var clicks = n('clicks'), sales = n('sales'), goal = n('goal');
+    if (rate !== null && rate > 100) rate = 100;
+    if (refund > 100) refund = 100;
+    var per = net !== null ? net : (price !== null && rate !== null ? price * rate / 100 : null);
+    if (per === null) { out.innerHTML = '<p class="out-empty">Enter a price and commission, or the listing\'s earnings per sale.</p>'; return; }
+    var after = per * (1 - refund / 100);
+    var html = '<div class="res">' + stat('Commission per sale', money(per), net !== null ? 'From the listing&#x27;s earnings per sale.' : 'Price x commission.') +
+      stat('After refunds', money(after), 'Average per sale at a ' + refund + '% refund rate.') + '</div>';
+    var ratio = null;
+    if (clicks && sales !== null) {
+      if (sales > clicks) { html += '<p class="out-empty">Sales can&#x27;t be higher than clicks. Check your numbers.</p>'; }
+      else {
+        ratio = sales / clicks;
+        html += '<div class="res">' + stat('Click-to-sale ratio', (ratio * 100).toFixed(2) + '%', sales + ' sales from ' + clicks + ' clicks.') +
+          stat('EPC', money(after * ratio), 'Average earned per click, after refunds.') + '</div>';
+        if (clicks < 100) html += '<p class="calc-note">With fewer than 100 clicks, these figures can swing a lot from one sale to the next.</p>';
+      }
+    }
+    if (goal && after > 0) {
+      var need = Math.ceil(goal / after);
+      var g = stat('Sales for ' + money(goal), need.toLocaleString(), 'At ' + money(after) + ' per sale after refunds.');
+      if (ratio && ratio > 0) g += stat('Clicks for ' + money(goal), Math.ceil(need / ratio).toLocaleString(), 'At your current click-to-sale ratio, if it held.');
+      html += '<div class="res">' + g + '</div>';
+    }
+    html += '<p class="calc-note">Arithmetic on the numbers you entered, not a forecast. Payout fees and taxes aren&#x27;t included.</p>';
+    out.innerHTML = html;
+  }
+  f.addEventListener('input', build);
+  build();
+})();
+</script>
+</body>
+</html>
