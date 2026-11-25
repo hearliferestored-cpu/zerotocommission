@@ -142,6 +142,16 @@ footer p { margin: 14px 0 0; }
 <p>Yes. Followers help, but they aren't where views come from on most short-form platforms. TikTok, Instagram Reels and YouTube Shorts all recommend videos to people who don't follow the account. A brand-new account's video <em>can</em> be shown to strangers if it holds their attention. That's not guaranteed, and most early videos get few views, but it means you can start at zero.</p>
 <p>Followers are a result of posting useful content over time, not something you need before you start.</p>
 
+<figure class="yt">
+  <a class="yt-poster" href="https://www.youtube.com/shorts/AmyPwcKZMJo" data-yt="AmyPwcKZMJo" rel="noopener" aria-label="Play video: How to get your first affiliate sale, without the 24-hour hype">
+    <span class="yt-kicker">40-second video</span>
+    <span class="yt-title">How to get your first affiliate sale (without the 24-hour hype)</span>
+    <span class="yt-play" aria-hidden="true">&#9654;</span>
+    <span class="yt-brand">Zero to Commission</span>
+  </a>
+  <figcaption>Prefer video? The honest four-step version of getting a first sale, made with a labeled AI voice. The video loads from YouTube only when you press play (<a href="/legal.html#privacy">privacy</a>).</figcaption>
+</figure>
+
 <h2>Where your first viewers come from</h2>
 <ul>
 <li><strong>Short-form video feeds</strong> (TikTok, Reels, Shorts), which recommend content beyond your followers.</li>
@@ -209,5 +219,19 @@ footer p { margin: 14px 0 0; }
   </div>
 </footer>
 
+<script>
+document.querySelectorAll('.yt-poster[data-yt]').forEach(function (a) {
+  a.addEventListener('click', function (e) {
+    e.preventDefault();
+    var f = document.createElement('iframe');
+    f.src = 'https://www.youtube-nocookie.com/embed/' + a.dataset.yt + '?autoplay=1&rel=0&playsinline=1';
+    f.title = a.getAttribute('aria-label');
+    f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+    f.allowFullscreen = true;
+    f.referrerPolicy = 'strict-origin-when-cross-origin';
+    a.replaceWith(f);
+  });
+});
+</script>
 </body>
 </html>
