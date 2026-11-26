@@ -288,14 +288,14 @@ select { width: 100%; background: var(--ink); border: 1px solid var(--gold-borde
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
 
   var f = document.getElementById('gen'), out = document.getElementById('out');
-  function v(id) { return (document.getElementById(id).value || '').trim().replace(/[.!?]+$/, ''); }
+  function v(id) { return (document.getElementById(id).value || '').trim(); }
   function cap(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
   var HYPE = /\b(guarantee[ds]?|passive income|get rich|overnight|risk[- ]free|proven|secret|life[- ]changing|six[- ]figure|cure[sd]?|miracle|\$\d)/i;
   function build() {
     var aud = v('aud') || 'beginners', prob = v('prob') || 'this problem', goal = v('goal') || 'fix it', thing = v('thing'), myth = v('myth');
     var on = Array.prototype.map.call(f.querySelectorAll('input[name=sty]:checked'), function (e) { return e.value; });
     var H = [];
-    function add(sty, spoken, screen) { if (on.indexOf(sty) > -1) H.push([sty, spoken, screen]); }
+    function add(sty, spoken, screen) { if (on.indexOf(sty) > -1) H.push([sty, spoken.replace(/([.!?])[.]$/, '$1'), screen.replace(/([.!?])[.?]$/, '$1')]); }
     add('q', cap(aud) + ', is ' + prob + ' happening to you too?', prob + '?');
     add('q', 'Want to ' + goal + '? Start with this one question.', 'Want to ' + goal + '?');
     add('mistake', 'A common mistake ' + aud + ' make with ' + prob + '.', 'The ' + prob + ' mistake');
