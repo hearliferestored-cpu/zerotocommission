@@ -288,7 +288,7 @@ select { width: 100%; background: var(--ink); border: 1px solid var(--gold-borde
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
 
   var f = document.getElementById('gen'), out = document.getElementById('out');
-  function v(id) { return (document.getElementById(id).value || '').trim(); }
+  function v(id) { return (document.getElementById(id).value || '').trim().replace(/[.!?]+$/, ''); }
   function cap(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
   var HYPE = /\b(guarantee[ds]?|passive income|get rich|overnight|risk[- ]free|proven|secret|life[- ]changing|six[- ]figure|cure[sd]?|miracle|\$\d)/i;
   function build() {
@@ -298,14 +298,14 @@ select { width: 100%; background: var(--ink); border: 1px solid var(--gold-borde
     function add(sty, spoken, screen) { if (on.indexOf(sty) > -1) H.push([sty, spoken, screen]); }
     add('q', cap(aud) + ', is ' + prob + ' happening to you too?', prob + '?');
     add('q', 'Want to ' + goal + '? Start with this one question.', 'Want to ' + goal + '?');
-    add('mistake', 'The most common mistake ' + aud + ' make with ' + prob + '.', 'The ' + prob + ' mistake');
+    add('mistake', 'A common mistake ' + aud + ' make with ' + prob + '.', 'The ' + prob + ' mistake');
     add('mistake', "If you're trying to " + goal + ', stop doing this first.', 'Stop doing this');
     add('list', '3 things ' + aud + ' should know about ' + prob + '.', '3 things to know');
     add('list', '3 small changes to try if you want to ' + goal + '.', '3 things to try');
     if (thing) { add('check', "Don't buy " + thing + ' until you check these 3 things.', 'Check this first'); add('check', 'Are ' + thing + ' worth it for ' + aud + '? An honest look.', 'Worth it?'); }
     else add('check', 'Before you buy anything for ' + prob + ', check this.', 'Before you buy');
     add('save', 'Save this for the next time ' + prob + ' happens.', 'Save this');
-    add('save', cap(aud) + ': a 30-second plan to ' + goal + '.', '30-second plan');
+    add('save', cap(aud) + ': a simple plan to ' + goal + '.', 'A simple plan');
     if (myth) add('myth', 'Myth: ' + myth + ". Here's what's actually true.", 'Myth?');
     else add('myth', 'You might have heard the wrong thing about ' + prob + '.', 'Is this a myth?');
     var LBL = { q: 'Question', mistake: 'Mistake', list: 'List', check: 'Before you buy', save: 'Save this', myth: 'Myth' };

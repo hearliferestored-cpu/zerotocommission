@@ -309,13 +309,13 @@ select { width: 100%; background: var(--ink); border: 1px solid var(--gold-borde
   var AMZ = {"Email": "Amazon Associates: special links can't be used in emails. Link to a page of your own that has the link instead.", "PDF or ebook": "Amazon Associates: links can't be used offline, which includes email attachments and other documents."}, AMZALL = "Amazon Associates: your link must not hide that it goes to Amazon, and Amazon requires the statement \u201cAs an Amazon Associate I earn from qualifying purchases\u201d where you share links.";
 
   var plat = document.getElementById('plat'), place = document.getElementById('place'), out = document.getElementById('out'), f = document.getElementById('gen');
-  var TAG = { ok: ['ok', 'Yes, clickable'], no: ['no', 'No, not clickable'], care: ['care', 'Allowed with conditions'] };
+  var TAG = { ok: ['ok', 'Yes, clickable'], no: ['no', 'No, not clickable'], care: ['care', 'Allowed with conditions'], ban: ['no', 'Not allowed'] };
   function fillPlaces() { place.innerHTML = RULES.filter(function (r) { return r.p === plat.value; }).map(function (r, i) { return '<option>' + esc(r.pl) + '</option>'; }).join(''); }
   function build() {
     var r = RULES.filter(function (x) { return x.p === plat.value && x.pl === place.value; })[0]; if (!r) return;
     var amazon = f.querySelector('input[name=prog]:checked').value === 'amazon';
     var status = r.s, pts = r.pts.slice();
-    if (amazon && AMZ[r.p]) { status = 'no'; pts.unshift(AMZ[r.p]); }
+    if (amazon && AMZ[r.p]) { status = 'ban'; pts.unshift(AMZ[r.p]); }
     if (amazon) pts.push(AMZALL);
     var t = TAG[status], head = (amazon && AMZ[r.p]) ? 'Not allowed for Amazon links' : r.h;
     out.innerHTML = '<div class="verdict"><span class="tag ' + t[0] + '">' + t[1] + '</span><h3>' + esc(r.p + ': ' + r.pl) + ' — ' + esc(head) + '</h3><ul>' +
